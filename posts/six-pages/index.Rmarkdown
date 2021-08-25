@@ -1,0 +1,40 @@
+---
+title: 配置 VS Code 为 R 编辑器
+subtitle: '配置 VS Code 为 R 编辑器'
+author: Ginger Yu
+date: '2021-08-09'
+slug: six-pages
+categories: 
+    - R
+tags: 
+    - Arch Linux
+    - R
+    - RStudio
+    - VS Code
+---
+
+> 经过这样一顿折腾，对 R 包括 RStudio 的工作理解更深了。
+
+## 引言
+
+昨晚，忽然 RStudio 又不能输入中文了。即使用的是 ibus。再加上被它不稳定的代理折磨够了。以前认为 RStudio 是 R 唯一的 IDE。后来想通了，R 生态是基于 R-core 的一系列包的合集，即使是 RStudio 也是一组包的合集。
+
+按照这个思路。只要把自己需要的包配置好，即使不是 RStudio 也可以实现需求。
+
+几个需求：
+- 编辑 Rmarkdown
+- 使用 knitr 导出 html 或 pdf
+- 使用 blogdown 的全功能部署网站
+
+## 材料和方法
+
+### 准备
+
+### 流程
+
+## 结果
+
+## 总结
+
+
+End 

@@ -1,0 +1,33 @@
+---
+title: "我的 Arch Linux 计算机"
+author: Ginger Yu
+date: '2021-08-23'
+slug: restart
+categories:
+  - 计算机
+tags:
+  - ArchLinux
+draft: #yes
+---
+
+搬家了，不想再每天来回背笔记本电脑💻，就花了两天时间把实验室的电脑也装上 Arch Linux 了，并且配置好工作环境。
+
+软件清单
+
+- rp-pppoe
+- fcitx5
+- zotero
+- vscode
+- R
+- google-chrome
+- folita
+- octopi
+- octave
+- gedit
+- vim
+- qv2ray
+- goldenDict
+- natulics
+- cups
+- geary
+- telegram

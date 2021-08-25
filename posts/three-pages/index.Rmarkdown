@@ -1,0 +1,41 @@
+---
+title: 在 Jekll 主题的基础上自定义博客部件
+author: Ginger Yu
+date: '2021-08-02'
+slug: three-pages
+categories:
+  - 博客搭建
+tags:
+  - Atom
+  - Git
+  - GitHub Pages
+  - jekyll
+subtitle: 第三天
+excerpt: ''
+series: ~
+layout: single
+toc: true
+---
+
+> 如果你被被執念所控，里滅亡就不遠了。
+
+昨晚陷入低效癫狂状态，三点才睡，搞得室友都有意见了。模板实际情况并没有 [fMRwhy](https://jsheunis.github.io/) 好看。那个博主真是厉害，不仅神经科学（fMRI分析）做得好，网站也做的超棒。
+
+现在我有两个路径， ~~一是用现在的的模板，然后在此基础上修改~~。有广告，但有又不愿意用盗版的。 ~~二是用回第一次的那个模板，草草搭建完成拉倒~~，回去是不可能回去的。
+
+另外，学到一个 fish 永久添加路径的好方法，以解决每次重启后因 `gem` 路径找不到 `jekyll` 命令用不了的问题。
+
+```bash
+sudo echo "fish_add_path /home/user/.local/share/gem/ruby/3.0.0/bin" > ~/.config/fish/config.fish
+# echo 添加文本到文件
+# fish_add_path 添加路径到 fish 设置
+```
+
+这样就不用每次重启后再手动添加路径了。
+
+- [ ] 在原始模板上添加自己需要的东西
+    实际还是跟着官方文档最为舒服。GitHub Pages 是只要按照文件格式上传文件就可以生成博客。而另一个优势就是利用好 jekyll 的本地预览功能，这必须跟着 [jekyll官方文档](https://jekyllrb.com/docs/) 来，从网上随意拷贝过来的很难成功，而且存在着版权问题。
+
+  好吧，在原始模板上添加太难了，一头雾水，不知道从哪里改起。我还是找个模板吧。现在，了解机制了，再使用模板感觉就不一样了。
+
+- [ ] 写一篇 Arch Linux 上安装 Octave 的博文。

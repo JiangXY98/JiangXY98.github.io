@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机 on Coding, Researching, Writting for Up!</title>
+    <link>https://www.jmrain.org/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
+    <description>Recent content in 计算机 on Coding, Researching, Writting for Up!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Yu</copyright>
+    <lastBuildDate>Mon, 23 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jmrain.org/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的 Arch Linux 计算机</title>
+      <link>https://www.jmrain.org/posts/restart/</link>
+      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jmrain.org/posts/restart/</guid>
+      <description>  搬家了，不想再每天来回背笔记本电脑💻，就花了两天时间把实验室的电脑也装上 Arch Linux 了，并且配置好工作环境。
+软件清单
+ rp-pppoe # 拨号软件 fcitx5 # 输入法 zotero # 文献管理软件 vscode # IDE R # 数据分析 google-chrome # 浏览器 folita # 电子书 octopi # 图形化包管理 octave # 编程+数据分析 gedit # 文本编辑器，轻量 IDE vim # 编辑器 qv2ray # 🪜 goldenDict # 词典 cups&amp;amp;hplip # 打印机 geary # 邮件 telegram # 即时通讯 libreoffice # 文档编辑器 Gimp # 图片处理工具  </description>
+    </item>
+    
+  </channel>
+</rss>

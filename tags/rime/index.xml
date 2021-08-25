@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rime on Coding, Researching, Writting for Up!</title>
+    <link>https://gooycity.github.io/tags/rime/</link>
+    <description>Recent content in rime on Coding, Researching, Writting for Up!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>宇（Yu）</copyright>
+    <lastBuildDate>Fri, 06 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gooycity.github.io/tags/rime/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配置 ibus-rime</title>
+      <link>https://gooycity.github.io/posts/five-pages/</link>
+      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gooycity.github.io/posts/five-pages/</guid>
+      <description>如果不走一遍，又怎么知道那条路的情况呢？
+ 今天做了两件事：
+ 配置 rime 输入法 到下午两点多（可能）.  从九点看到了中午吃饭回来，总算清楚了配置 rime 的基础操作，发现要设计出好用的配置方案还得再学好多，需要花更多的时间，就果断找了一个现成的配置文件套过来用了。就当花时间买教训了。
+ 配置博客  不得不说，rstudio 谢益辉写的官方文档是真的好。又是受官方文档的指引，就是随手点开的博文，然后鬼使神差的点开作者的主页。我去，这不是完全是按照我想法来的网站吗，甚至更精美。然后就控制不住自己的手，重新建站了。当然，今天熟练多了，而且借此把 blogdown 建站的过程记录下来了。明天可以整理出一篇文章了。这几天下来，采用了 jekyll 和 blogdown 两种方式建站，而且 blogdown 还有 GitHub pages 、Netfy、点击 or 代码、submoudle 几条分支方式，都可以讲一下。
+现在 00：17 ，网站还没设置好。还得学好多东西，感谢作者 hill。这段时间挖了好多坑啊。得一一填上，不能跑着干其他的去哈。
+明天真得看看范式能不能用了。</description>
+    </item>
+    
+  </channel>
+</rss>
