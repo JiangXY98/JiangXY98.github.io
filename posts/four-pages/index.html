@@ -7,9 +7,9 @@
   <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> 采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录 | Coding, Researching, Writting for Up!</title>
+  <title> 采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录 | Coding, Researching and Writing</title>
   <link rel = 'canonical' href = 'https://www.jmrain.org/posts/four-pages/'>
-  <meta name="description" content="脑科学方向的一名硕士生，使用 Psychtoolbox 编写实验程序，R 分析数据。">
+  <meta name="description" content="脑科学方向的一名硕士生，使用 Psychtoolbox 编写实验程序，R 分析数据。喜欢探究，热爱生活。">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
@@ -38,8 +38,6 @@
 采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。"/>
 
   
-  
-    
   
   
   <link rel="stylesheet" href="https://www.jmrain.org/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
@@ -192,19 +190,23 @@ if (!doNotTrack) {
     <div id="toc">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#引言">引言</a></li>
-    <li><a href="#安装-blogdown">安装 blogdown</a></li>
-    <li><a href="#安装-hugo">安装 hugo</a></li>
-    <li><a href="#选择主题">选择主题</a></li>
-    <li><a href="#构建本地网站">构建本地网站</a>
+    <li>
       <ul>
-        <li><a href="#建造新网站">建造新网站</a></li>
-        <li><a href="#生成本地预览">生成本地预览</a></li>
-        <li><a href="#部署到网上">部署到网上</a></li>
+        <li><a href="#引言">引言</a></li>
+        <li><a href="#安装-blogdown">安装 blogdown</a></li>
+        <li><a href="#安装-hugo">安装 hugo</a></li>
+        <li><a href="#选择主题">选择主题</a></li>
+        <li><a href="#构建本地网站">构建本地网站</a>
+          <ul>
+            <li><a href="#建造新网站">建造新网站</a></li>
+            <li><a href="#生成本地预览">生成本地预览</a></li>
+            <li><a href="#部署到网上">部署到网上</a></li>
+          </ul>
+        </li>
+        <li><a href="#后话">后话</a></li>
+        <li><a href="#参考文献">参考文献</a></li>
       </ul>
     </li>
-    <li><a href="#后话">后话</a></li>
-    <li><a href="#参考文献">参考文献</a></li>
   </ul>
 </nav>
     </div>
@@ -232,7 +234,7 @@ if (!doNotTrack) {
             <i class="fas fa-archive"></i>
             
             
-            <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA">博客搭建</a>
+            <a class="category-link" href="/categories/research">Research</a>
             
         </div>
         
@@ -272,7 +274,7 @@ if (!doNotTrack) {
 <ul>
 <li>先是早上因为依赖<code>promises</code>装不上。 blogdown 装不上，通过 Arch Linux 的 yay 解决了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#50fa7b">yay</span> <span style="color:#50fa7b">-S</span> r<span style="color:#50fa7b">-promises</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#50fa7b">yay</span> <span style="color:#50fa7b">-S</span> r-promises
 </code></pre></div><ul>
 <li>然后是 RStudio 不能走代理，与 blogdown 库地址的连接时不时断线。最后在多次尝试之后，安装上了。</li>
 </ul>
@@ -380,19 +382,23 @@ if (!doNotTrack) {
     <div id="toc-footer" style="display: none">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#引言">引言</a></li>
-    <li><a href="#安装-blogdown">安装 blogdown</a></li>
-    <li><a href="#安装-hugo">安装 hugo</a></li>
-    <li><a href="#选择主题">选择主题</a></li>
-    <li><a href="#构建本地网站">构建本地网站</a>
+    <li>
       <ul>
-        <li><a href="#建造新网站">建造新网站</a></li>
-        <li><a href="#生成本地预览">生成本地预览</a></li>
-        <li><a href="#部署到网上">部署到网上</a></li>
+        <li><a href="#引言">引言</a></li>
+        <li><a href="#安装-blogdown">安装 blogdown</a></li>
+        <li><a href="#安装-hugo">安装 hugo</a></li>
+        <li><a href="#选择主题">选择主题</a></li>
+        <li><a href="#构建本地网站">构建本地网站</a>
+          <ul>
+            <li><a href="#建造新网站">建造新网站</a></li>
+            <li><a href="#生成本地预览">生成本地预览</a></li>
+            <li><a href="#部署到网上">部署到网上</a></li>
+          </ul>
+        </li>
+        <li><a href="#后话">后话</a></li>
+        <li><a href="#参考文献">参考文献</a></li>
       </ul>
     </li>
-    <li><a href="#后话">后话</a></li>
-    <li><a href="#参考文献">参考文献</a></li>
   </ul>
 </nav>
     </div>
@@ -475,7 +481,7 @@ if (!doNotTrack) {
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2021  Yu 
+    Copyright  &copy; 2022  Yu 
   </div>
   <div class="footer-right">
     <nav>

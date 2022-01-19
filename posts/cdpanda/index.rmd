@@ -4,7 +4,7 @@ author: Ginger Yu
 date: '2021-08-20'
 slug: cdpanda
 categories: 
-    - 一个人
+    - Life
 tags: 
     - 旅行
     - 动物
