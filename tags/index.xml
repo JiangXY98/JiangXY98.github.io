@@ -1,13 +1,67 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Coding, Researching, Writting for Up!</title>
+    <title>Tags on Coding, Researching and Writing</title>
     <link>https://www.jmrain.org/tags/</link>
-    <description>Recent content in Tags on Coding, Researching, Writting for Up!</description>
+    <description>Recent content in Tags on Coding, Researching and Writing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Yu</copyright>
-    <lastBuildDate>Mon, 23 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jmrain.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jmrain.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>英语学习</title>
+      <link>https://www.jmrain.org/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jmrain.org/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Psychtoolbox-3</title>
+      <link>https://www.jmrain.org/tags/psychtoolbox-3/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jmrain.org/tags/psychtoolbox-3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>心理学实验设计</title>
+      <link>https://www.jmrain.org/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jmrain.org/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>奖励</title>
+      <link>https://www.jmrain.org/tags/%E5%A5%96%E5%8A%B1/</link>
+      <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jmrain.org/tags/%E5%A5%96%E5%8A%B1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>深度工作</title>
+      <link>https://www.jmrain.org/tags/%E6%B7%B1%E5%BA%A6%E5%B7%A5%E4%BD%9C/</link>
+      <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jmrain.org/tags/%E6%B7%B1%E5%BA%A6%E5%B7%A5%E4%BD%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Two Choic Oddball</title>
+      <link>https://www.jmrain.org/tags/two-choic-oddball/</link>
+      <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jmrain.org/tags/two-choic-oddball/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ArchLinux</title>
       <link>https://www.jmrain.org/tags/archlinux/</link>
@@ -140,6 +194,15 @@
       <pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.jmrain.org/tags/%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MATLAB/Ocatave</title>
+      <link>https://www.jmrain.org/tags/matlab/ocatave/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jmrain.org/tags/matlab/ocatave/</guid>
       <description></description>
     </item>
     

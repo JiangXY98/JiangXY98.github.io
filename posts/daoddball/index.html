@@ -14,7 +14,22 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="双选择 oddball 任务数据分析：基于 R" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="不打无准备的仗
+ 引言 因为疫情原因，没有收集数据。但是研究的进度不能耽误。就想到利用预实验的数据提前写好数据分析程序。
+这样做有以下几点合理性：
+ R 数据分析是代码形式的分析，可重复利用； 预实验数据在内容和排列方式上与正式实验一致，写好后，可以直接用在正式实验数据上；  有以下几点优势：
+ 根据数据分析情况，可适时调整实验程序收集的数据格式和项目；可编辑； 收数据时，可以立马导入，查看结果；响应速度快； 可以此判断变量的数量和内容，即收集哪些变量。  因此，准备花两天时间把代码写出来，并在博客中记录经验。
+材料 被试间平衡反应方式与刺激类型的对应关系；
+反应时代价和准确率代价为分析指标，代价越小，行为抑制控制能力越强。
+2 ✖️ 2 区组实验设计（被试内）
+组间变量是Type，组内变量是SessionNumber。前者指被试分组，后者指前后测。
+采用重复测量方差分析，检验前后测差异，以及两组被试间的差异。
+重复测量方差分析的基本假设是正态性和方差齐性，需要在方差分析前进行检验。
+加载包 1library(tidyverse) 导入数据 按照被试编号（主）、实验序号（次）、试次（再次）进行排序
+1oddballfiles &lt;- list.files(path = &#34;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/TwoChoice_oddball_Data/&#34;, pattern = &#34;.csv&#34;, full.names = TRUE) 2data_oddball &lt;- map_df(oddballfiles, read_csv) 被试类型应该单独一个文件，几个任务数据共用
+1participant_type &lt;- read_csv(&#34;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/ParticipantType/ParticipantType.csv&#34;) 预处理 提取正式实验数据
+1oddball_filted &lt;- data_oddball %&gt;% filter(is.na(PracticeNum) == TRUE) 剔除反应时低于 300 ms 的试次
+1oddball_filted &lt;- oddball_filted %&gt;% filter(RT &gt; 0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jmrain.org/posts/daoddball/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-26T00:00:00+00:00" />
@@ -23,7 +38,22 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="双选择 oddball 任务数据分析：基于 R"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="不打无准备的仗
+ 引言 因为疫情原因，没有收集数据。但是研究的进度不能耽误。就想到利用预实验的数据提前写好数据分析程序。
+这样做有以下几点合理性：
+ R 数据分析是代码形式的分析，可重复利用； 预实验数据在内容和排列方式上与正式实验一致，写好后，可以直接用在正式实验数据上；  有以下几点优势：
+ 根据数据分析情况，可适时调整实验程序收集的数据格式和项目；可编辑； 收数据时，可以立马导入，查看结果；响应速度快； 可以此判断变量的数量和内容，即收集哪些变量。  因此，准备花两天时间把代码写出来，并在博客中记录经验。
+材料 被试间平衡反应方式与刺激类型的对应关系；
+反应时代价和准确率代价为分析指标，代价越小，行为抑制控制能力越强。
+2 ✖️ 2 区组实验设计（被试内）
+组间变量是Type，组内变量是SessionNumber。前者指被试分组，后者指前后测。
+采用重复测量方差分析，检验前后测差异，以及两组被试间的差异。
+重复测量方差分析的基本假设是正态性和方差齐性，需要在方差分析前进行检验。
+加载包 1library(tidyverse) 导入数据 按照被试编号（主）、实验序号（次）、试次（再次）进行排序
+1oddballfiles &lt;- list.files(path = &#34;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/TwoChoice_oddball_Data/&#34;, pattern = &#34;.csv&#34;, full.names = TRUE) 2data_oddball &lt;- map_df(oddballfiles, read_csv) 被试类型应该单独一个文件，几个任务数据共用
+1participant_type &lt;- read_csv(&#34;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/ParticipantType/ParticipantType.csv&#34;) 预处理 提取正式实验数据
+1oddball_filted &lt;- data_oddball %&gt;% filter(is.na(PracticeNum) == TRUE) 剔除反应时低于 300 ms 的试次
+1oddball_filted &lt;- oddball_filted %&gt;% filter(RT &gt; 0."/>
 
   
   
@@ -162,7 +192,7 @@ if (!doNotTrack) {
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fwww.jmrain.org%2fposts%2fdaoddball%2f&name=%e5%8f%8c%e9%80%89%e6%8b%a9%20oddball%20%e4%bb%bb%e5%8a%a1%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%ef%bc%9a%e5%9f%ba%e4%ba%8e%20R&description=" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fwww.jmrain.org%2fposts%2fdaoddball%2f&name=%e5%8f%8c%e9%80%89%e6%8b%a9%20oddball%20%e4%bb%bb%e5%8a%a1%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%ef%bc%9a%e5%9f%ba%e4%ba%8e%20R&description=%e4%b8%8d%e6%89%93%e6%97%a0%e5%87%86%e5%a4%87%e7%9a%84%e4%bb%97%0a%20%e5%bc%95%e8%a8%80%20%e5%9b%a0%e4%b8%ba%e7%96%ab%e6%83%85%e5%8e%9f%e5%9b%a0%ef%bc%8c%e6%b2%a1%e6%9c%89%e6%94%b6%e9%9b%86%e6%95%b0%e6%8d%ae%e3%80%82%e4%bd%86%e6%98%af%e7%a0%94%e7%a9%b6%e7%9a%84%e8%bf%9b%e5%ba%a6%e4%b8%8d%e8%83%bd%e8%80%bd%e8%af%af%e3%80%82%e5%b0%b1%e6%83%b3%e5%88%b0%e5%88%a9%e7%94%a8%e9%a2%84%e5%ae%9e%e9%aa%8c%e7%9a%84%e6%95%b0%e6%8d%ae%e6%8f%90%e5%89%8d%e5%86%99%e5%a5%bd%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%e7%a8%8b%e5%ba%8f%e3%80%82%0a%e8%bf%99%e6%a0%b7%e5%81%9a%e6%9c%89%e4%bb%a5%e4%b8%8b%e5%87%a0%e7%82%b9%e5%90%88%e7%90%86%e6%80%a7%ef%bc%9a%0a%20R%20%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%e6%98%af%e4%bb%a3%e7%a0%81%e5%bd%a2%e5%bc%8f%e7%9a%84%e5%88%86%e6%9e%90%ef%bc%8c%e5%8f%af%e9%87%8d%e5%a4%8d%e5%88%a9%e7%94%a8%ef%bc%9b%20%e9%a2%84%e5%ae%9e%e9%aa%8c%e6%95%b0%e6%8d%ae%e5%9c%a8%e5%86%85%e5%ae%b9%e5%92%8c%e6%8e%92%e5%88%97%e6%96%b9%e5%bc%8f%e4%b8%8a%e4%b8%8e%e6%ad%a3%e5%bc%8f%e5%ae%9e%e9%aa%8c%e4%b8%80%e8%87%b4%ef%bc%8c%e5%86%99%e5%a5%bd%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e7%9b%b4%e6%8e%a5%e7%94%a8%e5%9c%a8%e6%ad%a3%e5%bc%8f%e5%ae%9e%e9%aa%8c%e6%95%b0%e6%8d%ae%e4%b8%8a%ef%bc%9b%20%20%e6%9c%89%e4%bb%a5%e4%b8%8b%e5%87%a0%e7%82%b9%e4%bc%98%e5%8a%bf%ef%bc%9a%0a%20%e6%a0%b9%e6%8d%ae%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%e6%83%85%e5%86%b5%ef%bc%8c%e5%8f%af%e9%80%82%e6%97%b6%e8%b0%83%e6%95%b4%e5%ae%9e%e9%aa%8c%e7%a8%8b%e5%ba%8f%e6%94%b6%e9%9b%86%e7%9a%84%e6%95%b0%e6%8d%ae%e6%a0%bc%e5%bc%8f%e5%92%8c%e9%a1%b9%e7%9b%ae%ef%bc%9b%e5%8f%af%e7%bc%96%e8%be%91%ef%bc%9b%20%e6%94%b6%e6%95%b0%e6%8d%ae%e6%97%b6%ef%bc%8c%e5%8f%af%e4%bb%a5%e7%ab%8b%e9%a9%ac%e5%af%bc%e5%85%a5%ef%bc%8c%e6%9f%a5%e7%9c%8b%e7%bb%93%e6%9e%9c%ef%bc%9b%e5%93%8d%e5%ba%94%e9%80%9f%e5%ba%a6%e5%bf%ab%ef%bc%9b%20%e5%8f%af%e4%bb%a5%e6%ad%a4%e5%88%a4%e6%96%ad%e5%8f%98%e9%87%8f%e7%9a%84%e6%95%b0%e9%87%8f%e5%92%8c%e5%86%85%e5%ae%b9%ef%bc%8c%e5%8d%b3%e6%94%b6%e9%9b%86%e5%93%aa%e4%ba%9b%e5%8f%98%e9%87%8f%e3%80%82%20%20%e5%9b%a0%e6%ad%a4%ef%bc%8c%e5%87%86%e5%a4%87%e8%8a%b1%e4%b8%a4%e5%a4%a9%e6%97%b6%e9%97%b4%e6%8a%8a%e4%bb%a3%e7%a0%81%e5%86%99%e5%87%ba%e6%9d%a5%ef%bc%8c%e5%b9%b6%e5%9c%a8%e5%8d%9a%e5%ae%a2%e4%b8%ad%e8%ae%b0%e5%bd%95%e7%bb%8f%e9%aa%8c%e3%80%82%0a%e6%9d%90%e6%96%99%20%e8%a2%ab%e8%af%95%e9%97%b4%e5%b9%b3%e8%a1%a1%e5%8f%8d%e5%ba%94%e6%96%b9%e5%bc%8f%e4%b8%8e%e5%88%ba%e6%bf%80%e7%b1%bb%e5%9e%8b%e7%9a%84%e5%af%b9%e5%ba%94%e5%85%b3%e7%b3%bb%ef%bc%9b%0a%e5%8f%8d%e5%ba%94%e6%97%b6%e4%bb%a3%e4%bb%b7%e5%92%8c%e5%87%86%e7%a1%ae%e7%8e%87%e4%bb%a3%e4%bb%b7%e4%b8%ba%e5%88%86%e6%9e%90%e6%8c%87%e6%a0%87%ef%bc%8c%e4%bb%a3%e4%bb%b7%e8%b6%8a%e5%b0%8f%ef%bc%8c%e8%a1%8c%e4%b8%ba%e6%8a%91%e5%88%b6%e6%8e%a7%e5%88%b6%e8%83%bd%e5%8a%9b%e8%b6%8a%e5%bc%ba%e3%80%82%0a2%20%e2%9c%96%ef%b8%8f%202%20%e5%8c%ba%e7%bb%84%e5%ae%9e%e9%aa%8c%e8%ae%be%e8%ae%a1%ef%bc%88%e8%a2%ab%e8%af%95%e5%86%85%ef%bc%89%0a%e7%bb%84%e9%97%b4%e5%8f%98%e9%87%8f%e6%98%afType%ef%bc%8c%e7%bb%84%e5%86%85%e5%8f%98%e9%87%8f%e6%98%afSessionNumber%e3%80%82%e5%89%8d%e8%80%85%e6%8c%87%e8%a2%ab%e8%af%95%e5%88%86%e7%bb%84%ef%bc%8c%e5%90%8e%e8%80%85%e6%8c%87%e5%89%8d%e5%90%8e%e6%b5%8b%e3%80%82%0a%e9%87%87%e7%94%a8%e9%87%8d%e5%a4%8d%e6%b5%8b%e9%87%8f%e6%96%b9%e5%b7%ae%e5%88%86%e6%9e%90%ef%bc%8c%e6%a3%80%e9%aa%8c%e5%89%8d%e5%90%8e%e6%b5%8b%e5%b7%ae%e5%bc%82%ef%bc%8c%e4%bb%a5%e5%8f%8a%e4%b8%a4%e7%bb%84%e8%a2%ab%e8%af%95%e9%97%b4%e7%9a%84%e5%b7%ae%e5%bc%82%e3%80%82%0a%e9%87%8d%e5%a4%8d%e6%b5%8b%e9%87%8f%e6%96%b9%e5%b7%ae%e5%88%86%e6%9e%90%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%81%87%e8%ae%be%e6%98%af%e6%ad%a3%e6%80%81%e6%80%a7%e5%92%8c%e6%96%b9%e5%b7%ae%e9%bd%90%e6%80%a7%ef%bc%8c%e9%9c%80%e8%a6%81%e5%9c%a8%e6%96%b9%e5%b7%ae%e5%88%86%e6%9e%90%e5%89%8d%e8%bf%9b%e8%a1%8c%e6%a3%80%e9%aa%8c%e3%80%82%0a%e5%8a%a0%e8%bd%bd%e5%8c%85%201library%28tidyverse%29%20%e5%af%bc%e5%85%a5%e6%95%b0%e6%8d%ae%20%e6%8c%89%e7%85%a7%e8%a2%ab%e8%af%95%e7%bc%96%e5%8f%b7%ef%bc%88%e4%b8%bb%ef%bc%89%e3%80%81%e5%ae%9e%e9%aa%8c%e5%ba%8f%e5%8f%b7%ef%bc%88%e6%ac%a1%ef%bc%89%e3%80%81%e8%af%95%e6%ac%a1%ef%bc%88%e5%86%8d%e6%ac%a1%ef%bc%89%e8%bf%9b%e8%a1%8c%e6%8e%92%e5%ba%8f%0a1oddballfiles%20%26lt%3b-%20list.files%28path%20%3d%20%26%2334%3b~%2fGitHub%2fStation%2fexp_TwoChoice_oddball_xiaoyu%2fTwoChoice_oddball_Data%2f%26%2334%3b%2c%20pattern%20%3d%20%26%2334%3b.csv%26%2334%3b%2c%20full.names%20%3d%20TRUE%29%202data_oddball%20%26lt%3b-%20map_df%28oddballfiles%2c%20read_csv%29%20%e8%a2%ab%e8%af%95%e7%b1%bb%e5%9e%8b%e5%ba%94%e8%af%a5%e5%8d%95%e7%8b%ac%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%ef%bc%8c%e5%87%a0%e4%b8%aa%e4%bb%bb%e5%8a%a1%e6%95%b0%e6%8d%ae%e5%85%b1%e7%94%a8%0a1participant_type%20%26lt%3b-%20read_csv%28%26%2334%3b~%2fGitHub%2fStation%2fexp_TwoChoice_oddball_xiaoyu%2fParticipantType%2fParticipantType.csv%26%2334%3b%29%20%e9%a2%84%e5%a4%84%e7%90%86%20%e6%8f%90%e5%8f%96%e6%ad%a3%e5%bc%8f%e5%ae%9e%e9%aa%8c%e6%95%b0%e6%8d%ae%0a1oddball_filted%20%26lt%3b-%20data_oddball%20%25%26gt%3b%25%20filter%28is.na%28PracticeNum%29%20%3d%3d%20TRUE%29%20%e5%89%94%e9%99%a4%e5%8f%8d%e5%ba%94%e6%97%b6%e4%bd%8e%e4%ba%8e%20300%20ms%20%e7%9a%84%e8%af%95%e6%ac%a1%0a1oddball_filted%20%26lt%3b-%20oddball_filted%20%25%26gt%3b%25%20filter%28RT%20%26gt%3b%200." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -176,7 +206,18 @@ if (!doNotTrack) {
     </div>
     
     <div id="toc">
-      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#材料">材料</a></li>
+    <li><a href="#加载包">加载包</a></li>
+    <li><a href="#导入数据">导入数据</a></li>
+    <li><a href="#预处理">预处理</a></li>
+    <li><a href="#重复测量方差分析">重复测量方差分析</a></li>
+    <li><a href="#描述性统计">描述性统计</a></li>
+    <li><a href="#可视化">可视化</a></li>
+  </ul>
+</nav>
     </div>
     
   </span>
@@ -221,7 +262,128 @@ if (!doNotTrack) {
   
     
     <div class="content" itemprop="articleBody">
-      
+      <blockquote>
+<p>不打无准备的仗</p>
+</blockquote>
+<h1 id="引言">引言</h1>
+<p>因为疫情原因，没有收集数据。但是研究的进度不能耽误。就想到利用预实验的数据提前写好数据分析程序。</p>
+<p>这样做有以下几点合理性：</p>
+<ul>
+<li>R 数据分析是代码形式的分析，可重复利用；</li>
+<li>预实验数据在内容和排列方式上与正式实验一致，写好后，可以直接用在正式实验数据上；</li>
+</ul>
+<p>有以下几点优势：</p>
+<ul>
+<li>根据数据分析情况，可适时调整实验程序收集的数据格式和项目；可编辑；</li>
+<li>收数据时，可以立马导入，查看结果；响应速度快；</li>
+<li>可以此判断变量的数量和内容，即收集哪些变量。</li>
+</ul>
+<p>因此，准备花两天时间把代码写出来，并在博客中记录经验。</p>
+<h1 id="材料">材料</h1>
+<p>被试间平衡反应方式与刺激类型的对应关系；</p>
+<p>反应时代价和准确率代价为分析指标，代价越小，行为抑制控制能力越强。</p>
+<p>2 ✖️ 2 区组实验设计（被试内）</p>
+<p>组间变量是<code>Type</code>，组内变量是<code>SessionNumber</code>。前者指被试分组，后者指前后测。</p>
+<p>采用重复测量方差分析，检验前后测差异，以及两组被试间的差异。</p>
+<p>重复测量方差分析的基本假设是正态性和方差齐性，需要在方差分析前进行检验。</p>
+<h1 id="加载包">加载包</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#50fa7b">library</span>(tidyverse)
+</code></pre></div><h1 id="导入数据">导入数据</h1>
+<p>按照被试编号（主）、实验序号（次）、试次（再次）进行排序</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>oddballfiles <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">list.files</span>(path <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/TwoChoice_oddball_Data/&#34;</span>, pattern <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;.csv&#34;</span>, full.names <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">TRUE</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>data_oddball <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">map_df</span>(oddballfiles, read_csv)
+</code></pre></div><p>被试类型应该单独一个文件，几个任务数据共用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>participant_type <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">read_csv</span>(<span style="color:#f1fa8c">&#34;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/ParticipantType/ParticipantType.csv&#34;</span>)
+</code></pre></div><h1 id="预处理">预处理</h1>
+<p>提取正式实验数据</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>oddball_filted <span style="color:#ff79c6">&lt;-</span> data_oddball <span style="color:#ff79c6">%&gt;%</span> <span style="color:#50fa7b">filter</span>(<span style="color:#50fa7b">is.na</span>(PracticeNum) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">TRUE</span>)
+</code></pre></div><p>剔除反应时低于 300 ms 的试次</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>oddball_filted <span style="color:#ff79c6">&lt;-</span> oddball_filted <span style="color:#ff79c6">%&gt;%</span> <span style="color:#50fa7b">filter</span>(RT <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0.300</span>)
+</code></pre></div><p>剔除反应时大于 3000 的试次</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>oddball_filted <span style="color:#ff79c6">&lt;-</span> oddball_filted <span style="color:#ff79c6">%&gt;%</span> <span style="color:#50fa7b">filter</span>(RT <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">3.000</span>)
+</code></pre></div><p>计算每个被试的平均反应时和准确率</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>oddball_ave <span style="color:#ff79c6">&lt;-</span> oddball_filted <span style="color:#ff79c6">%&gt;%</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#50fa7b">group_by</span>(ParticipantID, SessionNumber, WordNum) <span style="color:#ff79c6">%&gt;%</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#50fa7b">summarise</span>(
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    RT <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">mean</span>(RT),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    ACC <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">mean</span>(ACC),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>    .groups <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;drop&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  )
+</code></pre></div><p>计算反应时代价和准确率代价</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>oddball_wide <span style="color:#ff79c6">&lt;-</span> oddball_ave <span style="color:#ff79c6">%&gt;%</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#50fa7b">pivot_wider</span>(
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    names_from <span style="color:#ff79c6">=</span> WordNum,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    values_from <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">c</span>(RT, ACC)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  )
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>oddball_cost <span style="color:#ff79c6">&lt;-</span> oddball_wide <span style="color:#ff79c6">%&gt;%</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#50fa7b">transmute</span>(
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    ParticipantID <span style="color:#ff79c6">=</span> ParticipantID,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    SessionNumber <span style="color:#ff79c6">=</span> SessionNumber,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    RT_cost <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1000</span> <span style="color:#ff79c6">*</span> (RT_2 <span style="color:#ff79c6">-</span> RT_1),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>    ACC_cost <span style="color:#ff79c6">=</span> ACC_1 <span style="color:#ff79c6">-</span> ACC_2
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  )
+</code></pre></div><p>增加被试类型信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>oddball_cost <span style="color:#ff79c6">&lt;-</span> oddball_cost <span style="color:#ff79c6">%&gt;%</span> <span style="color:#50fa7b">left_join</span>(., participant_type, by <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ParticipantID&#34;</span>)
+</code></pre></div><h1 id="重复测量方差分析">重复测量方差分析</h1>
+<p>方差分析有</p>
+<ul>
+<li>单因素组间方差分析</li>
+<li>单因素组内方差分析（重复测量）</li>
+<li>含组间和组内因子的双因素方差分析（混合模型方差）</li>
+</ul>
+<p>也可以按照是否区组设设计</p>
+<ul>
+<li>完全随机设计（因素组间方差分析）</li>
+<li>随机区组设计（混合模型方差分析）</li>
+</ul>
+<p>我们在这里进行的是混合模型方差分析。表达式为：</p>
+<pre tabindex="0"><code># 单个组内因子（W）
+# 单个组间因子（B）
+aov(y ~ B + W + Error(Subject / W), data = DATA)
+</code></pre><p>方差齐次性检验</p>
+<p>重复测量方差分析</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4"># 反应时代价</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>oddball_rt_aov <span style="color:#ff79c6">&lt;-</span> oddball_cost <span style="color:#ff79c6">%&gt;%</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#50fa7b">aov</span>(RT_cost <span style="color:#ff79c6">~</span> Type <span style="color:#ff79c6">*</span> SessionNumber <span style="color:#ff79c6">+</span> <span style="color:#50fa7b">Error</span>(ParticipantID <span style="color:#ff79c6">/</span> SessionNumber), data <span style="color:#ff79c6">=</span>  .)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>oddball_rt_aov <span style="color:#ff79c6">%&gt;%</span> <span style="color:#50fa7b">summary</span>()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4"># 准确率代价</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>oddball_acc_aov <span style="color:#ff79c6">&lt;-</span> oddball_cost <span style="color:#ff79c6">%&gt;%</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#50fa7b">aov</span>(ACC_cost <span style="color:#ff79c6">~</span> Type <span style="color:#ff79c6">*</span> SessionNumber <span style="color:#ff79c6">+</span> <span style="color:#50fa7b">Error</span>(ParticipantID <span style="color:#ff79c6">/</span> SessionNumber), data <span style="color:#ff79c6">=</span>  .)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>oddball_acc_aov <span style="color:#ff79c6">%&gt;%</span> <span style="color:#50fa7b">summary</span>()
+</code></pre></div><p>结果解读</p>
+<ul>
+<li>Type 对 反应时代价的影响；</li>
+<li>控制 Type 是，反应时代价的前后测差异；</li>
+<li>控制两因素主效应时，组别和时间的交互效应。</li>
+</ul>
+<p>事后检验</p>
+<h1 id="描述性统计">描述性统计</h1>
+<p>既反映总体平均值大小，又反映被试分布。还有置信区间（误差bar）</p>
+<p>计算均值和标准差</p>
+<h1 id="可视化">可视化</h1>
+<p>折线图：展示交互作用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4"># 反应时代价</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#50fa7b">with</span>(oddball_cost,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#50fa7b">interaction.plot</span>(Type, SessionNumber, RT_cost,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    type <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;b&#34;</span>, col <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">c</span>(<span style="color:#f1fa8c">&#34;red&#34;</span>, <span style="color:#f1fa8c">&#34;blue&#34;</span>), pch <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">c</span>(<span style="color:#bd93f9">16</span>, <span style="color:#bd93f9">18</span>),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    main <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Interaction plot&#34;</span>,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>    ylab <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;RT Cost (ms)&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  )
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4"># 准确率代价</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#50fa7b">with</span>(oddball_cost,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#50fa7b">interaction.plot</span>(Type, SessionNumber, ACC_cost,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    type <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;b&#34;</span>, col <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">c</span>(<span style="color:#f1fa8c">&#34;red&#34;</span>, <span style="color:#f1fa8c">&#34;blue&#34;</span>), pch <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">c</span>(<span style="color:#bd93f9">16</span>, <span style="color:#bd93f9">18</span>),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    main <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;时间与分组的交互作用图&#34;</span>,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>    ylab <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ACC Cost&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  )
+</code></pre></div><p>箱线图</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4"># 反应时代价</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>oddball_cost <span style="color:#ff79c6">%&gt;%</span> <span style="color:#50fa7b">boxplot</span>(RT_cost <span style="color:#ff79c6">~</span> Type <span style="color:#ff79c6">*</span> SessionNumber,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  data <span style="color:#ff79c6">=</span> .,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  col <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">c</span>(<span style="color:#f1fa8c">&#34;red&#34;</span>, <span style="color:#f1fa8c">&#34;green&#34;</span>),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  main <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;箱线图：反应时代价&#34;</span>,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  ylab <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;RT Cost (ms)&#34;</span>)
+</code></pre></div>
     </div>
   </article>
 
@@ -261,7 +423,18 @@ if (!doNotTrack) {
 
     
     <div id="toc-footer" style="display: none">
-      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#材料">材料</a></li>
+    <li><a href="#加载包">加载包</a></li>
+    <li><a href="#导入数据">导入数据</a></li>
+    <li><a href="#预处理">预处理</a></li>
+    <li><a href="#重复测量方差分析">重复测量方差分析</a></li>
+    <li><a href="#描述性统计">描述性统计</a></li>
+    <li><a href="#可视化">可视化</a></li>
+  </ul>
+</nav>
     </div>
     
 
@@ -309,7 +482,7 @@ if (!doNotTrack) {
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fwww.jmrain.org%2fposts%2fdaoddball%2f&name=%e5%8f%8c%e9%80%89%e6%8b%a9%20oddball%20%e4%bb%bb%e5%8a%a1%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%ef%bc%9a%e5%9f%ba%e4%ba%8e%20R&description=" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fwww.jmrain.org%2fposts%2fdaoddball%2f&name=%e5%8f%8c%e9%80%89%e6%8b%a9%20oddball%20%e4%bb%bb%e5%8a%a1%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%ef%bc%9a%e5%9f%ba%e4%ba%8e%20R&description=%e4%b8%8d%e6%89%93%e6%97%a0%e5%87%86%e5%a4%87%e7%9a%84%e4%bb%97%0a%20%e5%bc%95%e8%a8%80%20%e5%9b%a0%e4%b8%ba%e7%96%ab%e6%83%85%e5%8e%9f%e5%9b%a0%ef%bc%8c%e6%b2%a1%e6%9c%89%e6%94%b6%e9%9b%86%e6%95%b0%e6%8d%ae%e3%80%82%e4%bd%86%e6%98%af%e7%a0%94%e7%a9%b6%e7%9a%84%e8%bf%9b%e5%ba%a6%e4%b8%8d%e8%83%bd%e8%80%bd%e8%af%af%e3%80%82%e5%b0%b1%e6%83%b3%e5%88%b0%e5%88%a9%e7%94%a8%e9%a2%84%e5%ae%9e%e9%aa%8c%e7%9a%84%e6%95%b0%e6%8d%ae%e6%8f%90%e5%89%8d%e5%86%99%e5%a5%bd%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%e7%a8%8b%e5%ba%8f%e3%80%82%0a%e8%bf%99%e6%a0%b7%e5%81%9a%e6%9c%89%e4%bb%a5%e4%b8%8b%e5%87%a0%e7%82%b9%e5%90%88%e7%90%86%e6%80%a7%ef%bc%9a%0a%20R%20%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%e6%98%af%e4%bb%a3%e7%a0%81%e5%bd%a2%e5%bc%8f%e7%9a%84%e5%88%86%e6%9e%90%ef%bc%8c%e5%8f%af%e9%87%8d%e5%a4%8d%e5%88%a9%e7%94%a8%ef%bc%9b%20%e9%a2%84%e5%ae%9e%e9%aa%8c%e6%95%b0%e6%8d%ae%e5%9c%a8%e5%86%85%e5%ae%b9%e5%92%8c%e6%8e%92%e5%88%97%e6%96%b9%e5%bc%8f%e4%b8%8a%e4%b8%8e%e6%ad%a3%e5%bc%8f%e5%ae%9e%e9%aa%8c%e4%b8%80%e8%87%b4%ef%bc%8c%e5%86%99%e5%a5%bd%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e7%9b%b4%e6%8e%a5%e7%94%a8%e5%9c%a8%e6%ad%a3%e5%bc%8f%e5%ae%9e%e9%aa%8c%e6%95%b0%e6%8d%ae%e4%b8%8a%ef%bc%9b%20%20%e6%9c%89%e4%bb%a5%e4%b8%8b%e5%87%a0%e7%82%b9%e4%bc%98%e5%8a%bf%ef%bc%9a%0a%20%e6%a0%b9%e6%8d%ae%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%e6%83%85%e5%86%b5%ef%bc%8c%e5%8f%af%e9%80%82%e6%97%b6%e8%b0%83%e6%95%b4%e5%ae%9e%e9%aa%8c%e7%a8%8b%e5%ba%8f%e6%94%b6%e9%9b%86%e7%9a%84%e6%95%b0%e6%8d%ae%e6%a0%bc%e5%bc%8f%e5%92%8c%e9%a1%b9%e7%9b%ae%ef%bc%9b%e5%8f%af%e7%bc%96%e8%be%91%ef%bc%9b%20%e6%94%b6%e6%95%b0%e6%8d%ae%e6%97%b6%ef%bc%8c%e5%8f%af%e4%bb%a5%e7%ab%8b%e9%a9%ac%e5%af%bc%e5%85%a5%ef%bc%8c%e6%9f%a5%e7%9c%8b%e7%bb%93%e6%9e%9c%ef%bc%9b%e5%93%8d%e5%ba%94%e9%80%9f%e5%ba%a6%e5%bf%ab%ef%bc%9b%20%e5%8f%af%e4%bb%a5%e6%ad%a4%e5%88%a4%e6%96%ad%e5%8f%98%e9%87%8f%e7%9a%84%e6%95%b0%e9%87%8f%e5%92%8c%e5%86%85%e5%ae%b9%ef%bc%8c%e5%8d%b3%e6%94%b6%e9%9b%86%e5%93%aa%e4%ba%9b%e5%8f%98%e9%87%8f%e3%80%82%20%20%e5%9b%a0%e6%ad%a4%ef%bc%8c%e5%87%86%e5%a4%87%e8%8a%b1%e4%b8%a4%e5%a4%a9%e6%97%b6%e9%97%b4%e6%8a%8a%e4%bb%a3%e7%a0%81%e5%86%99%e5%87%ba%e6%9d%a5%ef%bc%8c%e5%b9%b6%e5%9c%a8%e5%8d%9a%e5%ae%a2%e4%b8%ad%e8%ae%b0%e5%bd%95%e7%bb%8f%e9%aa%8c%e3%80%82%0a%e6%9d%90%e6%96%99%20%e8%a2%ab%e8%af%95%e9%97%b4%e5%b9%b3%e8%a1%a1%e5%8f%8d%e5%ba%94%e6%96%b9%e5%bc%8f%e4%b8%8e%e5%88%ba%e6%bf%80%e7%b1%bb%e5%9e%8b%e7%9a%84%e5%af%b9%e5%ba%94%e5%85%b3%e7%b3%bb%ef%bc%9b%0a%e5%8f%8d%e5%ba%94%e6%97%b6%e4%bb%a3%e4%bb%b7%e5%92%8c%e5%87%86%e7%a1%ae%e7%8e%87%e4%bb%a3%e4%bb%b7%e4%b8%ba%e5%88%86%e6%9e%90%e6%8c%87%e6%a0%87%ef%bc%8c%e4%bb%a3%e4%bb%b7%e8%b6%8a%e5%b0%8f%ef%bc%8c%e8%a1%8c%e4%b8%ba%e6%8a%91%e5%88%b6%e6%8e%a7%e5%88%b6%e8%83%bd%e5%8a%9b%e8%b6%8a%e5%bc%ba%e3%80%82%0a2%20%e2%9c%96%ef%b8%8f%202%20%e5%8c%ba%e7%bb%84%e5%ae%9e%e9%aa%8c%e8%ae%be%e8%ae%a1%ef%bc%88%e8%a2%ab%e8%af%95%e5%86%85%ef%bc%89%0a%e7%bb%84%e9%97%b4%e5%8f%98%e9%87%8f%e6%98%afType%ef%bc%8c%e7%bb%84%e5%86%85%e5%8f%98%e9%87%8f%e6%98%afSessionNumber%e3%80%82%e5%89%8d%e8%80%85%e6%8c%87%e8%a2%ab%e8%af%95%e5%88%86%e7%bb%84%ef%bc%8c%e5%90%8e%e8%80%85%e6%8c%87%e5%89%8d%e5%90%8e%e6%b5%8b%e3%80%82%0a%e9%87%87%e7%94%a8%e9%87%8d%e5%a4%8d%e6%b5%8b%e9%87%8f%e6%96%b9%e5%b7%ae%e5%88%86%e6%9e%90%ef%bc%8c%e6%a3%80%e9%aa%8c%e5%89%8d%e5%90%8e%e6%b5%8b%e5%b7%ae%e5%bc%82%ef%bc%8c%e4%bb%a5%e5%8f%8a%e4%b8%a4%e7%bb%84%e8%a2%ab%e8%af%95%e9%97%b4%e7%9a%84%e5%b7%ae%e5%bc%82%e3%80%82%0a%e9%87%8d%e5%a4%8d%e6%b5%8b%e9%87%8f%e6%96%b9%e5%b7%ae%e5%88%86%e6%9e%90%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%81%87%e8%ae%be%e6%98%af%e6%ad%a3%e6%80%81%e6%80%a7%e5%92%8c%e6%96%b9%e5%b7%ae%e9%bd%90%e6%80%a7%ef%bc%8c%e9%9c%80%e8%a6%81%e5%9c%a8%e6%96%b9%e5%b7%ae%e5%88%86%e6%9e%90%e5%89%8d%e8%bf%9b%e8%a1%8c%e6%a3%80%e9%aa%8c%e3%80%82%0a%e5%8a%a0%e8%bd%bd%e5%8c%85%201library%28tidyverse%29%20%e5%af%bc%e5%85%a5%e6%95%b0%e6%8d%ae%20%e6%8c%89%e7%85%a7%e8%a2%ab%e8%af%95%e7%bc%96%e5%8f%b7%ef%bc%88%e4%b8%bb%ef%bc%89%e3%80%81%e5%ae%9e%e9%aa%8c%e5%ba%8f%e5%8f%b7%ef%bc%88%e6%ac%a1%ef%bc%89%e3%80%81%e8%af%95%e6%ac%a1%ef%bc%88%e5%86%8d%e6%ac%a1%ef%bc%89%e8%bf%9b%e8%a1%8c%e6%8e%92%e5%ba%8f%0a1oddballfiles%20%26lt%3b-%20list.files%28path%20%3d%20%26%2334%3b~%2fGitHub%2fStation%2fexp_TwoChoice_oddball_xiaoyu%2fTwoChoice_oddball_Data%2f%26%2334%3b%2c%20pattern%20%3d%20%26%2334%3b.csv%26%2334%3b%2c%20full.names%20%3d%20TRUE%29%202data_oddball%20%26lt%3b-%20map_df%28oddballfiles%2c%20read_csv%29%20%e8%a2%ab%e8%af%95%e7%b1%bb%e5%9e%8b%e5%ba%94%e8%af%a5%e5%8d%95%e7%8b%ac%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%ef%bc%8c%e5%87%a0%e4%b8%aa%e4%bb%bb%e5%8a%a1%e6%95%b0%e6%8d%ae%e5%85%b1%e7%94%a8%0a1participant_type%20%26lt%3b-%20read_csv%28%26%2334%3b~%2fGitHub%2fStation%2fexp_TwoChoice_oddball_xiaoyu%2fParticipantType%2fParticipantType.csv%26%2334%3b%29%20%e9%a2%84%e5%a4%84%e7%90%86%20%e6%8f%90%e5%8f%96%e6%ad%a3%e5%bc%8f%e5%ae%9e%e9%aa%8c%e6%95%b0%e6%8d%ae%0a1oddball_filted%20%26lt%3b-%20data_oddball%20%25%26gt%3b%25%20filter%28is.na%28PracticeNum%29%20%3d%3d%20TRUE%29%20%e5%89%94%e9%99%a4%e5%8f%8d%e5%ba%94%e6%97%b6%e4%bd%8e%e4%ba%8e%20300%20ms%20%e7%9a%84%e8%af%95%e6%ac%a1%0a1oddball_filted%20%26lt%3b-%20oddball_filted%20%25%26gt%3b%25%20filter%28RT%20%26gt%3b%200." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>

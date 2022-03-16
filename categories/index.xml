@@ -1,64 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Coding, Researching, Writting for Up!</title>
+    <title>Categories on Coding, Researching and Writing</title>
     <link>https://www.jmrain.org/categories/</link>
-    <description>Recent content in Categories on Coding, Researching, Writting for Up!</description>
+    <description>Recent content in Categories on Coding, Researching and Writing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Yu</copyright>
-    <lastBuildDate>Mon, 23 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jmrain.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jmrain.org/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>计算机</title>
-      <link>https://www.jmrain.org/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
-      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
+      <title>English</title>
+      <link>https://www.jmrain.org/categories/english/</link>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jmrain.org/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</guid>
+      <guid>https://www.jmrain.org/categories/english/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>一个人</title>
-      <link>https://www.jmrain.org/categories/%E4%B8%80%E4%B8%AA%E4%BA%BA/</link>
-      <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
+      <title>Research</title>
+      <link>https://www.jmrain.org/categories/research/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jmrain.org/categories/%E4%B8%80%E4%B8%AA%E4%BA%BA/</guid>
+      <guid>https://www.jmrain.org/categories/research/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Daily update</title>
-      <link>https://www.jmrain.org/categories/daily-update/</link>
-      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
+      <title>Life</title>
+      <link>https://www.jmrain.org/categories/life/</link>
+      <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jmrain.org/categories/daily-update/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://www.jmrain.org/categories/r/</link>
-      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.jmrain.org/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>博客搭建</title>
-      <link>https://www.jmrain.org/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
-      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.jmrain.org/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>工具</title>
-      <link>https://www.jmrain.org/categories/%E5%B7%A5%E5%85%B7/</link>
-      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.jmrain.org/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://www.jmrain.org/categories/life/</guid>
       <description></description>
     </item>
     

@@ -45,21 +45,21 @@ draft: # yes
 
 # 加载包
 
-```r
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
 
 # 导入数据
 
 按照被试编号（主）、实验序号（次）、试次（再次）进行排序
-```r
+```{r message=FALSE}
 oddballfiles <- list.files(path = "~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/TwoChoice_oddball_Data/", pattern = ".csv", full.names = TRUE)
 data_oddball <- map_df(oddballfiles, read_csv)
 ```
 
 被试类型应该单独一个文件，几个任务数据共用
 
-```r
+```{r message=FALSE}
 participant_type <- read_csv("~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/ParticipantType/ParticipantType.csv")
 ```
 
@@ -67,25 +67,25 @@ participant_type <- read_csv("~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/Part
 
 提取正式实验数据
 
-```r
+```{r}
 oddball_filted <- data_oddball %>% filter(is.na(PracticeNum) == TRUE)
 ```
 
 剔除反应时低于 300 ms 的试次
 
-```r
+```{r}
 oddball_filted <- oddball_filted %>% filter(RT > 0.300)
 ```
 
 剔除反应时大于 3000 的试次
 
-```r
+```{r}
 oddball_filted <- oddball_filted %>% filter(RT < 3.000)
 ```
 
 计算每个被试的平均反应时和准确率
 
-```r
+```{r}
 oddball_ave <- oddball_filted %>%
   group_by(ParticipantID, SessionNumber, WordNum) %>%
   summarise(
@@ -97,7 +97,7 @@ oddball_ave <- oddball_filted %>%
 
 计算反应时代价和准确率代价
 
-```r
+```{r}
 oddball_wide <- oddball_ave %>%
   pivot_wider(
     names_from = WordNum,
@@ -106,7 +106,7 @@ oddball_wide <- oddball_ave %>%
 ```
 
 
-```r
+```{r}
 oddball_cost <- oddball_wide %>%
   transmute(
     ParticipantID = ParticipantID,
@@ -118,7 +118,7 @@ oddball_cost <- oddball_wide %>%
 
 增加被试类型信息
 
-```r
+```{r}
 oddball_cost <- oddball_cost %>% left_join(., participant_type, by = "ParticipantID")
 ```
 
@@ -148,14 +148,14 @@ aov(y ~ B + W + Error(Subject / W), data = DATA)
 
 重复测量方差分析
 
-```r
+```{r}
 # 反应时代价
 oddball_rt_aov <- oddball_cost %>%
   aov(RT_cost ~ Type * SessionNumber + Error(ParticipantID / SessionNumber), data =  .)
 oddball_rt_aov %>% summary()
 ```
 
-```r
+```{r}
 # 准确率代价
 oddball_acc_aov <- oddball_cost %>%
   aov(ACC_cost ~ Type * SessionNumber + Error(ParticipantID / SessionNumber), data =  .)
@@ -180,7 +180,7 @@ oddball_acc_aov %>% summary()
 
 折线图：展示交互作用
 
-```r
+```{r}
 # 反应时代价
 with(oddball_cost,
   interaction.plot(Type, SessionNumber, RT_cost,
@@ -190,7 +190,7 @@ with(oddball_cost,
   )
 ```
 
-```r
+```{r}
 # 准确率代价
 with(oddball_cost,
   interaction.plot(Type, SessionNumber, ACC_cost,
@@ -202,7 +202,7 @@ with(oddball_cost,
 
 箱线图
 
-```r
+```{r}
 # 反应时代价
 oddball_cost %>% boxplot(RT_cost ~ Type * SessionNumber,
   data = .,
