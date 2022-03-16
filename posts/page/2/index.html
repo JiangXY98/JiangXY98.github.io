@@ -1,262 +1,259 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Coding, Researching and Writing</title>
-  <link rel = 'canonical' href = 'https://www.jmrain.org/posts/'>
-  <meta name="description" content="脑科学方向的一名硕士生，使用 Psychtoolbox 编写实验程序，R 分析数据。喜欢探究，热爱生活。">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="all,follow">
-  <meta name="googlebot" content="index,follow,snippet,archive">
-  <meta property="og:title" content="Posts" />
-<meta property="og:description" content="脑科学方向的一名硕士生，使用 Psychtoolbox 编写实验程序，R 分析数据。喜欢探究，热爱生活。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.jmrain.org/posts/" />
+<html lang="en" dir="auto">
 
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Posts | Coding, Researching and Writing</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Posts - Coding, Researching and Writing">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.jmrain.org/posts/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.jmrain.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.jmrain.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.jmrain.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.jmrain.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.jmrain.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://www.jmrain.org/posts/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="脑科学方向的一名硕士生，使用 Psychtoolbox 编写实验程序，R 分析数据。喜欢探究，热爱生活。"/>
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-  
-  
-  
-  <link rel="stylesheet" href="https://www.jmrain.org/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+            .list {
+                background: var(--theme);
+            }
 
-  
-  
-  
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-  
-<link rel="icon" type="image/png" href="https://www.jmrain.org/images/favicon.ico" />
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-  
-  
-    <link href="https://www.jmrain.org/posts/index.xml" rel="alternate" type="application/rss+xml" title="Coding, Researching and Writing" />
-  
-  
-  
-  
-    
+    </style>
+</noscript>
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-204778622-1', 'auto');
 	
 	ga('send', 'pageview');
 }
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+</script><meta property="og:title" content="Posts" />
+<meta property="og:description" content="脑科学方向的一名硕士生，使用 Psychtoolbox 编写实验程序，R 分析数据。喜欢探究，热爱生活。" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.jmrain.org/posts/" />
 
-  
-  
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content="脑科学方向的一名硕士生，使用 Psychtoolbox 编写实验程序，R 分析数据。喜欢探究，热爱生活。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://www.jmrain.org/posts/"
+    }
+  ]
+}
+</script>
 </head>
 
-<body class="max-width mx-auto px3 ltr">
-  <div class="content index py4">
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-    <header id="header">
-  <a href="https://www.jmrain.org">
-  
-    <div id="logo" style="background-image: url(https://www.jmrain.org/images/logo.png)"></div>
-  
-  <div id="title">
-    <h1>Coding, Researching and Writing</h1>
-  </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
-      </li>
-      
-        <li><a href="/">Home</a></li>
-      
-        <li><a href="/posts">Writings</a></li>
-      
-        <li><a href="/tags">Tags</a></li>
-      
-        <li><a href="/about">About</a></li>
-      
-    </ul>
-  </div>
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.jmrain.org" accesskey="h" title="Coding, Researching and Writing (Alt + H)">Coding, Researching and Writing</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.jmrain.org/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jmrain.org/posts" title="Writings">
+                    <span class="active">Writings</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jmrain.org/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jmrain.org/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>Posts</h1>
 </header>
 
-
-
-    
-<div id="archive">
-  <ul class="post-list">
-
-  
-  
-    
-  
-
-  
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-09-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-09-20</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/ielts/"> 30天雅思口语提升计划 </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-09-05</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/ptbstudy/"> Psychtoolbox3 学习感悟 </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-09-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-09-01</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/august/"> 八月总结及未来工作基调 </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-08-26 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-08-26</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/daoddball/"> 双选择 oddball 任务数据分析：基于 R </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-08-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-08-23</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/restart/"> 我的 Arch Linux 计算机 </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-08-20</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/cdpanda/"> 成都熊猫🐼基地之行 </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-08-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-08-10</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/sevenpages/"> 配置 VS Code 的参数设置 </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-08-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-08-09</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/six-pages/"> 配置 VS Code 为 R 编辑器 </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-08-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-08-03</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/four-pages/"> 采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录 </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-08-01</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/two-pages/"> 配置 Atom 以维护 GitHub Pages </a>
-      </span>
-    </li>
-    
-    
-    
-    <li class="post-item">
-      <div class="meta">
-        <time datetime="2021-07-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-07-30</time>
-      </div>
-      <span>    
-        <a class="" href="https://www.jmrain.org/posts/firspages/"> 使用 GitHub pages 和 Jekll 搭建博客 </a>
-      </span>
-    </li>
-    
-  </ul>
-  
-</div>
-
-
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright  &copy; 2022  Yu 
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-        <li><a href="/">Home</a></li>
-         
-        <li><a href="/posts">Writings</a></li>
-         
-        <li><a href="/tags">Tags</a></li>
-         
-        <li><a href="/about">About</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>使用 GitHub pages 和 Jekll 搭建博客
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>念头一起，就无法消失了，除了去做。
+ 引言 这已经不是我第一次搭建博客了。
+去年疫情搭建梯子时，根据网上的教程，用租用的 VPS 和腾讯新人购买的域名搭建过一个博客网站。因为时间久远，甚至连采用的什么框架都忘了。
+后来因为用的机场恢复运营了，VPS 和域名的作用消失了，建站也就不了了之了。前两天域名到期提示续费的邮件让我想起“哦，我还玩过这个啊”。
+最近在用 Psychtoolbox 编实验程序，想找一个地方存放自己编写程序的过程，发现拥有一个博客最能满足需求。一是记录自己在做的事情，二是借此展示自己，看有无朋友愿意请我帮忙编写心理学实验程序。
+基于上述内容，于2021年7月30日，利用一天的时间，通过 Google 和查阅官方文档的方式，搭建了这个博客。本文讲述了两种方法。大家可以选择性的跳到自己需要板换阅读。
+材料和方法 材料  Arch Linux Google GitHub，本博客基于 GitHub Pages 和 Jekyll 所搭建。 Jekyll Vim Atom  准备：git、GitHub 帐号 整个搭建过程完全在Arch Linux 系统上完成。
+1archie@arch ~ (master)&gt; neofetch 2 -` archie@arch 3 .o&#43;` ----------- 4 `ooo/ OS: Arch Linux x86_64 5 `&#43;oooo: Host: TM1701 6 `&#43;oooooo: Kernel: 5.13.6-arch1-1 7 -&#43;oooooo&#43;: Uptime: 4 hours, 51 mins 8 `/:-:&#43;&#43;oooo&#43;: Packages: 1302 (pacman) 9 `/&#43;&#43;&#43;&#43;/&#43;&#43;&#43;&#43;&#43;&#43;&#43;: Shell: fish 3....</p>
+  </section>
+  <footer class="entry-footer"><span title='2021-07-30 00:00:00 +0000 UTC'>2021-07-30</span>&nbsp;·&nbsp;Ginger Yu</footer>
+  <a class="entry-link" aria-label="post link to 使用 GitHub pages 和 Jekll 搭建博客" href="https://www.jmrain.org/posts/firspages/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://www.jmrain.org/posts/">« Prev Page</a>
+  </nav>
 </footer>
+    </main>
+    
+<footer class="footer">
+    <span>Yu</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-  </div>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
 
-<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
-<script src=/lib/jquery/jquery.min.js></script>
-<script src=/js/main.js></script>
 </html>

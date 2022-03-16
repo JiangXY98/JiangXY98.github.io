@@ -1,19 +1,80 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> 采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录 | Coding, Researching and Writing</title>
-  <link rel = 'canonical' href = 'https://www.jmrain.org/posts/four-pages/'>
-  <meta name="description" content="脑科学方向的一名硕士生，使用 Psychtoolbox 编写实验程序，R 分析数据。喜欢探究，热爱生活。">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="all,follow">
-  <meta name="googlebot" content="index,follow,snippet,archive">
-  <meta property="og:title" content="采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录" />
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录 | Coding, Researching and Writing</title>
+<meta name="keywords" content="Blogdown, Git, GitHub Pages, R Markdown" />
+<meta name="description" content="当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
+ 引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
+安装 blogdown 当时我是在 RStudio 的控制台中输入
+1install.packages(blogdown) 但是一直装不上。
+ 先是早上因为依赖promises装不上。 blogdown 装不上，通过 Arch Linux 的 yay 解决了。  1yay -S r-promises  然后是 RStudio 不能走代理，与 blogdown 库地址的连接时不时断线。最后在多次尝试之后，安装上了。  现在回过头看，有另外两种办法可以避免这一问题。
+1# 一是通过 AUR 安装 R 扩展包的方式来安装，其有更好的依赖管理，并且如果设置了镜像的话，就可以避免代理的问题。 2yay -S r-blogdown 1# 如果终端可以正常走代理的话，可以通过下面这种方式 2# 在命令行 R 中进行安装。这样可以避免 RStudio 的代理设置问题。 3install.packages(blogdown) 安装 hugo 采用 AUR 安装扩展包的方式的同学会发现，这一步可以跳过了。因为 AUR 安装依赖时，已经安装好 Hugo 了。
+采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。">
+<meta name="author" content="Ginger Yu">
+<link rel="canonical" href="https://www.jmrain.org/posts/four-pages/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.jmrain.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.jmrain.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.jmrain.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.jmrain.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.jmrain.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-204778622-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录" />
 <meta property="og:description" content="当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
  引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
 安装 blogdown 当时我是在 RStudio 的控制台中输入
@@ -23,11 +84,10 @@
 采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jmrain.org/posts/four-pages/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-03T00:00:00+00:00" />
+<meta property="article:published_time" content="2021-08-03T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-08-03T00:00:00&#43;00:00" />
 
-
-  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录"/>
 <meta name="twitter:description" content="当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
  引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
@@ -37,237 +97,143 @@
 1# 一是通过 AUR 安装 R 扩展包的方式来安装，其有更好的依赖管理，并且如果设置了镜像的话，就可以避免代理的问题。 2yay -S r-blogdown 1# 如果终端可以正常走代理的话，可以通过下面这种方式 2# 在命令行 R 中进行安装。这样可以避免 RStudio 的代理设置问题。 3install.packages(blogdown) 安装 hugo 采用 AUR 安装扩展包的方式的同学会发现，这一步可以跳过了。因为 AUR 安装依赖时，已经安装好 Hugo 了。
 采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。"/>
 
-  
-  
-  
-  <link rel="stylesheet" href="https://www.jmrain.org/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
 
-  
-  
-  
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-
-  
-<link rel="icon" type="image/png" href="https://www.jmrain.org/images/favicon.ico" />
-
-  
-  
-  
-  
-  
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-204778622-1', 'auto');
-	
-	ga('send', 'pageview');
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://www.jmrain.org/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录",
+      "item": "https://www.jmrain.org/posts/four-pages/"
+    }
+  ]
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-  
-  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录",
+  "name": "采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录",
+  "description": "当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。\n 引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：\n安装 blogdown 当时我是在 RStudio 的控制台中输入\n1install.packages(blogdown) 但是一直装不上。\n 先是早上因为依赖promises装不上。 blogdown 装不上，通过 Arch Linux 的 yay 解决了。  1yay -S r-promises  然后是 RStudio 不能走代理，与 blogdown 库地址的连接时不时断线。最后在多次尝试之后，安装上了。  现在回过头看，有另外两种办法可以避免这一问题。\n1# 一是通过 AUR 安装 R 扩展包的方式来安装，其有更好的依赖管理，并且如果设置了镜像的话，就可以避免代理的问题。 2yay -S r-blogdown 1# 如果终端可以正常走代理的话，可以通过下面这种方式 2# 在命令行 R 中进行安装。这样可以避免 RStudio 的代理设置问题。 3install.packages(blogdown) 安装 hugo 采用 AUR 安装扩展包的方式的同学会发现，这一步可以跳过了。因为 AUR 安装依赖时，已经安装好 Hugo 了。\n采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。",
+  "keywords": [
+    "Blogdown", "Git", "GitHub Pages", "R Markdown"
+  ],
+  "articleBody": " 当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。\n 引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：\n安装 blogdown 当时我是在 RStudio 的控制台中输入\n1install.packages(blogdown) 但是一直装不上。\n 先是早上因为依赖promises装不上。 blogdown 装不上，通过 Arch Linux 的 yay 解决了。  1yay -S r-promises  然后是 RStudio 不能走代理，与 blogdown 库地址的连接时不时断线。最后在多次尝试之后，安装上了。  现在回过头看，有另外两种办法可以避免这一问题。\n1# 一是通过 AUR 安装 R 扩展包的方式来安装，其有更好的依赖管理，并且如果设置了镜像的话，就可以避免代理的问题。 2yay -S r-blogdown 1# 如果终端可以正常走代理的话，可以通过下面这种方式 2# 在命令行 R 中进行安装。这样可以避免 RStudio 的代理设置问题。 3install.packages(blogdown) 安装 hugo 采用 AUR 安装扩展包的方式的同学会发现，这一步可以跳过了。因为 AUR 安装依赖时，已经安装好 Hugo 了。\n采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。\n1blogdown::install_hugo() 这个安装会连接到 yihui 的网站，但是因为 RStudio 连接外网不稳定的原因。国内的同学可能需要通过下面两种方式。\n1# 方式一 2# 在可以走代理的命令行 R 中进行安装 3blogdown::install_hugo() 第二种方式引自统计之都的文章\n1# 方式二 2# 从各种安全途径（比如 github 中),下载压缩包。解压后，然后本地安装。 3blogdown:::install_hugo_bin(\"解压后目录的绝对路径\")  刚解决，立马又遇到因为 Rstudio 不能走部分代理， blogdown::install_hugo 装不了 Hugo。yay 安装的版本又不匹配。不信邪地死磕 Rstudio 的代理了。结果发现设置成全局代理可行又相对简单。上次死磕 Rstudio 是昨天的 fcitx5 不能在里面输入中文，死磕好久，最后认怂改用 ibus 。当然，这里即使改成全局代理也不好用，还是认怂，采用了本地安装的方式。  选择主题 然后进入了耗时三小时的选主题环节。因为被afra 博客上的 chic 主题的简洁美丽惊艳到了。但这个 hexo 主题没有 Hugo 移植。导致我一边在“转攻使用 hexo 直接用 chic” 还是 “ 采用 blogdown （其默认以Hugo为核心）找个相似主题”中进行抉择。当时我是知道 blogdown 可以用 hexo 做引擎，但是稀缺的认知资源已经不能支撑我才去学习怎么使用 hexo 驱动 blogdown 了。显然，我选择了第二种，花了三个小时选出来两个主题。\n构建本地网站 建造新网站 然后正式的安装。\n将要存储网站资源的文件夹设置为工作路径。\n执行 blogdown::new_site ，在当前路径中建立新网站，参数是选用的 “作者/主题库名称” 。此时 Rstudio 的代理不稳定问题又炸了。因为这个函数的机制是把 GitHub 上的主题下下来，然后转换成 blogdown 可以用的材料。所以，这个过程又慢又容易报错。试了好多次才凑巧成功。 rstudio 的代理问题一日不解决，一日就是个雷啊。\n1blogdown::new_site(theme = \"主题名字，可以忽略，使用默认主题\") 如果因为网络问题装不上，就多试几次。或者在可以走代理的 R 终端中输入上面的命令。\n生成本地预览 根据主题生成好网站后，执行 blogdown::server_site 。少有的很顺畅。成功在本地预览博客。其实这里也是个坑，后面再说。\n1blogdown::server_site() 部署到网上 此时差不多三四五六点左右了，脑袋有点糊，记不清了。开始最后一步了，部署网站到网上。在这里我没有采用 yihui 大神推荐的 httfy，而是部署到到 GitHub Pages 上。主要是是数据已经托管到 GitHub 里了，不想再引入第三方服务了。\n最大的经验就是\n 网上经验贴可以参考。但操作一定要一步一步跟着官方文档走。\n 先是按照 jekyll 的经验把文件夹里的所有文件都上传了。结果没有成功。\n结合经验贴，发现 GitHub Pages 是根据仓库里的文件层级和 Html 文件生成网站的。在 Hugo 方式中，应该只上传 public/ 。但我的是只有一个 post 文件夹。带着怀疑 push 了，当然没成功。\n在 blogdown 的官方文档中发现原来是，因为少看了一句 blogdown::build_site 。\n1# 生成网站文件 2blogdown::build_site() 成功\n了解到远程库和本地文件夹可以不同名\n后话 在Felix的文章中看到采用子模块的方式，上传网站构建资源。觉得不错，有兴趣的可以去看看。\n如果是个人博客使用的话，资源库就是个备份同步的作用，它的 push 没那么重要，可以一天/周或者要换设备工作了，再 push。而博客库 push 完才能网站上更新，所以发帖就要 push。\n rstudio 的踩坑记：配置输入法、连接git/GitHub、网路代理、project 的使用。 GitHub 的使用潜力：工作台，多端同步，多人协作。 issues 做 日记  可以想象吗，这是用 GitHub 的 Andriod app 写的日记。它议题的 markdown 功能的舒适程度简直吊打一众 markdown 写作 app。私有库的议题板块用来存写日记相当棒。\n参考文献 [1] 使用Hugo和GitHub搭建博客\n[2] 用 R 语言的 blogdown+hugo+netlify+github 建博客\n[3] 用 blogdown 搭建一个静态网站兼吐槽学术出版传统\n[4] blogdown: Creating Websites with R Markdown\n[5] Up \u0026 running with blogdown in 2021\n",
+  "wordCount" : "249",
+  "inLanguage": "en",
+  "datePublished": "2021-08-03T00:00:00Z",
+  "dateModified": "2021-08-03T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ginger Yu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.jmrain.org/posts/four-pages/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Coding, Researching and Writing",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.jmrain.org/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="max-width mx-auto px3 ltr">
-  <div class="content index py4">
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-        <li><a href="/">Home</a></li>
-         
-        <li><a href="/posts">Writings</a></li>
-         
-        <li><a href="/tags">Tags</a></li>
-         
-        <li><a href="/about">About</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li>
-          <a class="icon" href=" https://www.jmrain.org/posts/two-pages/" aria-label="Previous">
-            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
-          </a>
-        </li>
-        
-        
-        <li>
-          <a class="icon" href="https://www.jmrain.org/posts/six-pages/" aria-label="Next">
-            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
-          </a>
-        </li>
-        
-        <li>
-          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
-            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
-          </a>
-        </li>
-        <li>
-          <a class="icon" href="#" aria-label="Share">
-            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
-          </a>
-        </li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      
-      <ul>
-  
-  
-    
-  
-  
-  <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f" aria-label="Facebook">
-      <i class="fab fa-facebook " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&text=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Twitter">
-      <i class="fab fa-twitter " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&title=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Linkedin">
-      <i class="fab fa-linkedin " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&is_video=false&description=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Pinterest">
-      <i class="fab fa-pinterest " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="mailto:?subject=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95&body=Check out this article: https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f" aria-label="Email">
-      <i class="fas fa-envelope " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&title=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Pocket">
-      <i class="fab fa-get-pocket " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&title=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="reddit">
-      <i class="fab fa-reddit " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&name=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95&description=%e5%bd%93%e5%89%8d%e7%9a%84%e5%87%a0%e5%a4%a7%e7%88%b1%e5%a5%bd%ef%bc%8c%e8%ae%a1%e7%ae%97%e6%9c%ba%e3%80%81%e4%ba%ba%e5%83%8f%e6%91%84%e5%bd%b1%e3%80%81%e9%98%85%e8%af%bb%e3%80%81%e5%92%8c%e8%bf%90%e5%8a%a8%e3%80%82%e7%bc%ba%e4%ba%86%e5%93%aa%e4%b8%80%e4%b8%aa%e9%83%bd%e4%b8%8d%e8%a1%8c%e3%80%82%0a%20%e5%bc%95%e8%a8%80%20%e4%bb%8a%e5%a4%a9%e5%9c%a8%e7%94%a8%20blogdown%20%e7%bb%93%e5%90%88%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e7%9a%84%e8%bf%87%e7%a8%8b%e7%9c%9f%e6%98%af%e8%b8%a9%e5%9d%91%e6%97%a0%e6%95%b0%ef%bc%9a%0a%e5%ae%89%e8%a3%85%20blogdown%20%e5%bd%93%e6%97%b6%e6%88%91%e6%98%af%e5%9c%a8%20RStudio%20%e7%9a%84%e6%8e%a7%e5%88%b6%e5%8f%b0%e4%b8%ad%e8%be%93%e5%85%a5%0a1install.packages%28blogdown%29%20%e4%bd%86%e6%98%af%e4%b8%80%e7%9b%b4%e8%a3%85%e4%b8%8d%e4%b8%8a%e3%80%82%0a%20%e5%85%88%e6%98%af%e6%97%a9%e4%b8%8a%e5%9b%a0%e4%b8%ba%e4%be%9d%e8%b5%96promises%e8%a3%85%e4%b8%8d%e4%b8%8a%e3%80%82%20blogdown%20%e8%a3%85%e4%b8%8d%e4%b8%8a%ef%bc%8c%e9%80%9a%e8%bf%87%20Arch%20Linux%20%e7%9a%84%20yay%20%e8%a7%a3%e5%86%b3%e4%ba%86%e3%80%82%20%201yay%20-S%20r-promises%20%20%e7%84%b6%e5%90%8e%e6%98%af%20RStudio%20%e4%b8%8d%e8%83%bd%e8%b5%b0%e4%bb%a3%e7%90%86%ef%bc%8c%e4%b8%8e%20blogdown%20%e5%ba%93%e5%9c%b0%e5%9d%80%e7%9a%84%e8%bf%9e%e6%8e%a5%e6%97%b6%e4%b8%8d%e6%97%b6%e6%96%ad%e7%ba%bf%e3%80%82%e6%9c%80%e5%90%8e%e5%9c%a8%e5%a4%9a%e6%ac%a1%e5%b0%9d%e8%af%95%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%ae%89%e8%a3%85%e4%b8%8a%e4%ba%86%e3%80%82%20%20%e7%8e%b0%e5%9c%a8%e5%9b%9e%e8%bf%87%e5%a4%b4%e7%9c%8b%ef%bc%8c%e6%9c%89%e5%8f%a6%e5%a4%96%e4%b8%a4%e7%a7%8d%e5%8a%9e%e6%b3%95%e5%8f%af%e4%bb%a5%e9%81%bf%e5%85%8d%e8%bf%99%e4%b8%80%e9%97%ae%e9%a2%98%e3%80%82%0a1%23%20%e4%b8%80%e6%98%af%e9%80%9a%e8%bf%87%20AUR%20%e5%ae%89%e8%a3%85%20R%20%e6%89%a9%e5%b1%95%e5%8c%85%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9d%a5%e5%ae%89%e8%a3%85%ef%bc%8c%e5%85%b6%e6%9c%89%e6%9b%b4%e5%a5%bd%e7%9a%84%e4%be%9d%e8%b5%96%e7%ae%a1%e7%90%86%ef%bc%8c%e5%b9%b6%e4%b8%94%e5%a6%82%e6%9e%9c%e8%ae%be%e7%bd%ae%e4%ba%86%e9%95%9c%e5%83%8f%e7%9a%84%e8%af%9d%ef%bc%8c%e5%b0%b1%e5%8f%af%e4%bb%a5%e9%81%bf%e5%85%8d%e4%bb%a3%e7%90%86%e7%9a%84%e9%97%ae%e9%a2%98%e3%80%82%202yay%20-S%20r-blogdown%201%23%20%e5%a6%82%e6%9e%9c%e7%bb%88%e7%ab%af%e5%8f%af%e4%bb%a5%e6%ad%a3%e5%b8%b8%e8%b5%b0%e4%bb%a3%e7%90%86%e7%9a%84%e8%af%9d%ef%bc%8c%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%e4%b8%8b%e9%9d%a2%e8%bf%99%e7%a7%8d%e6%96%b9%e5%bc%8f%202%23%20%e5%9c%a8%e5%91%bd%e4%bb%a4%e8%a1%8c%20R%20%e4%b8%ad%e8%bf%9b%e8%a1%8c%e5%ae%89%e8%a3%85%e3%80%82%e8%bf%99%e6%a0%b7%e5%8f%af%e4%bb%a5%e9%81%bf%e5%85%8d%20RStudio%20%e7%9a%84%e4%bb%a3%e7%90%86%e8%ae%be%e7%bd%ae%e9%97%ae%e9%a2%98%e3%80%82%203install.packages%28blogdown%29%20%e5%ae%89%e8%a3%85%20hugo%20%e9%87%87%e7%94%a8%20AUR%20%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95%e5%8c%85%e7%9a%84%e6%96%b9%e5%bc%8f%e7%9a%84%e5%90%8c%e5%ad%a6%e4%bc%9a%e5%8f%91%e7%8e%b0%ef%bc%8c%e8%bf%99%e4%b8%80%e6%ad%a5%e5%8f%af%e4%bb%a5%e8%b7%b3%e8%bf%87%e4%ba%86%e3%80%82%e5%9b%a0%e4%b8%ba%20AUR%20%e5%ae%89%e8%a3%85%e4%be%9d%e8%b5%96%e6%97%b6%ef%bc%8c%e5%b7%b2%e7%bb%8f%e5%ae%89%e8%a3%85%e5%a5%bd%20Hugo%20%e4%ba%86%e3%80%82%0a%e9%87%87%e7%94%a8%20R%20%e6%88%96%20RStudio%20%e5%ae%89%e8%a3%85%e7%9a%84%e5%90%8c%e5%ad%a6%e9%9c%80%e8%a6%81%e8%b7%9f%e7%9d%80%e8%bf%9b%e8%a1%8c%e6%93%8d%e4%bd%9c%ef%bc%8c%e5%ae%89%e8%a3%85%20Hugo%e3%80%82" aria-label="Tumblr">
-      <i class="fab fa-tumblr " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&t=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Hacker News">
-      <i class="fab fa-hacker-news " aria-hidden="true"></i>
-    </a>
-  </li>
-</ul>
+</script>
 
-    </div>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.jmrain.org" accesskey="h" title="Coding, Researching and Writing (Alt + H)">Coding, Researching and Writing</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.jmrain.org/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jmrain.org/posts" title="Writings">
+                    <span>Writings</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jmrain.org/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jmrain.org/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <div id="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#引言">引言</a></li>
-        <li><a href="#安装-blogdown">安装 blogdown</a></li>
-        <li><a href="#安装-hugo">安装 hugo</a></li>
-        <li><a href="#选择主题">选择主题</a></li>
-        <li><a href="#构建本地网站">构建本地网站</a>
-          <ul>
-            <li><a href="#建造新网站">建造新网站</a></li>
-            <li><a href="#生成本地预览">生成本地预览</a></li>
-            <li><a href="#部署到网上">部署到网上</a></li>
-          </ul>
-        </li>
-        <li><a href="#后话">后话</a></li>
-        <li><a href="#参考文献">参考文献</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-    
-  </span>
+    <h1 class="post-title">
+      采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录
+    </h1>
+    <div class="post-meta"><span title='2021-08-03 00:00:00 +0000 UTC'>2021-08-03</span>&nbsp;·&nbsp;Ginger Yu
+
 </div>
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <header>
-      <h1 class="posttitle" itemprop="name headline">
-        采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录
-      </h1>
-      <div class="meta">
-        
-        <div class="postdate">
-          
-          <time datetime="2021-08-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-08-03</time>
-          
-        </div>
-        
-        
-        
-        <div class="article-category">
-            <i class="fas fa-archive"></i>
-            
-            
-            <a class="category-link" href="/categories/research">Research</a>
-            
-        </div>
-        
-        
-        <div class="article-tag">
-            <i class="fas fa-tag"></i>
-            
-            
-            <a class="tag-link" href="/tags/blogdown" rel="tag">Blogdown</a>
-            
-             ,  
-            <a class="tag-link" href="/tags/git" rel="tag">Git</a>
-            
-             ,  
-            <a class="tag-link" href="/tags/github-pages" rel="tag">GitHub Pages</a>
-            
-             ,  
-            <a class="tag-link" href="/tags/r-markdown" rel="tag">R Markdown</a>
-            
-        </div>
-        
-      </div>
-    </header>
-
-  
-    
-    <div class="content" itemprop="articleBody">
-      <blockquote>
+  </header> 
+  <div class="post-content"><blockquote>
 <p>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。</p>
 </blockquote>
-<h2 id="引言">引言</h2>
+<h2 id="引言">引言<a hidden class="anchor" aria-hidden="true" href="#引言">#</a></h2>
 <p>今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：</p>
-<h2 id="安装-blogdown">安装 blogdown</h2>
+<h2 id="安装-blogdown">安装 blogdown<a hidden class="anchor" aria-hidden="true" href="#安装-blogdown">#</a></h2>
 <p>当时我是在 RStudio 的控制台中输入</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#50fa7b">install.packages</span>(blogdown)
 </code></pre></div><p>但是一直装不上。</p>
@@ -284,7 +250,7 @@ if (!doNotTrack) {
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4"># 如果终端可以正常走代理的话，可以通过下面这种方式</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"># 在命令行 R 中进行安装。这样可以避免 RStudio 的代理设置问题。</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#50fa7b">install.packages</span>(blogdown)
-</code></pre></div><h2 id="安装-hugo">安装 hugo</h2>
+</code></pre></div><h2 id="安装-hugo">安装 hugo<a hidden class="anchor" aria-hidden="true" href="#安装-hugo">#</a></h2>
 <p>采用 AUR 安装扩展包的方式的同学会发现，这一步可以跳过了。因为 AUR 安装依赖时，已经安装好 Hugo 了。</p>
 <p>采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>blogdown<span style="color:#ff79c6">::</span><span style="color:#50fa7b">install_hugo</span>()
@@ -299,20 +265,20 @@ if (!doNotTrack) {
 </code></pre></div><ul>
 <li>刚解决，立马又遇到因为 Rstudio 不能走部分代理， <code>blogdown::install_hugo</code> 装不了 Hugo。<code>yay</code> 安装的版本又不匹配。不信邪地死磕 Rstudio 的代理了。结果发现设置成全局代理可行又相对简单。上次死磕 Rstudio 是昨天的 fcitx5 不能在里面输入中文，死磕好久，最后认怂改用 ibus 。当然，这里即使改成全局代理也不好用，还是认怂，采用了本地安装的方式。</li>
 </ul>
-<h2 id="选择主题">选择主题</h2>
+<h2 id="选择主题">选择主题<a hidden class="anchor" aria-hidden="true" href="#选择主题">#</a></h2>
 <p>然后进入了耗时三小时的选主题环节。因为被<a href="https://afra.com">afra</a> 博客上的 chic 主题的简洁美丽惊艳到了。但这个 hexo 主题没有 Hugo 移植。导致我一边在“转攻使用 hexo 直接用 chic” 还是 “ 采用 blogdown （其默认以Hugo为核心）找个相似主题”中进行抉择。当时我是知道 blogdown 可以用 hexo 做引擎，但是稀缺的认知资源已经不能支撑我才去学习怎么使用 hexo 驱动 blogdown 了。显然，我选择了第二种，花了三个小时选出来两个主题。</p>
 <!-- raw HTML omitted -->
-<h2 id="构建本地网站">构建本地网站</h2>
-<h3 id="建造新网站">建造新网站</h3>
+<h2 id="构建本地网站">构建本地网站<a hidden class="anchor" aria-hidden="true" href="#构建本地网站">#</a></h2>
+<h3 id="建造新网站">建造新网站<a hidden class="anchor" aria-hidden="true" href="#建造新网站">#</a></h3>
 <p>然后正式的安装。</p>
 <p>将要存储网站资源的文件夹设置为工作路径。</p>
 <p>执行 <code>blogdown::new_site</code> ，在当前路径中建立新网站，参数是选用的 “作者/主题库名称” 。此时 Rstudio 的代理不稳定问题又炸了。因为这个函数的机制是把 <a href="http://github.com">GitHub</a> 上的主题下下来，然后转换成 blogdown 可以用的材料。所以，这个过程又慢又容易报错。试了好多次才凑巧成功。 rstudio 的代理问题一日不解决，一日就是个雷啊。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>blogdown<span style="color:#ff79c6">::</span><span style="color:#50fa7b">new_site</span>(theme <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;主题名字，可以忽略，使用默认主题&#34;</span>)
 </code></pre></div><p>如果因为网络问题装不上，就多试几次。或者在可以走代理的 R 终端中输入上面的命令。</p>
-<h3 id="生成本地预览">生成本地预览</h3>
+<h3 id="生成本地预览">生成本地预览<a hidden class="anchor" aria-hidden="true" href="#生成本地预览">#</a></h3>
 <p>根据主题生成好网站后，执行 <code>blogdown::server_site</code> 。少有的很顺畅。成功在本地预览博客。<em>其实这里也是个坑，后面再说。</em></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>blogdown<span style="color:#ff79c6">::</span><span style="color:#50fa7b">server_site</span>()
-</code></pre></div><h3 id="部署到网上">部署到网上</h3>
+</code></pre></div><h3 id="部署到网上">部署到网上<a hidden class="anchor" aria-hidden="true" href="#部署到网上">#</a></h3>
 <p>此时差不多<del>三四五六</del>点左右了，脑袋有点糊，记不清了。开始最后一步了，部署网站到网上。在这里我没有采用 yihui 大神推荐的 httfy，而是部署到到 GitHub Pages 上。主要是是数据已经托管到 GitHub 里了，不想再引入第三方服务了。</p>
 <p>最大的经验就是</p>
 <blockquote>
@@ -325,7 +291,7 @@ if (!doNotTrack) {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>blogdown<span style="color:#ff79c6">::</span><span style="color:#50fa7b">build_site</span>()
 </code></pre></div><p>成功</p>
 <p><strong>了解到远程库和本地文件夹可以不同名</strong></p>
-<h2 id="后话">后话</h2>
+<h2 id="后话">后话<a hidden class="anchor" aria-hidden="true" href="#后话">#</a></h2>
 <p>在<a href="https://zhangfelix.medium.com/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-cbd1d57fcfbf">Felix的文章中</a>看到采用子模块的方式，上传网站构建资源。觉得不错，有兴趣的可以去看看。</p>
 <p>如果是个人博客使用的话，资源库就是个备份同步的作用，它的 push 没那么重要，可以一天/周或者要换设备工作了，再 push。而博客库 push 完才能网站上更新，所以发帖就要 push。</p>
 <ul>
@@ -334,181 +300,95 @@ if (!doNotTrack) {
 <li>issues 做 日记</li>
 </ul>
 <p>可以想象吗，这是用 GitHub 的 Andriod app 写的日记。它<code>议题</code>的 markdown 功能的舒适程度简直吊打一众 markdown 写作 app。私有库的议题板块用来存写日记相当棒。</p>
-<h2 id="参考文献">参考文献</h2>
+<h2 id="参考文献">参考文献<a hidden class="anchor" aria-hidden="true" href="#参考文献">#</a></h2>
 <p><a href="https://zhangfelix.medium.com/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-cbd1d57fcfbf">[1] 使用Hugo和GitHub搭建博客</a></p>
 <p><a href="https://cosx.org/2018/01/build-blog-with-blogdown-hugo-netlify-github/">[2] 用 R 语言的 blogdown+hugo+netlify+github 建博客</a></p>
 <p><a href="https://slides.yihui.org/2017-blogdown-CGM-Yihui-Xie.html#7">[3] 用 blogdown 搭建一个静态网站兼吐槽学术出版传统</a></p>
 <p><a href="https://bookdown.org/yihui/blogdown/">[4] blogdown: Creating Websites with R Markdown</a></p>
 <p><a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">[5] Up &amp; running with blogdown in 2021</a></p>
 
-    </div>
-  </article>
-
-  
-<div class="post-comments pa0 pa4-l mt4">
-  
-  <script src="https://utteranc.es/client.js"
-          repo="gooycity/gooycity.github.io"
-          issue-term="title"
-          theme="github-light"
-          label="comments :crystal_ball:"
-          crossorigin="anonymous"
-          async
-          type="text/javascript">
-  </script>
-  
-</div>
-
-
-
-  <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/posts">Writings</a></li>
-         
-          <li><a href="/tags">Tags</a></li>
-         
-          <li><a href="/about">About</a></li>
-        
-      </ul>
-    </div>
-
-    
-    <div id="toc-footer" style="display: none">
-      <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#引言">引言</a></li>
-        <li><a href="#安装-blogdown">安装 blogdown</a></li>
-        <li><a href="#安装-hugo">安装 hugo</a></li>
-        <li><a href="#选择主题">选择主题</a></li>
-        <li><a href="#构建本地网站">构建本地网站</a>
-          <ul>
-            <li><a href="#建造新网站">建造新网站</a></li>
-            <li><a href="#生成本地预览">生成本地预览</a></li>
-            <li><a href="#部署到网上">部署到网上</a></li>
-          </ul>
-        </li>
-        <li><a href="#后话">后话</a></li>
-        <li><a href="#参考文献">参考文献</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <div id="share-footer" style="display: none">
-      
-      <ul>
-  
-  
-    
-  
-  
-  <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f" aria-label="Facebook">
-      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&text=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Twitter">
-      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&title=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Linkedin">
-      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&is_video=false&description=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Pinterest">
-      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="mailto:?subject=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95&body=Check out this article: https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f" aria-label="Email">
-      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&title=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Pocket">
-      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&title=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="reddit">
-      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&name=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95&description=%e5%bd%93%e5%89%8d%e7%9a%84%e5%87%a0%e5%a4%a7%e7%88%b1%e5%a5%bd%ef%bc%8c%e8%ae%a1%e7%ae%97%e6%9c%ba%e3%80%81%e4%ba%ba%e5%83%8f%e6%91%84%e5%bd%b1%e3%80%81%e9%98%85%e8%af%bb%e3%80%81%e5%92%8c%e8%bf%90%e5%8a%a8%e3%80%82%e7%bc%ba%e4%ba%86%e5%93%aa%e4%b8%80%e4%b8%aa%e9%83%bd%e4%b8%8d%e8%a1%8c%e3%80%82%0a%20%e5%bc%95%e8%a8%80%20%e4%bb%8a%e5%a4%a9%e5%9c%a8%e7%94%a8%20blogdown%20%e7%bb%93%e5%90%88%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e7%9a%84%e8%bf%87%e7%a8%8b%e7%9c%9f%e6%98%af%e8%b8%a9%e5%9d%91%e6%97%a0%e6%95%b0%ef%bc%9a%0a%e5%ae%89%e8%a3%85%20blogdown%20%e5%bd%93%e6%97%b6%e6%88%91%e6%98%af%e5%9c%a8%20RStudio%20%e7%9a%84%e6%8e%a7%e5%88%b6%e5%8f%b0%e4%b8%ad%e8%be%93%e5%85%a5%0a1install.packages%28blogdown%29%20%e4%bd%86%e6%98%af%e4%b8%80%e7%9b%b4%e8%a3%85%e4%b8%8d%e4%b8%8a%e3%80%82%0a%20%e5%85%88%e6%98%af%e6%97%a9%e4%b8%8a%e5%9b%a0%e4%b8%ba%e4%be%9d%e8%b5%96promises%e8%a3%85%e4%b8%8d%e4%b8%8a%e3%80%82%20blogdown%20%e8%a3%85%e4%b8%8d%e4%b8%8a%ef%bc%8c%e9%80%9a%e8%bf%87%20Arch%20Linux%20%e7%9a%84%20yay%20%e8%a7%a3%e5%86%b3%e4%ba%86%e3%80%82%20%201yay%20-S%20r-promises%20%20%e7%84%b6%e5%90%8e%e6%98%af%20RStudio%20%e4%b8%8d%e8%83%bd%e8%b5%b0%e4%bb%a3%e7%90%86%ef%bc%8c%e4%b8%8e%20blogdown%20%e5%ba%93%e5%9c%b0%e5%9d%80%e7%9a%84%e8%bf%9e%e6%8e%a5%e6%97%b6%e4%b8%8d%e6%97%b6%e6%96%ad%e7%ba%bf%e3%80%82%e6%9c%80%e5%90%8e%e5%9c%a8%e5%a4%9a%e6%ac%a1%e5%b0%9d%e8%af%95%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%ae%89%e8%a3%85%e4%b8%8a%e4%ba%86%e3%80%82%20%20%e7%8e%b0%e5%9c%a8%e5%9b%9e%e8%bf%87%e5%a4%b4%e7%9c%8b%ef%bc%8c%e6%9c%89%e5%8f%a6%e5%a4%96%e4%b8%a4%e7%a7%8d%e5%8a%9e%e6%b3%95%e5%8f%af%e4%bb%a5%e9%81%bf%e5%85%8d%e8%bf%99%e4%b8%80%e9%97%ae%e9%a2%98%e3%80%82%0a1%23%20%e4%b8%80%e6%98%af%e9%80%9a%e8%bf%87%20AUR%20%e5%ae%89%e8%a3%85%20R%20%e6%89%a9%e5%b1%95%e5%8c%85%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9d%a5%e5%ae%89%e8%a3%85%ef%bc%8c%e5%85%b6%e6%9c%89%e6%9b%b4%e5%a5%bd%e7%9a%84%e4%be%9d%e8%b5%96%e7%ae%a1%e7%90%86%ef%bc%8c%e5%b9%b6%e4%b8%94%e5%a6%82%e6%9e%9c%e8%ae%be%e7%bd%ae%e4%ba%86%e9%95%9c%e5%83%8f%e7%9a%84%e8%af%9d%ef%bc%8c%e5%b0%b1%e5%8f%af%e4%bb%a5%e9%81%bf%e5%85%8d%e4%bb%a3%e7%90%86%e7%9a%84%e9%97%ae%e9%a2%98%e3%80%82%202yay%20-S%20r-blogdown%201%23%20%e5%a6%82%e6%9e%9c%e7%bb%88%e7%ab%af%e5%8f%af%e4%bb%a5%e6%ad%a3%e5%b8%b8%e8%b5%b0%e4%bb%a3%e7%90%86%e7%9a%84%e8%af%9d%ef%bc%8c%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%e4%b8%8b%e9%9d%a2%e8%bf%99%e7%a7%8d%e6%96%b9%e5%bc%8f%202%23%20%e5%9c%a8%e5%91%bd%e4%bb%a4%e8%a1%8c%20R%20%e4%b8%ad%e8%bf%9b%e8%a1%8c%e5%ae%89%e8%a3%85%e3%80%82%e8%bf%99%e6%a0%b7%e5%8f%af%e4%bb%a5%e9%81%bf%e5%85%8d%20RStudio%20%e7%9a%84%e4%bb%a3%e7%90%86%e8%ae%be%e7%bd%ae%e9%97%ae%e9%a2%98%e3%80%82%203install.packages%28blogdown%29%20%e5%ae%89%e8%a3%85%20hugo%20%e9%87%87%e7%94%a8%20AUR%20%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95%e5%8c%85%e7%9a%84%e6%96%b9%e5%bc%8f%e7%9a%84%e5%90%8c%e5%ad%a6%e4%bc%9a%e5%8f%91%e7%8e%b0%ef%bc%8c%e8%bf%99%e4%b8%80%e6%ad%a5%e5%8f%af%e4%bb%a5%e8%b7%b3%e8%bf%87%e4%ba%86%e3%80%82%e5%9b%a0%e4%b8%ba%20AUR%20%e5%ae%89%e8%a3%85%e4%be%9d%e8%b5%96%e6%97%b6%ef%bc%8c%e5%b7%b2%e7%bb%8f%e5%ae%89%e8%a3%85%e5%a5%bd%20Hugo%20%e4%ba%86%e3%80%82%0a%e9%87%87%e7%94%a8%20R%20%e6%88%96%20RStudio%20%e5%ae%89%e8%a3%85%e7%9a%84%e5%90%8c%e5%ad%a6%e9%9c%80%e8%a6%81%e8%b7%9f%e7%9d%80%e8%bf%9b%e8%a1%8c%e6%93%8d%e4%bd%9c%ef%bc%8c%e5%ae%89%e8%a3%85%20Hugo%e3%80%82" aria-label="Tumblr">
-      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fwww.jmrain.org%2fposts%2ffour-pages%2f&t=%e9%87%87%e7%94%a8%20R%20%e5%8c%85%20blogdown%20%e5%92%8c%20GitHub%20Pages%20%e6%90%ad%e5%bb%ba%e5%8d%9a%e5%ae%a2%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="Hacker News">
-      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-      
-        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
-          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        
-        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
-          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        
-        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
-          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
-          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
-    </div>
 
   </div>
-</div>
 
-
-  <footer id="footer">
-  <div class="footer-left">
-    Copyright  &copy; 2022  Yu 
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-        <li><a href="/">Home</a></li>
-         
-        <li><a href="/posts">Writings</a></li>
-         
-        <li><a href="/tags">Tags</a></li>
-         
-        <li><a href="/about">About</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.jmrain.org/tags/blogdown/">Blogdown</a></li>
+      <li><a href="https://www.jmrain.org/tags/git/">Git</a></li>
+      <li><a href="https://www.jmrain.org/tags/github-pages/">GitHub Pages</a></li>
+      <li><a href="https://www.jmrain.org/tags/r-markdown/">R Markdown</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>Yu</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-  </div>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
-
-<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
-<script src=/lib/jquery/jquery.min.js></script>
-<script src=/js/main.js></script>
-<script src=/js/code-copy.js></script>
-
-
 
 </html>
