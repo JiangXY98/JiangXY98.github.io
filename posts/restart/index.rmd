@@ -1,5 +1,5 @@
 ---
-title: "我的 Arch Linux 计算机"
+title: "My Arch Linux PC"
 author: Ginger Yu
 date: '2021-08-23'
 slug: restart

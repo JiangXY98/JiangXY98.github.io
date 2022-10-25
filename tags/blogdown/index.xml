@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogdown on My Blog Site</title>
-    <link>http://JiangXY98.github.io/tags/blogdown/</link>
+    <link>https://jiangxy98.github.io/tags/blogdown/</link>
     <description>Recent content in Blogdown on My Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://JiangXY98.github.io/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录</title>
-      <link>http://JiangXY98.github.io/posts/four-pages/</link>
+      <title>There were missing in making blog site by using blogdown</title>
+      <link>https://jiangxy98.github.io/posts/four-pages/</link>
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/four-pages/</guid>
+      <guid>https://jiangxy98.github.io/posts/four-pages/</guid>
       <description>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
 引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
 安装 blogdown 当时我是在 RStudio 的控制台中输入

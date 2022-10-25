@@ -1,11 +1,11 @@
 ---
-title: "成都熊猫\U0001F43C基地之行"
+title: "To travel the Panda Zoo"
 author: Ginger Yu
 date: '2021-08-20'
 slug: cdpanda
-categories: 
+categories:
     - Life
-tags: 
+tags:
     - 旅行
     - 动物
 ---

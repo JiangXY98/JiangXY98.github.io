@@ -1,9 +1,9 @@
 ---
-title: Psychtoolbox3 学习感悟
+title: Views about learning Psychtoolbox3
 author: Ginger Yu
 date: '2021-09-05'
 slug: ptbstudy
-categories: 
+categories:
     - Research
 tags:
     - Psychtoolbox-3

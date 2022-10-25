@@ -2,26 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on My Blog Site</title>
-    <link>http://JiangXY98.github.io/tags/r/</link>
+    <link>https://jiangxy98.github.io/tags/r/</link>
     <description>Recent content in R on My Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://JiangXY98.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>配置 VS Code 的参数设置</title>
-      <link>http://JiangXY98.github.io/posts/sevenpages/</link>
-      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://JiangXY98.github.io/posts/sevenpages/</guid>
-      <description>🙂 🌸</description>
-    </item>
-    
-    <item>
-      <title>配置 VS Code 为 R 编辑器</title>
-      <link>http://JiangXY98.github.io/posts/six-pages/</link>
+      <title>Make VS Code to be a R IDE</title>
+      <link>https://jiangxy98.github.io/posts/six-pages/</link>
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/six-pages/</guid>
+      <guid>https://jiangxy98.github.io/posts/six-pages/</guid>
       <description>集成开发环境的本质就是一个可执行命令的控制台和可编辑脚本的编辑器。
 Table of Contents 引言 材料和方法 准备 流程 结果 总结 引言 昨晚，忽然 RStudio 又不能输入中文了。即使用的是网上的解决办法 ── ibus。（现在 Archlinux Wiki 里已经有了标准的稳定的解决办法了）1 。我目前用 R 主要是用 Rmarkdown 编辑文档。这个问题出现，显然是致命一击。之前就被它不稳定的外网连接折磨，可以忍受，不能使用中文输入显然是不能接受的。
 我的 R 使用路线是，一窍不通，跟着以前认为 RStudio 是 R 唯一的 IDE。后来想通了，R 生态是基于 R-core 的一系列包的合集，即使是 RStudio 也是一组包的合集。

@@ -1,13 +1,12 @@
 ---
-title: 八月总结及未来工作基调
-subtitle: August summary and future work tone.
+title: August summary and future work tone
 author: Ginger Yu
 date: '2021-09-01'
 slug: august
-categories: 
+categories:
     - life
     - Research
-tags: 
+tags:
     - 深度工作
     - 奖励
 draft: no

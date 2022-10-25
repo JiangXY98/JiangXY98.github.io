@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Two Choic Oddball on My Blog Site</title>
-    <link>http://JiangXY98.github.io/tags/two-choic-oddball/</link>
+    <link>https://jiangxy98.github.io/tags/two-choic-oddball/</link>
     <description>Recent content in Two Choic Oddball on My Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://JiangXY98.github.io/tags/two-choic-oddball/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/two-choic-oddball/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>双选择 oddball 任务数据分析：基于 R</title>
-      <link>http://JiangXY98.github.io/posts/daoddball/</link>
+      <link>https://jiangxy98.github.io/posts/daoddball/</link>
       <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/daoddball/</guid>
+      <guid>https://jiangxy98.github.io/posts/daoddball/</guid>
       <description>不打无准备的仗
 引言因为疫情原因，没有收集数据。但是研究的进度不能耽误。就想到利用预实验的数据提前写好数据分析程序。
 这样做有以下几点合理性：

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GitHub Pages on My Blog Site</title>
-    <link>http://JiangXY98.github.io/tags/github-pages/</link>
+    <link>https://jiangxy98.github.io/tags/github-pages/</link>
     <description>Recent content in GitHub Pages on My Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://JiangXY98.github.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录</title>
-      <link>http://JiangXY98.github.io/posts/four-pages/</link>
+      <title>There were missing in making blog site by using blogdown</title>
+      <link>https://jiangxy98.github.io/posts/four-pages/</link>
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/four-pages/</guid>
+      <guid>https://jiangxy98.github.io/posts/four-pages/</guid>
       <description>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
 引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
 安装 blogdown 当时我是在 RStudio 的控制台中输入
@@ -24,11 +24,11 @@ blogdown::install_hugo() 这个安装会连接到 yihui 的网站，但是因为
     </item>
     
     <item>
-      <title>配置 Atom 以维护 GitHub Pages</title>
-      <link>http://JiangXY98.github.io/posts/two-pages/</link>
+      <title>Setting Atom for GitHub Pages</title>
+      <link>https://jiangxy98.github.io/posts/two-pages/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/two-pages/</guid>
+      <guid>https://jiangxy98.github.io/posts/two-pages/</guid>
       <description>相比在一个大而全的基础上删减，我更喜欢这种在一个核心上加自己喜欢的东西。这是我喜欢 Arch Linux 的原因，显然，在搭建博客上也是如此。
 学习如雪中前行，踩着前人留下的脚印，会让我们更加轻松和快速的到达目的地。
 引言 在上篇文章中最后，提到使用 Atom 进行网站的日常维护。
@@ -42,11 +42,11 @@ markdown 的语法高亮、语法检查、实时预览（渲染）等功能； �
     </item>
     
     <item>
-      <title>使用 GitHub pages 和 Jekll 搭建博客</title>
-      <link>http://JiangXY98.github.io/posts/firspages/</link>
+      <title>Make a blog site by using GitHub pages and Jekll</title>
+      <link>https://jiangxy98.github.io/posts/firspages/</link>
       <pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/firspages/</guid>
+      <guid>https://jiangxy98.github.io/posts/firspages/</guid>
       <description>念头一起，就无法消失了，除了去做。
 引言 这已经不是我第一次搭建博客了。
 去年疫情搭建梯子时，根据网上的教程，用租用的 VPS 和腾讯新人购买的域名搭建过一个博客网站。因为时间久远，甚至连采用的什么框架都忘了。

@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on My Blog Site</title>
-    <link>http://JiangXY98.github.io/posts/</link>
+    <link>https://jiangxy98.github.io/posts/</link>
     <description>Recent content in Posts on My Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://JiangXY98.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>30天雅思口语提升计划</title>
-      <link>http://JiangXY98.github.io/posts/ielts/</link>
+      <title>The plan to improve my English</title>
+      <link>https://jiangxy98.github.io/posts/ielts/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/ielts/</guid>
+      <guid>https://jiangxy98.github.io/posts/ielts/</guid>
       <description>这篇文章是我在网上搜集整理，自用。为了自己在30天内达到与外国人流畅交流的目的。具体目标是，雅思口语模拟考试6.5。
 首先规定学习英语的时间，工作日期间，上午9点前至少有1个半小时，中午1点前有半个小时可以背单词，下午7点前，</description>
     </item>
     
     <item>
-      <title>Psychtoolbox3 学习感悟</title>
-      <link>http://JiangXY98.github.io/posts/ptbstudy/</link>
+      <title>Views about learning Psychtoolbox3</title>
+      <link>https://jiangxy98.github.io/posts/ptbstudy/</link>
       <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/ptbstudy/</guid>
+      <guid>https://jiangxy98.github.io/posts/ptbstudy/</guid>
       <description>没有什么鸡血要干，没有那么多时间躺平。有的只是做好想做的事情。
 8月31日，开始看两本 PTB 教材：《心理学研究方法-基于 MATLAB 和 Psychtoolbox》和《Psychtoolbox 工具箱及 MATLAB 编程实例》。这也是国内仅有的两本中文PTB教材。由此也可见 PTB 是个小众心理实验编程工具，并且正🈶被Psychopy （源自同一团队）取而代之的趋势。
 但，并不是说现在学 PTB 就是49年投国军了。首先，PTB的功能更全面灵活，其次，无论是上个月写程序，还是这几天系统学习，都感觉到 PTB 语法的友善。其三，PTB3拥有多年的发展史，对于很多功能的实现，网上都有现成的脚本，稍微修改就能用到自己的实验中。至于性能上的差别，因为我不是程序员，所以还没对三者进行过比较（PTB、Psychopy、E-prime）。
@@ -35,11 +35,11 @@
     </item>
     
     <item>
-      <title>八月总结及未来工作基调</title>
-      <link>http://JiangXY98.github.io/posts/august/</link>
+      <title>August summary and future work tone</title>
+      <link>https://jiangxy98.github.io/posts/august/</link>
       <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/august/</guid>
+      <guid>https://jiangxy98.github.io/posts/august/</guid>
       <description>极大的失望啊，自从上次说过每周三进行一次详细回顾。就再也没打开过日记本了。
 过去一个月，魔幻般的生活。
 然后，花了一点时间，把博客搭建起来了。这次是带有目的的，其中一个就是作为自我展示的地方。为以后读博或出去交流提供一个别人了解自己的窗口。
@@ -57,36 +57,11 @@
     </item>
     
     <item>
-      <title>双选择 oddball 任务数据分析：基于 R</title>
-      <link>http://JiangXY98.github.io/posts/daoddball/</link>
-      <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://JiangXY98.github.io/posts/daoddball/</guid>
-      <description>不打无准备的仗
-引言因为疫情原因，没有收集数据。但是研究的进度不能耽误。就想到利用预实验的数据提前写好数据分析程序。
-这样做有以下几点合理性：
-R 数据分析是代码形式的分析，可重复利用；预实验数据在内容和排列方式上与正式实验一致，写好后，可以直接用在正式实验数据上；有以下几点优势：
-根据数据分析情况，可适时调整实验程序收集的数据格式和项目；可编辑；收数据时，可以立马导入，查看结果；响应速度快；可以此判断变量的数量和内容，即收集哪些变量。因此，准备花两天时间把代码写出来，并在博客中记录经验。
-材料被试间平衡反应方式与刺激类型的对应关系；
-反应时代价和准确率代价为分析指标，代价越小，行为抑制控制能力越强。
-2 × 2 区组实验设计（被试内）
-组间变量是Type，组内变量是SessionNumber。前者指被试分组，后者指前后测。
-采用重复测量方差分析，检验前后测差异，以及两组被试间的差异。
-重复测量方差分析的基本假设是正态性和方差齐性，需要在方差分析前进行检验。
-加载包library(tidyverse)导入数据按照被试编号（主）、实验序号（次）、试次（再次）进行排序
-oddballfiles &amp;lt;- list.files(path = &amp;quot;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/TwoChoice_oddball_Data/&amp;quot;, pattern = &amp;quot;.csv&amp;quot;, full.names = TRUE)data_oddball &amp;lt;- map_df(oddballfiles, read_csv)被试类型应该单独一个文件，几个任务数据共用
-participant_type &amp;lt;- read_csv(&amp;quot;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/ParticipantType/ParticipantType.csv&amp;quot;)预处理提取正式实验数据
-oddball_filted &amp;lt;- data_oddball %&amp;gt;% filter(is.na(PracticeNum) == TRUE)剔除反应时低于 300 ms 的试次
-oddball_filted &amp;lt;- oddball_filted %&amp;gt;% filter(RT &amp;gt; 0.300)剔除反应时大于 3000 的试次
-oddball_filted &amp;lt;- oddball_filted %&amp;gt;% filter(RT &amp;lt; 3.</description>
-    </item>
-    
-    <item>
-      <title>我的 Arch Linux 计算机</title>
-      <link>http://JiangXY98.github.io/posts/restart/</link>
+      <title>My Arch Linux PC</title>
+      <link>https://jiangxy98.github.io/posts/restart/</link>
       <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/restart/</guid>
+      <guid>https://jiangxy98.github.io/posts/restart/</guid>
       <description>引言搬家了，不想再每天来回背笔记本电脑💻，就花了两天时间把实验室的电脑也装上 Arch Linux 了，并且配置好工作环境。
 这已经不是第一次尝试在实验室电脑上安装 Linux，以前尝试过 ubuntu linxu，因为不能清空 C 盘，也不能经过那么多次安装之后，现在愈发熟练，对 Linux 的运行机制也更加清楚了。比如，这次安装就有一个特点，在两块硬盘上安装 Arch Linux，根目录挂载到固态硬盘，/home 挂在机械硬盘上。并且是 Arch Linux + Win10 的双系统。。
 材料和方法软件清单
@@ -94,11 +69,11 @@ rp-pppoe # 拨号软件fcitx5 # 输入法zotero # 文献管理软件vscode # 
     </item>
     
     <item>
-      <title>成都熊猫🐼基地之行</title>
-      <link>http://JiangXY98.github.io/posts/cdpanda/</link>
+      <title>To travel the Panda Zoo</title>
+      <link>https://jiangxy98.github.io/posts/cdpanda/</link>
       <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/cdpanda/</guid>
+      <guid>https://jiangxy98.github.io/posts/cdpanda/</guid>
       <description>9：20出发，进入阳光甚好，美滋滋~
 MVIMG_20210820_092148.jpg
 坐在公交车🚌上，看着内外的美女们，这才是生活该有的样子啊。
@@ -132,20 +107,11 @@ FIMO_1629442172893
     </item>
     
     <item>
-      <title>配置 VS Code 的参数设置</title>
-      <link>http://JiangXY98.github.io/posts/sevenpages/</link>
-      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://JiangXY98.github.io/posts/sevenpages/</guid>
-      <description>🙂 🌸</description>
-    </item>
-    
-    <item>
-      <title>配置 VS Code 为 R 编辑器</title>
-      <link>http://JiangXY98.github.io/posts/six-pages/</link>
+      <title>Make VS Code to be a R IDE</title>
+      <link>https://jiangxy98.github.io/posts/six-pages/</link>
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/six-pages/</guid>
+      <guid>https://jiangxy98.github.io/posts/six-pages/</guid>
       <description>集成开发环境的本质就是一个可执行命令的控制台和可编辑脚本的编辑器。
 Table of Contents 引言 材料和方法 准备 流程 结果 总结 引言 昨晚，忽然 RStudio 又不能输入中文了。即使用的是网上的解决办法 ── ibus。（现在 Archlinux Wiki 里已经有了标准的稳定的解决办法了）1 。我目前用 R 主要是用 Rmarkdown 编辑文档。这个问题出现，显然是致命一击。之前就被它不稳定的外网连接折磨，可以忍受，不能使用中文输入显然是不能接受的。
 我的 R 使用路线是，一窍不通，跟着以前认为 RStudio 是 R 唯一的 IDE。后来想通了，R 生态是基于 R-core 的一系列包的合集，即使是 RStudio 也是一组包的合集。
@@ -156,11 +122,11 @@ RStudio 中无法调出输入法&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
     </item>
     
     <item>
-      <title>采用 R 包 blogdown 和 GitHub Pages 搭建博客踩坑实录</title>
-      <link>http://JiangXY98.github.io/posts/four-pages/</link>
+      <title>There were missing in making blog site by using blogdown</title>
+      <link>https://jiangxy98.github.io/posts/four-pages/</link>
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/four-pages/</guid>
+      <guid>https://jiangxy98.github.io/posts/four-pages/</guid>
       <description>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
 引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
 安装 blogdown 当时我是在 RStudio 的控制台中输入
@@ -172,11 +138,11 @@ blogdown::install_hugo() 这个安装会连接到 yihui 的网站，但是因为
     </item>
     
     <item>
-      <title>配置 Atom 以维护 GitHub Pages</title>
-      <link>http://JiangXY98.github.io/posts/two-pages/</link>
+      <title>Setting Atom for GitHub Pages</title>
+      <link>https://jiangxy98.github.io/posts/two-pages/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/two-pages/</guid>
+      <guid>https://jiangxy98.github.io/posts/two-pages/</guid>
       <description>相比在一个大而全的基础上删减，我更喜欢这种在一个核心上加自己喜欢的东西。这是我喜欢 Arch Linux 的原因，显然，在搭建博客上也是如此。
 学习如雪中前行，踩着前人留下的脚印，会让我们更加轻松和快速的到达目的地。
 引言 在上篇文章中最后，提到使用 Atom 进行网站的日常维护。
@@ -190,11 +156,11 @@ markdown 的语法高亮、语法检查、实时预览（渲染）等功能； �
     </item>
     
     <item>
-      <title>使用 GitHub pages 和 Jekll 搭建博客</title>
-      <link>http://JiangXY98.github.io/posts/firspages/</link>
+      <title>Make a blog site by using GitHub pages and Jekll</title>
+      <link>https://jiangxy98.github.io/posts/firspages/</link>
       <pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/firspages/</guid>
+      <guid>https://jiangxy98.github.io/posts/firspages/</guid>
       <description>念头一起，就无法消失了，除了去做。
 引言 这已经不是我第一次搭建博客了。
 去年疫情搭建梯子时，根据网上的教程，用租用的 VPS 和腾讯新人购买的域名搭建过一个博客网站。因为时间久远，甚至连采用的什么框架都忘了。

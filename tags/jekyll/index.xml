@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jekyll on My Blog Site</title>
-    <link>http://JiangXY98.github.io/tags/jekyll/</link>
+    <link>https://jiangxy98.github.io/tags/jekyll/</link>
     <description>Recent content in jekyll on My Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://JiangXY98.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>配置 Atom 以维护 GitHub Pages</title>
-      <link>http://JiangXY98.github.io/posts/two-pages/</link>
+      <title>Setting Atom for GitHub Pages</title>
+      <link>https://jiangxy98.github.io/posts/two-pages/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://JiangXY98.github.io/posts/two-pages/</guid>
+      <guid>https://jiangxy98.github.io/posts/two-pages/</guid>
       <description>相比在一个大而全的基础上删减，我更喜欢这种在一个核心上加自己喜欢的东西。这是我喜欢 Arch Linux 的原因，显然，在搭建博客上也是如此。
 学习如雪中前行，踩着前人留下的脚印，会让我们更加轻松和快速的到达目的地。
 引言 在上篇文章中最后，提到使用 Atom 进行网站的日常维护。
