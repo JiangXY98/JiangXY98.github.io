@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arch Linux on My Blog Site</title>
+    <link>http://JiangXY98.github.io/tags/arch-linux/</link>
+    <description>Recent content in Arch Linux on My Blog Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://JiangXY98.github.io/tags/arch-linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配置 VS Code 为 R 编辑器</title>
+      <link>http://JiangXY98.github.io/posts/six-pages/</link>
+      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://JiangXY98.github.io/posts/six-pages/</guid>
+      <description>集成开发环境的本质就是一个可执行命令的控制台和可编辑脚本的编辑器。
+Table of Contents 引言 材料和方法 准备 流程 结果 总结 引言 昨晚，忽然 RStudio 又不能输入中文了。即使用的是网上的解决办法 ── ibus。（现在 Archlinux Wiki 里已经有了标准的稳定的解决办法了）1 。我目前用 R 主要是用 Rmarkdown 编辑文档。这个问题出现，显然是致命一击。之前就被它不稳定的外网连接折磨，可以忍受，不能使用中文输入显然是不能接受的。
+我的 R 使用路线是，一窍不通，跟着以前认为 RStudio 是 R 唯一的 IDE。后来想通了，R 生态是基于 R-core 的一系列包的合集，即使是 RStudio 也是一组包的合集。
+按照这个思路。只要把自己需要的包配置好，即使不是 RStudio 也可以实现需求。
+几个需求：
+编辑 Rmarkdown 使用 knitr 导出 html 或 pdf 使用 blogdown 的全功能部署网站 材料和方法 准备 流程 结果 总结 经过这样一顿折腾，对 R 包括 RStudio 的工作机制有了更深的理解
+RStudio 中无法调出输入法&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+    </item>
+    
+    <item>
+      <title>配置 Atom 以维护 GitHub Pages</title>
+      <link>http://JiangXY98.github.io/posts/two-pages/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://JiangXY98.github.io/posts/two-pages/</guid>
+      <description>相比在一个大而全的基础上删减，我更喜欢这种在一个核心上加自己喜欢的东西。这是我喜欢 Arch Linux 的原因，显然，在搭建博客上也是如此。
+学习如雪中前行，踩着前人留下的脚印，会让我们更加轻松和快速的到达目的地。
+引言 在上篇文章中最后，提到使用 Atom 进行网站的日常维护。
+这样做有几个好处：
+Atom 是 GitHub 出品的编辑器，把 Git 整合到了软件之中。通过它，我们可以通过图形化的界面进行上传和同步，而无需记住那几行命令，在出错的时候，也会提示相应的解决办法，在对于 Git 新手还是相当重要的。 现在， Atom 已经内置了 markdown 插件，具有实时渲染，语法纠正等功能，让博主能够把注意从格式专注到写作上，极大的提高写作的效率。并且插件仓库中还有数量丰富的插件可以下载使用，具有惊人的扩展性。 Atom 是一个跨平台软件，也就是说，只要有网络，可以在世界上的大多数电脑上开始工作。设想这样一个场景，和女友约好看电影，到了后接到女友电话，她还有一个小时才能到。这时候你就可以进入旁边的网吧，熟练的配置梯子，然后装上 Atom，登录 GitHub 帐号，写上一篇文章。完美：） 操作 安装，如果是 Arch Linux 可以在 Terminal 中执行
+sudo pacman -S atom 安装后点击桌面图标，或者终端中执行 atom 打开 Atom，首次安装我们可以看到如下界面。
+通过点击 Open a Project 或 Add folders。打开我们网站的本地库，如果库中包含 .git 文件夹，Atom 会自动配置你的 GitHub 登录信息。相当方便。
+其实出场配置的 Atom 提供的功能已经满足了我们维护网站的所有需要：创建和编辑、美化、本地预览、上传与部署。为了更有效率的写作和部署博客，我们进行
+我们需要达到以下目的：
+markdown 的语法高亮、语法检查、实时预览（渲染）等功能； 结合 jekyll 实现通过鼠标就能创建和发布文章； 一个好看的界面 UI； 通过这个过程了解 Atom 的基本操作。 UI 作为一个 fresher ，配置一个软件，UI 是第一步，如果视觉上没有直观上改变，就不会觉察到配置了什么。本来已经失望，打算在使用中配置，但没想到随手发现的一篇博文讲了如何修改主题。然后又看到了官方推荐的 atom-material-ui 用上之后，简直打开了新世界的大门。简直和 GTK3 完美融合。</description>
+    </item>
+    
+  </channel>
+</rss>

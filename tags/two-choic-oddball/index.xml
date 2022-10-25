@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Two Choic Oddball on My Blog Site</title>
+    <link>http://JiangXY98.github.io/tags/two-choic-oddball/</link>
+    <description>Recent content in Two Choic Oddball on My Blog Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://JiangXY98.github.io/tags/two-choic-oddball/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>双选择 oddball 任务数据分析：基于 R</title>
+      <link>http://JiangXY98.github.io/posts/daoddball/</link>
+      <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://JiangXY98.github.io/posts/daoddball/</guid>
+      <description>不打无准备的仗
+引言因为疫情原因，没有收集数据。但是研究的进度不能耽误。就想到利用预实验的数据提前写好数据分析程序。
+这样做有以下几点合理性：
+R 数据分析是代码形式的分析，可重复利用；预实验数据在内容和排列方式上与正式实验一致，写好后，可以直接用在正式实验数据上；有以下几点优势：
+根据数据分析情况，可适时调整实验程序收集的数据格式和项目；可编辑；收数据时，可以立马导入，查看结果；响应速度快；可以此判断变量的数量和内容，即收集哪些变量。因此，准备花两天时间把代码写出来，并在博客中记录经验。
+材料被试间平衡反应方式与刺激类型的对应关系；
+反应时代价和准确率代价为分析指标，代价越小，行为抑制控制能力越强。
+2 × 2 区组实验设计（被试内）
+组间变量是Type，组内变量是SessionNumber。前者指被试分组，后者指前后测。
+采用重复测量方差分析，检验前后测差异，以及两组被试间的差异。
+重复测量方差分析的基本假设是正态性和方差齐性，需要在方差分析前进行检验。
+加载包library(tidyverse)导入数据按照被试编号（主）、实验序号（次）、试次（再次）进行排序
+oddballfiles &amp;lt;- list.files(path = &amp;quot;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/TwoChoice_oddball_Data/&amp;quot;, pattern = &amp;quot;.csv&amp;quot;, full.names = TRUE)data_oddball &amp;lt;- map_df(oddballfiles, read_csv)被试类型应该单独一个文件，几个任务数据共用
+participant_type &amp;lt;- read_csv(&amp;quot;~/GitHub/Station/exp_TwoChoice_oddball_xiaoyu/ParticipantType/ParticipantType.csv&amp;quot;)预处理提取正式实验数据
+oddball_filted &amp;lt;- data_oddball %&amp;gt;% filter(is.na(PracticeNum) == TRUE)剔除反应时低于 300 ms 的试次
+oddball_filted &amp;lt;- oddball_filted %&amp;gt;% filter(RT &amp;gt; 0.300)剔除反应时大于 3000 的试次
+oddball_filted &amp;lt;- oddball_filted %&amp;gt;% filter(RT &amp;lt; 3.</description>
+    </item>
+    
+  </channel>
+</rss>
