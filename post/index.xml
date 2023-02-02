@@ -62,10 +62,10 @@
       <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jiangxy98.github.io/post/restart/</guid>
-      <description>引言搬家了，不想再每天来回背笔记本电脑💻，就花了两天时间把实验室的电脑也装上 Arch Linux 了，并且配置好工作环境。
-这已经不是第一次尝试在实验室电脑上安装 Linux，以前尝试过 ubuntu linxu，因为不能清空 C 盘，也不能经过那么多次安装之后，现在愈发熟练，对 Linux 的运行机制也更加清楚了。比如，这次安装就有一个特点，在两块硬盘上安装 Arch Linux，根目录挂载到固态硬盘，/home 挂在机械硬盘上。并且是 Arch Linux + Win10 的双系统。。
-材料和方法软件清单
-rp-pppoe # 拨号软件fcitx5 # 输入法zotero # 文献管理软件vscode # IDER # 数据分析google-chrome # 浏览器folita # 电子书octopi # 图形化包管理octave # 编程+数据分析gedit # 文本编辑器，轻量 IDEvim # 编辑器qv2ray # 🪜goldenDict # 词典cups&amp;amp;hplip # 打印机geary # 邮件telegram # 即时通讯libreoffice # 文档编辑器Gimp # 图片处理工具</description>
+      <description>引言 搬家了，不想再每天来回背笔记本电脑💻，就花了两天时间把实验室的电脑也装上 Arch Linux 了，并且配置好工作环境。
+这已经不是第一次尝试在实验室电脑上安装 Linux，以前尝试过 ubuntu linxu，因为不能清空 C 盘，也不能 经过那么多次安装之后，现在愈发熟练，对 Linux 的运行机制也更加清楚了。比如，这次安装就有一个特点，在两块硬盘上安装 Arch Linux，根目录挂载到固态硬盘，/home 挂在机械硬盘上。并且是 Arch Linux + Win10 的双系统。。
+材料和方法 软件清单
+rp-pppoe # 拨号软件 fcitx5 # 输入法 zotero # 文献管理软件 vscode # IDE R # 数据分析 google-chrome # 浏览器 folita # 电子书 octopi # 图形化包管理 octave # 编程+数据分析 gedit # 文本编辑器，轻量 IDE vim # 编辑器 qv2ray # 🪜 goldenDict # 词典 cups&amp;amp;hplip # 打印机 geary # 邮件 telegram # 即时通讯 libreoffice # 文档编辑器 Gimp # 图片处理工具 </description>
     </item>
     
     <item>
@@ -75,34 +75,21 @@ rp-pppoe # 拨号软件fcitx5 # 输入法zotero # 文献管理软件vscode # 
       
       <guid>https://jiangxy98.github.io/post/cdpanda/</guid>
       <description>9：20出发，进入阳光甚好，美滋滋~
-MVIMG_20210820_092148.jpg
 坐在公交车🚌上，看着内外的美女们，这才是生活该有的样子啊。
 好吧，出师不利，上了反方向的车了😯。过了n久打开导航才发现。不过，这里好安逸啊，树木茂盛，绿意盎然。
-FIMO_1629423664063.JPG
 下车，重新上车，出发！Go 👆
-FIMO_1629424391186.JPG
 再次听到川师南大门的报站声🤣
-FIMO_1629424599098.JPG
 转车，下了 k19，转655。今天阴天⛅，空气很凉爽。中午了，路边还有跳广场舞的大爷大妈。
-FIMO_1629427786578.JPG
 然后做了短短的几站路，心情有点激动啊。到了！
-FIMO_1629428874956.JPG
 不亏是熊猫基地附近，这里的每家店都带着满满的熊猫元素。不过人好少啊,是中午的原因吗。
-FIMO_1629429025838
 满满的走到了基地门口，买票，扫码，测体温。离熊猫有近了一步哈哈。哪里的都有水雾装置，和夏天很搭配。
-FIMO_1629429736650
 哇！看到熊猫了！！！ 好可爱。
-photo_2021-08-20_19-29-40
 还有更多！
-photo_2021-08-20_19-29-32
 哈哈哈哈，人少，不热，还能看到🐼，真是太好了。而且还有小熊猫。提问，小熊猫是熊猫吗？
 一直看不到小熊猫 😩。
 哇，总算看到了。一只趴在树上，一动不动。。。可惜拍不到。还有一只，太萌了。
-photo_2021-08-20_19-29-53.jpg
 好羡慕保安大叔啊，每天都能看到熊猫🐼，还有工资的生活只应天上有吧。
-MVIMG_20210820_132844
 2：50 游玩结束。腿有点酸啊。
-FIMO_1629442172893
 出去玩确实有点累啊，休息去了。拜拜~👋🏻</description>
     </item>
     
