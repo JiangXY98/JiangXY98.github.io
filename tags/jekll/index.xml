@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jekll on Xiaoyu Jiang | 姜小宇</title>
+    <link>https://jiangxy98.github.io/tags/jekll/</link>
+    <description>Recent content in Jekll on Xiaoyu Jiang | 姜小宇</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 30 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/jekll/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Make a blog site by using GitHub pages and Jekll</title>
+      <link>https://jiangxy98.github.io/post/firspages/</link>
+      <pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jiangxy98.github.io/post/firspages/</guid>
+      <description>念头一起，就无法消失了，除了去做。
+引言 这已经不是我第一次搭建博客了。
+去年疫情搭建梯子时，根据网上的教程，用租用的 VPS 和腾讯新人购买的域名搭建过一个博客网站。因为时间久远，甚至连采用的什么框架都忘了。
+后来因为用的机场恢复运营了，VPS 和域名的作用消失了，建站也就不了了之了。前两天域名到期提示续费的邮件让我想起“哦，我还玩过这个啊”。
+最近在用 Psychtoolbox 编实验程序，想找一个地方存放自己编写程序的过程，发现拥有一个博客最能满足需求。一是记录自己在做的事情，二是借此展示自己，看有无朋友愿意请我帮忙编写心理学实验程序。
+基于上述内容，于2021年7月30日，利用一天的时间，通过 Google 和查阅官方文档的方式，搭建了这个博客。本文讲述了两种方法。大家可以选择性的跳到自己需要板换阅读。
+材料和方法 材料 Arch Linux Google GitHub，本博客基于 GitHub Pages 和 Jekyll 所搭建。 Jekyll Vim Atom 准备：git、GitHub 帐号 整个搭建过程完全在Arch Linux 系统上完成。
+archie@arch ~ (master)&amp;gt; neofetch -` archie@arch .o+` ----------- `ooo/ OS: Arch Linux x86_64 `+oooo: Host: TM1701 `+oooooo: Kernel: 5.13.6-arch1-1 -+oooooo+: Uptime: 4 hours, 51 mins `/:-:++oooo+: Packages: 1302 (pacman) `/++++/+++++++: Shell: fish 3.3.1 `/++++++++++++++: Resolution: 1920x1080 `/+++ooooooooooooo/` DE: GNOME 40.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogdown on Xiaoyu Jiang | 姜小宇</title>
+    <link>https://jiangxy98.github.io/tags/blogdown/</link>
+    <description>Recent content in Blogdown on Xiaoyu Jiang | 姜小宇</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>There were missing in making blog site by using blogdown</title>
+      <link>https://jiangxy98.github.io/post/four-pages/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jiangxy98.github.io/post/four-pages/</guid>
+      <description>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
+引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
+安装 blogdown 当时我是在 RStudio 的控制台中输入
+install.packages(blogdown) 但是一直装不上。
+先是早上因为依赖promises装不上。 blogdown 装不上，通过 Arch Linux 的 yay 解决了。 yay -S r-promises 然后是 RStudio 不能走代理，与 blogdown 库地址的连接时不时断线。最后在多次尝试之后，安装上了。 现在回过头看，有另外两种办法可以避免这一问题。
+# 一是通过 AUR 安装 R 扩展包的方式来安装，其有更好的依赖管理，并且如果设置了镜像的话，就可以避免代理的问题。 yay -S r-blogdown # 如果终端可以正常走代理的话，可以通过下面这种方式 # 在命令行 R 中进行安装。这样可以避免 RStudio 的代理设置问题。 install.packages(blogdown) 安装 hugo 采用 AUR 安装扩展包的方式的同学会发现，这一步可以跳过了。因为 AUR 安装依赖时，已经安装好 Hugo 了。
+采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。
+blogdown::install_hugo() 这个安装会连接到 yihui 的网站，但是因为 RStudio 连接外网不稳定的原因。国内的同学可能需要通过下面两种方式。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>心理学实验设计 on Xiaoyu Jiang | 姜小宇</title>
+    <link>https://jiangxy98.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/</link>
+    <description>Recent content in 心理学实验设计 on Xiaoyu Jiang | 姜小宇</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 05 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Views about learning Psychtoolbox3</title>
+      <link>https://jiangxy98.github.io/post/ptbstudy/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jiangxy98.github.io/post/ptbstudy/</guid>
+      <description>没有什么鸡血要干，没有那么多时间躺平。有的只是做好想做的事情。
+8月31日，开始看两本 PTB 教材：《心理学研究方法-基于 MATLAB 和 Psychtoolbox》和《Psychtoolbox 工具箱及 MATLAB 编程实例》。这也是国内仅有的两本中文PTB教材。由此也可见 PTB 是个小众心理实验编程工具，并且正🈶被Psychopy （源自同一团队）取而代之的趋势。
+但，并不是说现在学 PTB 就是49年投国军了。首先，PTB的功能更全面灵活，其次，无论是上个月写程序，还是这几天系统学习，都感觉到 PTB 语法的友善。其三，PTB3拥有多年的发展史，对于很多功能的实现，网上都有现成的脚本，稍微修改就能用到自己的实验中。至于性能上的差别，因为我不是程序员，所以还没对三者进行过比较（PTB、Psychopy、E-prime）。
+而，对于这两本教材。怎么说呢，感慨就已经不是各有优点的问题了。两个都没有讲到自己找的东西。心理学实验编程的逻辑，比如，开始是什么样，中间要有什么，结束时数据保存为什么格式。还有实验设计的注意事项，比如，怎么编程可以让实验的运行效率更快，什么操作会损害时间精度应该避免等。
+前一本书稍微提了下实验设计的逻辑：1) 设计实验试次;2) 编写实验刺激; 3) 呈现实验刺激; 4) 输出实验结果。但在其后的章节中，是一点都没有详谈的意思啊。
+而后一本书，是苏州大学冯成志老师编著的一本书。是的，我用得是‘编著’两个字。里面很大的篇幅是对PTB帮助文档的筛选翻译，有用，但显然不是读者想从教材中看到的东西。读者，至少我这个读者想看到更多的是，作者使用这些函数的经验，而不是中文解释，毕竟到这个层次了，大家的英文水平都足以看懂帮助文档了。
+幸好的是，冯老师这本书在第九章之后，就是正菜了。个人拙见，冯老师完全可以砍掉前面几章，取而代之，在第九章的中的编程实例中佐以更详细的注释。让读者得以统一的学习实验逻辑，可代码实现。而不会被淹没在前几章的函数海洋中。
+当然，书已经出来那么多年了，改是不可能改了，我们只能适应。我建议读者在看完前四章之后，就可以跳到第九章，结合 MATLAB 和 PTB 自带的帮助文档，跟着读一遍。就能看到编程能力的显著增加。
+无论如何，冯老师这本书是国内PTB学习者绕不过的一本书，加油啃吧，早啃完，早做自己的实验。</description>
+    </item>
+    
+  </channel>
+</rss>
