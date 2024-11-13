@@ -6,7 +6,17 @@
     <description>Recent content on Xiaoyu Jiang | 姜小宇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自编雅思写作结构.Rmd</title>
+      <link>https://jiangxy98.github.io/post/2024-11-13-rmd/</link>
+      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://jiangxy98.github.io/post/2024-11-13-rmd/</guid>
+      <description>理论 立场明确，同时适当提及反面观点（Some people argue that或Critics may say that），在呈现反面观点后，对其进行驳斥（However或On the other hand）。这样，文章有4段就可以达到字数要求了。
+引言段：改写题目（According to或It is evident that）。如果是观点题，要说明题目中的观点（some argue that）。表明立场（I believe that或I support the idea that） 主体段1：提出支持的观点（Firstly或To begin with）。解释（The main advantage/reason of……is that……）。举例（For instance，）。论证（This demonstrates that）。 主体段2：提出反面的观点（Some people also argue that或Critics may say that）。简要分析（For instance，）。驳斥（however, this view overlooks the fact taht或on the other hand, it fails to consider that）。 结论段：In conclusion, while it is undeniable that反方合理之处，it is clear that重申立场并总结。 范文案例 题目 Many things can influence the academic achievement and emontional growth of a student.</description>
+    </item>
+    
     <item>
       <title>Rmarkdown 并不适合写论文</title>
       <link>https://jiangxy98.github.io/post/rorrmarkdown/</link>
