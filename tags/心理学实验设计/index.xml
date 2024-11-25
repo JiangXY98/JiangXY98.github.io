@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>心理学实验设计 on Xiaoyu Jiang | 姜小宇</title>
-    <link>https://jiangxy98.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/</link>
+    <link>http://psy.afark.cn/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/</link>
     <description>Recent content in 心理学实验设计 on Xiaoyu Jiang | 姜小宇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 05 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jiangxy98.github.io/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://psy.afark.cn/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Views about learning Psychtoolbox3</title>
-      <link>https://jiangxy98.github.io/post/ptbstudy/</link>
+      <link>http://psy.afark.cn/post/ptbstudy/</link>
       <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jiangxy98.github.io/post/ptbstudy/</guid>
+      <guid>http://psy.afark.cn/post/ptbstudy/</guid>
       <description>没有什么鸡血要干，没有那么多时间躺平。有的只是做好想做的事情。
 8月31日，开始看两本 PTB 教材：《心理学研究方法-基于 MATLAB 和 Psychtoolbox》和《Psychtoolbox 工具箱及 MATLAB 编程实例》。这也是国内仅有的两本中文PTB教材。由此也可见 PTB 是个小众心理实验编程工具，并且正🈶被Psychopy （源自同一团队）取而代之的趋势。
 但，并不是说现在学 PTB 就是49年投国军了。首先，PTB的功能更全面灵活，其次，无论是上个月写程序，还是这几天系统学习，都感觉到 PTB 语法的友善。其三，PTB3拥有多年的发展史，对于很多功能的实现，网上都有现成的脚本，稍微修改就能用到自己的实验中。至于性能上的差别，因为我不是程序员，所以还没对三者进行过比较（PTB、Psychopy、E-prime）。
