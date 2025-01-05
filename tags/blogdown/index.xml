@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogdown on Xiaoyu Jiang | 姜小宇</title>
-    <link>http://psy.afark.cn/tags/blogdown/</link>
+    <link>https://psy.afark.cn/tags/blogdown/</link>
     <description>Recent content in Blogdown on Xiaoyu Jiang | 姜小宇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://psy.afark.cn/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://psy.afark.cn/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>There were missing in making blog site by using blogdown</title>
-      <link>http://psy.afark.cn/post/four-pages/</link>
+      <link>https://psy.afark.cn/post/four-pages/</link>
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://psy.afark.cn/post/four-pages/</guid>
+      <guid>https://psy.afark.cn/post/four-pages/</guid>
       <description>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
 引言 今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
 安装 blogdown 当时我是在 RStudio 的控制台中输入

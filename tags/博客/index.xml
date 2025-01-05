@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>博客 on Xiaoyu Jiang | 姜小宇</title>
-    <link>http://psy.afark.cn/tags/%E5%8D%9A%E5%AE%A2/</link>
+    <link>https://psy.afark.cn/tags/%E5%8D%9A%E5%AE%A2/</link>
     <description>Recent content in 博客 on Xiaoyu Jiang | 姜小宇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 30 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://psy.afark.cn/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://psy.afark.cn/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Make a blog site by using GitHub pages and Jekll</title>
-      <link>http://psy.afark.cn/post/firspages/</link>
+      <link>https://psy.afark.cn/post/firspages/</link>
       <pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://psy.afark.cn/post/firspages/</guid>
+      <guid>https://psy.afark.cn/post/firspages/</guid>
       <description>念头一起，就无法消失了，除了去做。
 引言 这已经不是我第一次搭建博客了。
 去年疫情搭建梯子时，根据网上的教程，用租用的 VPS 和腾讯新人购买的域名搭建过一个博客网站。因为时间久远，甚至连采用的什么框架都忘了。
