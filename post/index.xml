@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Xiaoyu Jiang | 姜小宇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://psy.afark.cn/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://psy.afark.cn/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安装code-server并配置nginx反向代理</title>
+      <link>https://psy.afark.cn/post/code-server/</link>
+      <pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://psy.afark.cn/post/code-server/</guid>
+      <description>系统信息 # 查看系统信息 neofetch -` @archlinux .o+` ---------------- `ooo/ OS: Arch Linux x86_64 `+oooo: Host: CVM 3.0 `+oooooo: Kernel: 6.12.8-arch1-1 -+oooooo+: Uptime: 8 days, 4 hours, 35 mins `/:-:++oooo+: Packages: 196 (pacman) `/++++/+++++++: Shell: zsh 5.9 `/++++++++++++++: Resolution: 1024x768 `/+++ooooooooooooo/` Terminal: /dev/pts/0 ./ooosssso++osssssso+` CPU: AMD EPYC 7K62 (2) @ 2.595GHz .oossssso-````/ossssss+` GPU: 00:02.0 Cirrus Logic GD 5446 -osssssso. :ssssssso. Memory: 425MiB / 1966MiB :osssssss/ osssso+++. /ossssssss/ +ssssooo/- `/ossssso+/:- -:/+osssso+- `+sso+:-` `.</description>
+    </item>
+    
     <item>
       <title>因果关系在雅思大作文写作中的角色</title>
       <link>https://psy.afark.cn/post/ieltstask2/</link>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class=""><head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    
+      安装code-server并配置nginx反向代理
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css">
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6BGJLRZP8C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6BGJLRZP8C');
+</script>
+
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-01-16 00:00:00 &#43;0000 UTC">
+            2025-01-16
+        </time>
+    </p>
+
+    <h1>安装code-server并配置nginx反向代理</h1>
+
+    
+
+
+<div id="系统信息" class="section level1">
+<h1>系统信息</h1>
+<pre class="bash"><code># 查看系统信息
+neofetch
+                   -`                    @archlinux 
+                  .o+`                   ---------------- 
+                 `ooo/                   OS: Arch Linux x86_64 
+                `+oooo:                  Host: CVM 3.0 
+               `+oooooo:                 Kernel: 6.12.8-arch1-1 
+               -+oooooo+:                Uptime: 8 days, 4 hours, 35 mins 
+             `/:-:++oooo+:               Packages: 196 (pacman) 
+            `/++++/+++++++:              Shell: zsh 5.9 
+           `/++++++++++++++:             Resolution: 1024x768 
+          `/+++ooooooooooooo/`           Terminal: /dev/pts/0 
+         ./ooosssso++osssssso+`          CPU: AMD EPYC 7K62 (2) @ 2.595GHz 
+        .oossssso-````/ossssss+`         GPU: 00:02.0 Cirrus Logic GD 5446 
+       -osssssso.      :ssssssso.        Memory: 425MiB / 1966MiB 
+      :osssssss/        osssso+++.
+     /ossssssss/        +ssssooo/-                               
+   `/ossssso+/:-        -:/+osssso+-                             
+  `+sso+:-`                 `.-/+oso:
+ `++:.                           `-/+/
+ .`                                 `/</code></pre>
+</div>
+<div id="安装code-server-nginx-certbot" class="section level1">
+<h1>安装code-server, nginx, certbot</h1>
+<pre class="bash"><code>yay -S code-server nginx certbot</code></pre>
+<div id="配置code-server" class="section level2">
+<h2>配置code-server</h2>
+<p>设置code-server密码和端口</p>
+<pre class="zsh"><code>sudo vim ~/.config/code-server/config.yaml</code></pre>
+<p>设置开机启动以及立即启用code-server服务</p>
+<pre class="zsh"><code>sudo systemctl enable --now code-server@USER</code></pre>
+<p>以下是重点</p>
+</div>
+<div id="配置nginx反向代理" class="section level2">
+<h2>配置nginx反向代理</h2>
+<p>在<code>/etc/nginx/</code>下创建两个新文件夹</p>
+<pre class="zsh"><code>sudo mkdir /etc/nginx/sites-available
+sudo mkdir /etc/nginx/sites-enabled</code></pre>
+<p>修改nginx的配置文件，在http块中添加<code>include sites-enabled/*;</code>和<code>types_hash_max_size 4096;</code>[3-4]</p>
+<pre class="zsh"><code>sudo vim /etc/nginx/nginx.conf</code></pre>
+<p>创建域名对应的nginx配置文件</p>
+<pre class="zsh"><code>sudo vim /etc/nginx/sites-available/example.conf</code></pre>
+<p>此时只需要写进server_name信息和location即可，不要添加TSL证书的代码，后面certbot会自动生成相应的TSL信息</p>
+<pre class="vim"><code>server {
+       ##服务器域名
+       server_name example;
+
+       ##地址
+       location / {
+        ##本地code-server的端口
+        proxy_pass http://localhost:端口号/;
+        ##必要的头设置
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection upgrade;
+        proxy_set_header Host $host;
+        }
+}</code></pre>
+<p>启用该配置文件</p>
+<pre class="zsh"><code>ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled/</code></pre>
+<p>启动并设置开启启动nginx服务</p>
+<pre class="zsh"><code>sudo systemctl enable --now nginx</code></pre>
+</div>
+<div id="安装tsl证书" class="section level2">
+<h2>安装TSL证书</h2>
+<p>最后一步，安装TSL证书，使网站能够通过https访问</p>
+<pre><code>sudo certbot --nginx -d example</code></pre>
+</div>
+</div>
+<div id="reference" class="section level1">
+<h1>Reference</h1>
+<p>[1] <a href="https://wiki.archlinux.org/title/Nginx" class="uri">https://wiki.archlinux.org/title/Nginx</a>
+[2] <a href="https://coder.com/docs/code-server/install#arch-linux" class="uri">https://coder.com/docs/code-server/install#arch-linux</a>
+[3] <a href="https://blog.csdn.net/lxyoucan/article/details/115278646" class="uri">https://blog.csdn.net/lxyoucan/article/details/115278646</a>
+[4] <a href="https://sdcom.chgskj.cn/257.html" class="uri">https://sdcom.chgskj.cn/257.html</a></p>
+</div>
+
+</article>
+
+            </div>
+        </main>
+	<script src="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.js"></script>
+    </body>
+</html>
