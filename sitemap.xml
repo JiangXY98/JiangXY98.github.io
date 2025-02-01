@@ -3,12 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://psy.afark.cn/post/</loc>
-    <lastmod>2025-01-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://psy.afark.cn/tags/</loc>
-    <lastmod>2025-01-16T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://psy.afark.cn/</loc>
+    <lastmod>2025-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://psy.afark.cn/post/2025-02-01-cloudreve/</loc>
+    <lastmod>2025-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://psy.afark.cn/tags/</loc>
     <lastmod>2025-01-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://psy.afark.cn/post/code-server/</loc>

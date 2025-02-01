@@ -6,7 +6,18 @@
     <description>Recent content on Xiaoyu Jiang | 姜小宇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://psy.afark.cn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://psy.afark.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用腾讯云轻量服务器搭建私有云盘Cloudreve</title>
+      <link>https://psy.afark.cn/post/2025-02-01-cloudreve/</link>
+      <pubDate>Sat, 01 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://psy.afark.cn/post/2025-02-01-cloudreve/</guid>
+      <description> Cloudreve官方的配置文档非常详细，只不过有几个点需要注意一下。
+系统信息 Debian 12
+安装必备软件 sudo apt install wget nginx certbot python3-cerbot-nginx 注意事项 国内的服务器使用梯子不太方便，可以用github的镜像链接代替初始下载链接。 clouddreve文件包可以放在任意目录中，为了系统目录的整洁，我放在了根目录下的opt中，因此，也需要在创建cloudreve的systemclt守护程序时，需要将两个路径都改为程序的绝对路径。 网盘的空间大小在配置中的用户组选项页中进行调整。 Reference Cloudreve官方文档 ChatGPT </description>
+    </item>
+    
     <item>
       <title>安装code-server并配置nginx反向代理</title>
       <link>https://psy.afark.cn/post/code-server/</link>
