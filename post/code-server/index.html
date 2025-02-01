@@ -48,29 +48,22 @@
     
 
 
-<div id="系统信息" class="section level1">
-<h1>系统信息</h1>
-<pre class="bash"><code># 查看系统信息
-neofetch
-                   -`                    @archlinux 
-                  .o+`                   ---------------- 
-                 `ooo/                   OS: Arch Linux x86_64 
-                `+oooo:                  Host: CVM 3.0 
-               `+oooooo:                 Kernel: 6.12.8-arch1-1 
-               -+oooooo+:                Uptime: 8 days, 4 hours, 35 mins 
-             `/:-:++oooo+:               Packages: 196 (pacman) 
-            `/++++/+++++++:              Shell: zsh 5.9 
-           `/++++++++++++++:             Resolution: 1024x768 
-          `/+++ooooooooooooo/`           Terminal: /dev/pts/0 
-         ./ooosssso++osssssso+`          CPU: AMD EPYC 7K62 (2) @ 2.595GHz 
-        .oossssso-````/ossssss+`         GPU: 00:02.0 Cirrus Logic GD 5446 
-       -osssssso.      :ssssssso.        Memory: 425MiB / 1966MiB 
-      :osssssss/        osssso+++.
-     /ossssssss/        +ssssooo/-                               
-   `/ossssso+/:-        -:/+osssso+-                             
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
- .`                                 `/</code></pre>
+<p>本文生成时间为2025年1月16日，若发现内容已经过时，请联系我修改。</p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>文件编辑器是程序员的日常工具，而code-server是一个基于vscode的在线编辑器，可以在浏览器中使用vscode的功能。本文将介绍如何在Arch Linux上安装code-server，并通过nginx反向代理使其能够通过域名访问。</p>
+<pre><code># 系统信息
+OS: Arch Linux x86_64 
+Host: CVM 3.0 
+Kernel: 6.12.8-arch1-1 
+Uptime: 8 days, 4 hours, 35 mins 
+Packages: 196 (pacman) 
+Shell: zsh 5.9 
+Resolution: 1024x768 
+Terminal: /dev/pts/0 
+CPU: AMD EPYC 7K62 (2) @ 2.595GHz 
+GPU: 00:02.0 Cirrus Logic GD 5446 
+Memory: 425MiB / 1966MiB </code></pre>
 </div>
 <div id="安装code-server-nginx-certbot" class="section level1">
 <h1>安装code-server, nginx, certbot</h1>
@@ -114,16 +107,18 @@ sudo mkdir /etc/nginx/sites-enabled</code></pre>
 </div>
 <div id="安装tsl证书" class="section level2">
 <h2>安装TSL证书</h2>
-<p>最后一步，安装TSL证书，使网站能够通过https访问</p>
+<p>最后一步，安装TSL证书，使网站能够通过https访问。certbot会自动配置nginx的TSL信息。</p>
 <pre><code>sudo certbot --nginx -d example</code></pre>
 </div>
 </div>
 <div id="reference" class="section level1">
 <h1>Reference</h1>
-<p>[1] <a href="https://wiki.archlinux.org/title/Nginx" class="uri">https://wiki.archlinux.org/title/Nginx</a>
-[2] <a href="https://coder.com/docs/code-server/install#arch-linux" class="uri">https://coder.com/docs/code-server/install#arch-linux</a>
-[3] <a href="https://blog.csdn.net/lxyoucan/article/details/115278646" class="uri">https://blog.csdn.net/lxyoucan/article/details/115278646</a>
-[4] <a href="https://sdcom.chgskj.cn/257.html" class="uri">https://sdcom.chgskj.cn/257.html</a></p>
+<ol style="list-style-type: decimal">
+<li><a href="https://wiki.archlinux.org/title/Nginx" class="uri">https://wiki.archlinux.org/title/Nginx</a></li>
+<li><a href="https://coder.com/docs/code-server/install#arch-linux" class="uri">https://coder.com/docs/code-server/install#arch-linux</a></li>
+<li><a href="https://blog.csdn.net/lxyoucan/article/details/115278646" class="uri">https://blog.csdn.net/lxyoucan/article/details/115278646</a></li>
+<li><a href="https://sdcom.chgskj.cn/257.html" class="uri">https://sdcom.chgskj.cn/257.html</a></li>
+</ol>
 </div>
 
 </article>

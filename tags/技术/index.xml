@@ -13,7 +13,11 @@
       <pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate>
       
       <guid>https://psy.afark.cn/post/code-server/</guid>
-      <description>系统信息 # 查看系统信息 neofetch -` @archlinux .o+` ---------------- `ooo/ OS: Arch Linux x86_64 `+oooo: Host: CVM 3.0 `+oooooo: Kernel: 6.12.8-arch1-1 -+oooooo+: Uptime: 8 days, 4 hours, 35 mins `/:-:++oooo+: Packages: 196 (pacman) `/++++/+++++++: Shell: zsh 5.9 `/++++++++++++++: Resolution: 1024x768 `/+++ooooooooooooo/` Terminal: /dev/pts/0 ./ooosssso++osssssso+` CPU: AMD EPYC 7K62 (2) @ 2.595GHz .oossssso-````/ossssss+` GPU: 00:02.0 Cirrus Logic GD 5446 -osssssso. :ssssssso. Memory: 425MiB / 1966MiB :osssssss/ osssso+++. /ossssssss/ +ssssooo/- `/ossssso+/:- -:/+osssso+- `+sso+:-` `.</description>
+      <description>本文生成时间为2025年1月16日，若发现内容已经过时，请联系我修改。
+Introduction 文件编辑器是程序员的日常工具，而code-server是一个基于vscode的在线编辑器，可以在浏览器中使用vscode的功能。本文将介绍如何在Arch Linux上安装code-server，并通过nginx反向代理使其能够通过域名访问。
+# 系统信息 OS: Arch Linux x86_64 Host: CVM 3.0 Kernel: 6.12.8-arch1-1 Uptime: 8 days, 4 hours, 35 mins Packages: 196 (pacman) Shell: zsh 5.9 Resolution: 1024x768 Terminal: /dev/pts/0 CPU: AMD EPYC 7K62 (2) @ 2.595GHz GPU: 00:02.0 Cirrus Logic GD 5446 Memory: 425MiB / 1966MiB 安装code-server, nginx, certbot yay -S code-server nginx certbot 配置code-server 设置code-server密码和端口
+sudo vim ~/.config/code-server/config.yaml 设置开机启动以及立即启用code-server服务
+sudo systemctl enable --now code-server@USER 以下是重点</description>
     </item>
     
   </channel>
