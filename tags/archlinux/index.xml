@@ -4,20 +4,16 @@
     <title>ArchLinux on Xiaoyu Jiang | 姜小宇</title>
     <link>https://psy.afark.cn/tags/archlinux/</link>
     <description>Recent content in ArchLinux on Xiaoyu Jiang | 姜小宇</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 23 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://psy.afark.cn/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://psy.afark.cn/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Arch Linux PC</title>
       <link>https://psy.afark.cn/post/restart/</link>
       <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://psy.afark.cn/post/restart/</guid>
-      <description> 引言 搬家了，不想再每天来回背笔记本电脑💻，就花了两天时间把实验室的电脑也装上 Arch Linux 了，并且配置好工作环境。
-这已经不是第一次尝试在实验室电脑上安装 Linux，以前尝试过 ubuntu linxu，因为不能清空 C 盘，也不能 经过那么多次安装之后，现在愈发熟练，对 Linux 的运行机制也更加清楚了。比如，这次安装就有一个特点，在两块硬盘上安装 Arch Linux，根目录挂载到固态硬盘，/home 挂在机械硬盘上。并且是 Arch Linux + Win10 的双系统。。
-材料和方法 软件清单
-rp-pppoe # 拨号软件 fcitx5 # 输入法 zotero # 文献管理软件 vscode # IDE R # 数据分析 google-chrome # 浏览器 folita # 电子书 octopi # 图形化包管理 octave # 编程+数据分析 gedit # 文本编辑器，轻量 IDE vim # 编辑器 qv2ray # 🪜 goldenDict # 词典 cups&amp;amp;hplip # 打印机 geary # 邮件 telegram # 即时通讯 libreoffice # 文档编辑器 Gimp # 图片处理工具 </description>
+      <description>&lt;div id=&#34;引言&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;引言&lt;/h1&gt;&#xA;&lt;p&gt;搬家了，不想再每天来回背笔记本电脑💻，就花了两天时间把实验室的电脑也装上 Arch Linux 了，并且配置好工作环境。&lt;/p&gt;&#xA;&lt;p&gt;这已经不是第一次尝试在实验室电脑上安装 Linux，以前尝试过 ubuntu linxu，因为不能清空 C 盘，也不能&#xA;经过那么多次安装之后，现在愈发熟练，对 Linux 的运行机制也更加清楚了。比如，这次安装就有一个特点，在两块硬盘上安装 Arch Linux，根目录挂载到固态硬盘，/home 挂在机械硬盘上。并且是 Arch Linux + Win10 的双系统。。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div id=&#34;材料和方法&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;材料和方法&lt;/h1&gt;&#xA;&lt;p&gt;软件清单&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;rp-pppoe # 拨号软件&lt;/li&gt;&#xA;&lt;li&gt;fcitx5 # 输入法&lt;/li&gt;&#xA;&lt;li&gt;zotero # 文献管理软件&lt;/li&gt;&#xA;&lt;li&gt;vscode # IDE&lt;/li&gt;&#xA;&lt;li&gt;R # 数据分析&lt;/li&gt;&#xA;&lt;li&gt;google-chrome # 浏览器&lt;/li&gt;&#xA;&lt;li&gt;folita # 电子书&lt;/li&gt;&#xA;&lt;li&gt;octopi # 图形化包管理&lt;/li&gt;&#xA;&lt;li&gt;octave # 编程+数据分析&lt;/li&gt;&#xA;&lt;li&gt;gedit # 文本编辑器，轻量 IDE&lt;/li&gt;&#xA;&lt;li&gt;vim # 编辑器&lt;/li&gt;&#xA;&lt;li&gt;qv2ray # 🪜&lt;/li&gt;&#xA;&lt;li&gt;goldenDict # 词典&lt;/li&gt;&#xA;&lt;li&gt;cups&amp;amp;hplip # 打印机&lt;/li&gt;&#xA;&lt;li&gt;geary # 邮件&lt;/li&gt;&#xA;&lt;li&gt;telegram # 即时通讯&lt;/li&gt;&#xA;&lt;li&gt;libreoffice # 文档编辑器&lt;/li&gt;&#xA;&lt;li&gt;Gimp # 图片处理工具&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
     </item>
-    
   </channel>
 </rss>

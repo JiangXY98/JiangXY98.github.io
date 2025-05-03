@@ -7,7 +7,7 @@
 
   <title>
     
-      There were missing in making blog site by using blogdown
+    There were missing in making blog site by using blogdown
     
   </title>
 
@@ -19,19 +19,7 @@
   <link rel="stylesheet" href="/css/main.css" />
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css">
-</head>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6BGJLRZP8C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6BGJLRZP8C');
-</script>
-
-<body a="auto">
+</head><body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
 <a href="/">..</a>
@@ -46,8 +34,7 @@
     <h1>There were missing in making blog site by using blogdown</h1>
 
     <blockquote>
-<p>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。</p>
-</blockquote>
+<p>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。</p></blockquote>
 <h2 id="引言">引言</h2>
 <p>今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：</p>
 <h2 id="安装-blogdown">安装 blogdown</h2>
@@ -99,8 +86,7 @@
 <p>此时差不多<del>三四五六</del>点左右了，脑袋有点糊，记不清了。开始最后一步了，部署网站到网上。在这里我没有采用 yihui 大神推荐的 httfy，而是部署到到 GitHub Pages 上。主要是是数据已经托管到 GitHub 里了，不想再引入第三方服务了。</p>
 <p>最大的经验就是</p>
 <blockquote>
-<p>网上经验贴可以参考。但操作一定要一步一步跟着官方文档走。</p>
-</blockquote>
+<p>网上经验贴可以参考。但操作一定要一步一步跟着官方文档走。</p></blockquote>
 <p>先是按照 jekyll 的经验把文件夹里的所有文件都上传了。结果没有成功。</p>
 <p>结合经验贴，发现 GitHub Pages 是根据仓库里的文件层级和 Html 文件生成网站的。在 Hugo 方式中，应该只上传 public/ 。但我的是只有一个 post 文件夹。带着怀疑 push 了，当然没成功。</p>
 <p>在 blogdown 的官方文档中发现原来是，因为少看了一句 <code>blogdown::build_site</code> 。</p>

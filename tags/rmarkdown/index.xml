@@ -4,24 +4,16 @@
     <title>Rmarkdown on Xiaoyu Jiang | 姜小宇</title>
     <link>https://psy.afark.cn/tags/rmarkdown/</link>
     <description>Recent content in Rmarkdown on Xiaoyu Jiang | 姜小宇</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://psy.afark.cn/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://psy.afark.cn/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rmarkdown 并不适合写论文</title>
       <link>https://psy.afark.cn/post/rorrmarkdown/</link>
       <pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://psy.afark.cn/post/rorrmarkdown/</guid>
-      <description>Rmarkdown 的目标是生成一个有文字有图像的数据分析文档，保持数据分析和文章写作的流畅。然而，在实际操作中，由于个体所处环境的限制。这个目标很难完美实现。
-实际的科研路线是阅读文献、提出想法、设计实验、完成实验、分析数据、写成初稿，最后是反复多次的审阅和修改。对比这个路线就会发现，数据分析实际只占主体内容的一小部分，而且在正文中几乎不会有代码的出现。另外，在审阅过程中，需要和导师或者合作者多次沟通，这在事业起步阶段，显然需要自己配合他人，而不是期望对方兼容自己。这个时候，更为流行的 Word 显然更能胜任论文写作的工作。
-相比于各种文字处理软件和标记语言，Rmarkdown 类似于 Markdown 一样的便捷的标记和导出即好看样式处理，以及融合了R 代码和输出结果的强大功能。显得似乎很强大，但只能用在自己写数据分析报告和写博客上。
-而在数据处理上，显然R脚本文件也比Rmarkdown更合适。因为，采用代码进行数据分析的一大目标就是，就是期待数据分析自动化，和数据分析代码的可重复利用，在这方面Rmarkdown 比不上可以自动运行的脚本文件。另外，文本和代码结合的方式，使得数据分析员更容易在分析过程中对结果进行解释，但这实际上是一个重复性工作，因为关于数据的解释，完全应该放在论文的初稿中。
-对于 R 的使用，应该更像使用 MATLAB 一样，写出可以输出结果的脚本文件。一个项目由一个解释文档，一个主脚本，和数量相当，功能单一的支线函数脚本组成。这样在后期需要的时候，修改必要的几个参数，就能够重新投入使用。
-在现代的编程语言中使用自定义函数，优点是代码复用、模块化设计。在编程时，把编程任务分解成小的模块，每个模块用一个函数实现，便于理解每个模块的作用，降低了程序复杂性，使得程序容易管理。
-采用这样的方式进行数据分析，也是真正实现函数化编程。
-总结，用 R 做数据分析，用 Word 写论文，用 Rmarkdown 写技术博客。</description>
+      <description>&lt;p&gt;Rmarkdown 的目标是生成一个有文字有图像的数据分析文档，保持数据分析和文章写作的流畅。然而，在实际操作中，由于个体所处环境的限制。这个目标很难完美实现。&lt;/p&gt;&#xA;&lt;p&gt;实际的科研路线是阅读文献、提出想法、设计实验、完成实验、分析数据、写成初稿，最后是反复多次的审阅和修改。对比这个路线就会发现，数据分析实际只占主体内容的一小部分，而且在正文中几乎不会有代码的出现。另外，在审阅过程中，需要和导师或者合作者多次沟通，这在事业起步阶段，显然需要自己配合他人，而不是期望对方兼容自己。这个时候，更为流行的 Word 显然更能胜任论文写作的工作。&lt;/p&gt;&#xA;&lt;p&gt;相比于各种文字处理软件和标记语言，Rmarkdown 类似于 Markdown 一样的便捷的标记和导出即好看样式处理，以及融合了R 代码和输出结果的强大功能。显得似乎很强大，但只能用在自己写数据分析报告和写博客上。&lt;/p&gt;&#xA;&lt;p&gt;而在数据处理上，显然R脚本文件也比Rmarkdown更合适。因为，采用代码进行数据分析的一大目标就是，就是期待数据分析自动化，和数据分析代码的可重复利用，在这方面Rmarkdown 比不上可以自动运行的脚本文件。另外，文本和代码结合的方式，使得数据分析员更容易在分析过程中对结果进行解释，但这实际上是一个重复性工作，因为关于数据的解释，完全应该放在论文的初稿中。&lt;/p&gt;&#xA;&lt;p&gt;对于 R 的使用，应该更像使用 MATLAB 一样，写出可以输出结果的脚本文件。一个项目由一个解释文档，一个主脚本，和数量相当，功能单一的支线函数脚本组成。这样在后期需要的时候，修改必要的几个参数，就能够重新投入使用。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;在现代的编程语言中使用自定义函数，优点是代码复用、模块化设计。在编程时，把编程任务分解成小的模块，每个模块用一个函数实现，便于理解每个模块的作用，降低了程序复杂性，使得程序容易管理。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;采用这样的方式进行数据分析，也是真正实现函数化编程。&lt;/p&gt;&#xA;&lt;p&gt;总结，用 R 做数据分析，用 Word 写论文，用 Rmarkdown 写技术博客。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
