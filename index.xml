@@ -6,8 +6,15 @@
     <description>Recent content on Xiaoyu Jiang | 姜小宇</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 01 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://psy.afark.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>科研中的黑匣子</title>
+      <link>https://psy.afark.cn/post/2025-05-03-question/</link>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://psy.afark.cn/post/2025-05-03-question/</guid>
+      <description>&lt;p&gt;中午吃饭后，以昨天晚上看的物理学史为起点，以一个奇怪的问题和师姐讨论了一下怎么做研究。“怎么知道我的测量的subjective value是subjective value，或者我们在time 1测量得到的值是10的subjective value和time 2测量得到的10分subjective value是一样的吗？”&lt;/p&gt;&#xA;&lt;p&gt;对应于温度计的测量两个物质都是10°，但可以说这两个物质的蕴含的能量一样吗？因为事实上二者并没有直接进行比较，现在的&lt;strong&gt;热力学第零定律&lt;/strong&gt;已回答了的该问题。当然，到我今天问出的这个问题上，它其实是对研究中测量工具&lt;strong&gt;信度&lt;/strong&gt;的质疑。&lt;/p&gt;&#xA;&lt;p&gt;师姐提到，这个世界充满噪声，我们这些对人的研究中没有信度为1的测量工具，但不影响我们的对于思维过程的研究，研究寻求的是&lt;strong&gt;可解释的&lt;/strong&gt;，具有预测价值的理论假说，不是&lt;strong&gt;确定性&lt;/strong&gt;的真理结论，按照&lt;strong&gt;回归&lt;/strong&gt;的思想，存在固定不变的和误差，我们研究的是固定不变的值，用固定不变的值反映决策特征。&lt;/p&gt;&#xA;&lt;p&gt;我追问，那如何在充满噪声的世界提升测量工具的信度（增加确定性，减少误差）？&lt;/p&gt;&#xA;&lt;p&gt;师姐说，那是方法论研究的问题，不是组内研究的核心，组内关注的还是变量与变量之间的因果关系，类似DDM这些工具是早已形成的，拿来即用的工具，用来测量漂移率、作为研究Utility的一种方式。&lt;/p&gt;&#xA;&lt;p&gt;说到这里，我已经意识到了，事实上在做研究上，现在组内和我之前的区别没有想象中的那么大，还是关注现实问题（变量之间的关系），只不过现在关注的是Utility，我之前关注的impulsivity，我在之前虽然关注impulsivity怎么测量，但不会改造范式，也是在已有的几个&lt;strong&gt;黑匣子&lt;/strong&gt;中进行选择，现在组内做研究也是一样的，关注的各种条件下的Utility的变化和影响条件，也是用已有的工具进行研究，只不过添加模型、参数化这些。&lt;/p&gt;&#xA;&lt;p&gt;最后，师姐来了一个暴击，模型其实也不是必要的，更多的是锦上添花的作用，重要的还是研究问题是否有趣，达不到这个标准，模型再花哨也没什么用处。&lt;/p&gt;&#xA;&lt;p&gt;我完全认可这一点。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;三个感受&#xA;&lt;ul&gt;&#xA;&lt;li&gt;每个人关于自己的“研究内容”和“研究方法”都有相对独特的想法，这可以称之为属于&lt;strong&gt;科研观&lt;/strong&gt;。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;重点不是课题组在做什么，而是自己想做什么，作为一个博士学生，要形成自己的科研观。&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;再次回到我最初的观点“不必非要区分什么是心理学，什么是管理学，二者的差别没有那么大”，重要的是研究问题和研究原则。遵循严谨的科学原则，讲清楚所研究的科学问题。说服别人我的研究问题是重要的，研究方法是严谨的，研究结论是可靠的，即可。至于属于哪个学科，自有后人评说。&lt;/li&gt;&#xA;&lt;li&gt;现在的学习路径没什么问题，多看，多听，多讨论，多思考，这样才能逐渐形成自己的想法。不能偏信旁人也不能闭门造车。&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>使用腾讯云轻量服务器搭建私有云盘Cloudreve</title>
       <link>https://psy.afark.cn/post/2025-02-01-cloudreve/</link>
