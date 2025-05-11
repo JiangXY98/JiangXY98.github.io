@@ -1,6 +1,6 @@
 ---
 title: Views about learning Psychtoolbox3
-author: Ginger Yu
+author: Xiaoyu Jiang
 date: '2021-09-05'
 slug: ptbstudy
 categories:

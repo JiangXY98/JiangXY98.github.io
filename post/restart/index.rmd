@@ -1,6 +1,6 @@
 ---
 title: "My Arch Linux PC"
-author: Ginger Yu
+author: Xiaoyu Jiang
 date: '2021-08-23'
 slug: restart
 categories:

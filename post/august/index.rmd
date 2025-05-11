@@ -1,6 +1,6 @@
 ---
 title: August summary and future work tone
-author: Ginger Yu
+author: Xiaoyu Jiang
 date: '2021-09-01'
 slug: august
 categories:
