@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" class=""><head>
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="Rmarkdown 的目标是生成一个有文字有图像的数据分析文档，保持数据分析和文章写作的流畅。然而，在实际操作中，由于个体所处环境的限制。这个目标很难完美实现。
+实际的科研路线是阅读文献、提出想法、设计实验、完成实验、分析数据、写成初稿，最后是反复多次的审阅和修改。对比这个路线就会发现，数据分析实际只占主体内容的一小部分，而且在正文中几乎不会有代码的出现。另外，在审阅过程中，需要和导师或者合作者多次沟通，这在事业起步阶段，显然需要自己配合他人，而不是期望对方兼容自己。这个时候，更为流行的 Word 显然更能胜任论文写作的工作。
+相比于各种文字处理软件和标记语言，Rmarkdown 类似于 Markdown 一样的便捷的标记和导出即好看样式处理，以及融合了R 代码和输出结果的强大功能。显得似乎很强大，但只能用在自己写数据分析报告和写博客上。
+而在数据处理上，显然R脚本文件也比Rmarkdown更合适。因为，采用代码进行数据分析的一大目标就是，就是期待数据分析自动化，和数据分析代码的可重复利用，在这方面Rmarkdown 比不上可以自动运行的脚本文件。另外，文本和代码结合的方式，使得数据分析员更容易在分析过程中对结果进行解释，但这实际上是一个重复性工作，因为关于数据的解释，完全应该放在论文的初稿中。
+对于 R 的使用，应该更像使用 MATLAB 一样，写出可以输出结果的脚本文件。一个项目由一个解释文档，一个主脚本，和数量相当，功能单一的支线函数脚本组成。这样在后期需要的时候，修改必要的几个参数，就能够重新投入使用。
+
+在现代的编程语言中使用自定义函数，优点是代码复用、模块化设计。在编程时，把编程任务分解成小的模块，每个模块用一个函数实现，便于理解每个模块的作用，降低了程序复杂性，使得程序容易管理。
+采用这样的方式进行数据分析，也是真正实现函数化编程。
+总结，用 R 做数据分析，用 Word 写论文，用 Rmarkdown 写技术博客。"> 
 
   <title>
     
@@ -16,22 +25,27 @@
   
   
   
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/main.b2716da050f7055d51b7ee4fd8cee8534a741849de0347fa05cbcbb7dcc3ca481f3a1f8f752a1adaaf94fdf8fd19d57992814c6d6998ed581820ac45b270ac00.css" integrity="sha512-snFtoFD3BV1Rt&#43;5P2M7oU0p0GEneA0f6BcvLt9zDykgfOh&#43;PdSoa2q&#43;U/fj9GdV5koFMbWmY7VgYIKxFsnCsAA==" />
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css">
 </head><body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
 <a href="/">..</a>
 
-<article>
-    <p class="post-meta">
-        <time datetime="2023-02-15 00:00:00 &#43;0000 UTC">
-            2023-02-15
-        </time>
-    </p>
-
+<article style="flex: 1;">
     <h1>Rmarkdown 并不适合写论文</h1>
+
+    <div style="display: flex; align-items: center; color:#888888;">
+        <p class="post-meta">
+             JiangXiaoyu
+        </p>
+        <span style="margin: 0 1px;">·</span>
+        <p class="post-meta">
+            <time datetime="2023-02-15 00:00:00 &#43;0000 UTC">
+                2023/02/15
+            </time>
+        </p>
+    </div>
 
     <p>Rmarkdown 的目标是生成一个有文字有图像的数据分析文档，保持数据分析和文章写作的流畅。然而，在实际操作中，由于个体所处环境的限制。这个目标很难完美实现。</p>
 <p>实际的科研路线是阅读文献、提出想法、设计实验、完成实验、分析数据、写成初稿，最后是反复多次的审阅和修改。对比这个路线就会发现，数据分析实际只占主体内容的一小部分，而且在正文中几乎不会有代码的出现。另外，在审阅过程中，需要和导师或者合作者多次沟通，这在事业起步阶段，显然需要自己配合他人，而不是期望对方兼容自己。这个时候，更为流行的 Word 显然更能胜任论文写作的工作。</p>
@@ -44,6 +58,38 @@
 <p>总结，用 R 做数据分析，用 Word 写论文，用 Rmarkdown 写技术博客。</p>
 
 </article>
+
+<div class="post-navigation" style="margin-top: 30px ; margin-bottom: 40px ;">
+    
+    <a href="/post/proxy/" class="prev-post" style="margin-right: 20px; text-decoration: underline;">←
+        局域网共享代理</a>
+    
+    <br>
+    
+    <a href="/post/2024-11-13-rmd/" class="next-post" style="text-decoration: underline;">自编雅思写作结构 →</a>
+    
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="JiangXY98/JiangXY98.github.io"
+    data-repo-id="R_kgDOITYhpg" data-category="Announcements" data-category-id="DIC_kwDOITYhps4CqA6z"
+    data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+    data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy"
+    crossorigin="anonymous" async>
+    </script>
+
+<footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
+    Ⓒ2021-2025·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+        style="color: #3686e7dd;">Xiaoyu Jiang </a>
+    <br>
+    <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号-1</a>
+</footer>
+<footer style="font-size: 12px; color: #b0b0b0; text-align: center;"> <br>
+    Powered by Hugo theme: <a href='https://github.com/Masellum/hugo-theme-nostyleplease'
+        style="color: #5497e9ac;">(nearly) no-CSS,
+        fast,
+        minimalist</a>
+</footer>
+
 
             </div>
         </main>

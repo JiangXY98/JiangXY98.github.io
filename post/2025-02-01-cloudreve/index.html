@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh-cn" class=""><head>
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="Cloudreve官方的配置文档非常详细，只不过有几个点需要注意一下。
+
+系统信息
+Debian 12
+
+
+安装必备软件
+sudo apt install wget nginx certbot python3-cerbot-nginx
+
+
+注意事项
+
+国内的服务器使用梯子不太方便，可以用github的镜像链接代替初始下载链接。
+clouddreve文件包可以放在任意目录中，为了系统目录的整洁，我放在了根目录下的opt中，因此，也需要在创建cloudreve的systemclt守护程序时，需要将两个路径都改为程序的绝对路径。
+网盘的空间大小在配置中的用户组选项页中进行调整。
+
+
+
+Reference
+
+Cloudreve官方文档
+ChatGPT
+
+"> 
 
   <title>
     
@@ -16,22 +40,27 @@
   
   
   
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/main.b2716da050f7055d51b7ee4fd8cee8534a741849de0347fa05cbcbb7dcc3ca481f3a1f8f752a1adaaf94fdf8fd19d57992814c6d6998ed581820ac45b270ac00.css" integrity="sha512-snFtoFD3BV1Rt&#43;5P2M7oU0p0GEneA0f6BcvLt9zDykgfOh&#43;PdSoa2q&#43;U/fj9GdV5koFMbWmY7VgYIKxFsnCsAA==" />
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css">
 </head><body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
 <a href="/">..</a>
 
-<article>
-    <p class="post-meta">
-        <time datetime="2025-02-01 00:00:00 &#43;0000 UTC">
-            2025-02-01
-        </time>
-    </p>
-
+<article style="flex: 1;">
     <h1>使用腾讯云轻量服务器搭建私有云盘Cloudreve</h1>
+
+    <div style="display: flex; align-items: center; color:#888888;">
+        <p class="post-meta">
+             Xiaoyu Jiang
+        </p>
+        <span style="margin: 0 1px;">·</span>
+        <p class="post-meta">
+            <time datetime="2025-02-01 00:00:00 &#43;0000 UTC">
+                2025/02/01
+            </time>
+        </p>
+    </div>
 
     
 
@@ -62,6 +91,38 @@
 </div>
 
 </article>
+
+<div class="post-navigation" style="margin-top: 30px ; margin-bottom: 40px ;">
+    
+    <a href="/post/code-server/" class="prev-post" style="margin-right: 20px; text-decoration: underline;">←
+        安装code-server并配置nginx反向代理</a>
+    
+    <br>
+    
+    <a href="/post/2025-05-03-question/" class="next-post" style="text-decoration: underline;">科研中的黑匣子 →</a>
+    
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="JiangXY98/JiangXY98.github.io"
+    data-repo-id="R_kgDOITYhpg" data-category="Announcements" data-category-id="DIC_kwDOITYhps4CqA6z"
+    data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+    data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy"
+    crossorigin="anonymous" async>
+    </script>
+
+<footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
+    Ⓒ2021-2025·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+        style="color: #3686e7dd;">Xiaoyu Jiang </a>
+    <br>
+    <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号-1</a>
+</footer>
+<footer style="font-size: 12px; color: #b0b0b0; text-align: center;"> <br>
+    Powered by Hugo theme: <a href='https://github.com/Masellum/hugo-theme-nostyleplease'
+        style="color: #5497e9ac;">(nearly) no-CSS,
+        fast,
+        minimalist</a>
+</footer>
+
 
             </div>
         </main>

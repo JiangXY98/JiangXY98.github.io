@@ -1,9 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-cn" class=""><head>
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="
+念头一起，就无法消失了，除了去做。
+
+
+引言
+这已经不是我第一次搭建博客了。
+去年疫情搭建梯子时，根据网上的教程，用租用的 VPS 和腾讯新人购买的域名搭建过一个博客网站。因为时间久远，甚至连采用的什么框架都忘了。
+后来因为用的机场恢复运营了，VPS 和域名的作用消失了，建站也就不了了之了。前两天域名到期提示续费的邮件让我想起“哦，我还玩过这个啊”。
+最近在用 Psychtoolbox 编实验程序，想找一个地方存放自己编写程序的过程，发现拥有一个博客最能满足需求。一是记录自己在做的事情，二是借此展示自己，看有无朋友愿意请我帮忙编写心理学实验程序。
+基于上述内容，于2021年7月30日，利用一天的时间，通过 Google 和查阅官方文档的方式，搭建了这个博客。本文讲述了两种方法。大家可以选择性的跳到自己需要板换阅读。
+
+
+材料和方法
+
+材料
+
+Arch Linux
+Google
+GitHub，本博客基于 GitHub Pages 和 Jekyll 所搭建。
+Jekyll
+Vim
+Atom
+
+
+
+准备：git、GitHub 帐号
+整个搭建过程完全在Arch Linux 系统上完成。
+archie@arch ~ (master)&gt; neofetch
+                   -`                    archie@arch
+                  .o&#43;`                   -----------
+                 `ooo/                   OS: Arch Linux x86_64
+                `&#43;oooo:                  Host: TM1701
+               `&#43;oooooo:                 Kernel: 5.13.6-arch1-1
+               -&#43;oooooo&#43;:                Uptime: 4 hours, 51 mins
+             `/:-:&#43;&#43;oooo&#43;:               Packages: 1302 (pacman)
+            `/&#43;&#43;&#43;&#43;/&#43;&#43;&#43;&#43;&#43;&#43;&#43;:              Shell: fish 3.3.1
+           `/&#43;&#43;&#43;&#43;&#43;&#43;&#43;&#43;&#43;&#43;&#43;&#43;&#43;&#43;:             Resolution: 1920x1080
+          `/&#43;&#43;&#43;ooooooooooooo/`           DE: GNOME 40.3
+         ./ooosssso&#43;&#43;osssssso&#43;`          WM: Mutter
+        .oossssso-````/ossssss&#43;`         WM Theme: Layan-light
+       -osssssso.      :ssssssso.        Theme: Layan-light [GTK2/3]
+      :osssssss/        osssso&#43;&#43;&#43;.       Icons: ePapirus [GTK2/3]
+     /ossssssss/        &#43;ssssooo/-       Terminal: gnome-terminal
+   `/ossssso&#43;/:-        -:/&#43;osssso&#43;-     CPU: Intel i7-8550U (8) @ 4.000GHz
+  `&#43;sso&#43;:-`                 `.-/&#43;oso:    GPU: Intel UHD Graphics 620
+ `&#43;&#43;:.                           `-/&#43;/   GPU: NVIDIA GeForce MX150
+ .`                                 `/   Memory: 2952MiB / 7837MiB
+首先安装 git ，终端输入："> 
 
   <title>
     
@@ -16,33 +64,46 @@
   
   
   
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/main.b2716da050f7055d51b7ee4fd8cee8534a741849de0347fa05cbcbb7dcc3ca481f3a1f8f752a1adaaf94fdf8fd19d57992814c6d6998ed581820ac45b270ac00.css" integrity="sha512-snFtoFD3BV1Rt&#43;5P2M7oU0p0GEneA0f6BcvLt9zDykgfOh&#43;PdSoa2q&#43;U/fj9GdV5koFMbWmY7VgYIKxFsnCsAA==" />
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css">
 </head><body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
 <a href="/">..</a>
 
-<article>
-    <p class="post-meta">
-        <time datetime="2021-07-30 00:00:00 &#43;0000 UTC">
-            2021-07-30
-        </time>
-    </p>
-
+<article style="flex: 1;">
     <h1>Make a blog site by using GitHub pages and Jekll</h1>
 
-    <blockquote>
-<p>念头一起，就无法消失了，除了去做。</p></blockquote>
-<h2 id="引言">引言</h2>
+    <div style="display: flex; align-items: center; color:#888888;">
+        <p class="post-meta">
+             Ginger Yu
+        </p>
+        <span style="margin: 0 1px;">·</span>
+        <p class="post-meta">
+            <time datetime="2021-07-30 00:00:00 &#43;0000 UTC">
+                2021/07/30
+            </time>
+        </p>
+    </div>
+
+    
+
+
+<blockquote>
+<p>念头一起，就无法消失了，除了去做。</p>
+</blockquote>
+<div id="引言" class="section level2">
+<h2>引言</h2>
 <p>这已经不是我第一次搭建博客了。</p>
 <p>去年疫情搭建梯子时，根据网上的教程，用租用的 VPS 和腾讯新人购买的域名搭建过一个博客网站。因为时间久远，甚至连采用的什么框架都忘了。</p>
 <p>后来因为用的机场恢复运营了，VPS 和域名的作用消失了，建站也就不了了之了。前两天域名到期提示续费的邮件让我想起“哦，我还玩过这个啊”。</p>
 <p>最近在用 Psychtoolbox 编实验程序，想找一个地方存放自己编写程序的过程，发现拥有一个博客最能满足需求。一是记录自己在做的事情，二是借此展示自己，看有无朋友愿意请我帮忙编写心理学实验程序。</p>
 <p>基于上述内容，于2021年7月30日，利用一天的时间，通过 Google 和查阅官方文档的方式，搭建了这个博客。本文讲述了两种方法。大家可以选择性的跳到自己需要板换阅读。</p>
-<h2 id="材料和方法">材料和方法</h2>
-<h3 id="材料">材料</h3>
+</div>
+<div id="材料和方法" class="section level2">
+<h2>材料和方法</h2>
+<div id="材料" class="section level3">
+<h3>材料</h3>
 <ul>
 <li>Arch Linux</li>
 <li>Google</li>
@@ -51,126 +112,165 @@
 <li>Vim</li>
 <li>Atom</li>
 </ul>
-<h3 id="准备gitgithub-帐号">准备：git、GitHub 帐号</h3>
+</div>
+<div id="准备gitgithub-帐号" class="section level3">
+<h3>准备：git、GitHub 帐号</h3>
 <p>整个搭建过程完全在Arch Linux 系统上完成。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>archie@arch ~ <span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>&gt; neofetch
-</span></span><span style="display:flex;"><span>                   -<span style="color:#e6db74">`</span>                    archie@arch
-</span></span><span style="display:flex;"><span>                  .o+<span style="color:#e6db74">`</span>                   -----------
-</span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">`</span>ooo/                   OS: Arch Linux x86_64
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">`</span>+oooo:                  Host: TM1701
-</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">`</span>+oooooo:                 Kernel: 5.13.6-arch1-1
-</span></span><span style="display:flex;"><span>               -+oooooo+:                Uptime: <span style="color:#ae81ff">4</span> hours, <span style="color:#ae81ff">51</span> mins
-</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">`</span>/:-:++oooo+:               Packages: <span style="color:#ae81ff">1302</span> <span style="color:#f92672">(</span>pacman<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">`</span>/++++/+++++++:              Shell: fish 3.3.1
-</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">`</span>/++++++++++++++:             Resolution: 1920x1080
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">`</span>/+++ooooooooooooo/<span style="color:#e6db74">`</span>           DE: GNOME 40.3
-</span></span><span style="display:flex;"><span>         ./ooosssso++osssssso+<span style="color:#e6db74">`</span>          WM: Mutter
-</span></span><span style="display:flex;"><span>        .oossssso-<span style="color:#e6db74">````</span>/ossssss+<span style="color:#e6db74">`</span>         WM Theme: Layan-light
-</span></span><span style="display:flex;"><span>       -osssssso.      :ssssssso.        Theme: Layan-light <span style="color:#f92672">[</span>GTK2/3<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      :osssssss/        osssso+++.       Icons: ePapirus <span style="color:#f92672">[</span>GTK2/3<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>     /ossssssss/        +ssssooo/-       Terminal: gnome-terminal
-</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">`</span>/ossssso+/:-        -:/+osssso+-     CPU: Intel i7-8550U <span style="color:#f92672">(</span>8<span style="color:#f92672">)</span> @ 4.000GHz
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">`</span>+sso+:-<span style="color:#e6db74">`</span>                 <span style="color:#e6db74">`</span>.-/+oso:    GPU: Intel UHD Graphics <span style="color:#ae81ff">620</span>
-</span></span><span style="display:flex;"><span> <span style="color:#e6db74">`</span>++:.                           <span style="color:#e6db74">`</span>-/+/   GPU: NVIDIA GeForce MX150
-</span></span><span style="display:flex;"><span> .<span style="color:#e6db74">`</span>                                 <span style="color:#e6db74">`</span>/   Memory: 2952MiB / 7837MiB
-</span></span></code></pre></div><p>首先安装 git ，终端输入：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S git
-</span></span></code></pre></div><p>然后要有一个 <a href="https://github.com">GitHub</a> 帐号</p>
-<p><img src="images/Screenshot-20210810102932-1124x835.png" alt=""></p>
+<pre class="bash"><code>archie@arch ~ (master)&gt; neofetch
+                   -`                    archie@arch
+                  .o+`                   -----------
+                 `ooo/                   OS: Arch Linux x86_64
+                `+oooo:                  Host: TM1701
+               `+oooooo:                 Kernel: 5.13.6-arch1-1
+               -+oooooo+:                Uptime: 4 hours, 51 mins
+             `/:-:++oooo+:               Packages: 1302 (pacman)
+            `/++++/+++++++:              Shell: fish 3.3.1
+           `/++++++++++++++:             Resolution: 1920x1080
+          `/+++ooooooooooooo/`           DE: GNOME 40.3
+         ./ooosssso++osssssso+`          WM: Mutter
+        .oossssso-````/ossssss+`         WM Theme: Layan-light
+       -osssssso.      :ssssssso.        Theme: Layan-light [GTK2/3]
+      :osssssss/        osssso+++.       Icons: ePapirus [GTK2/3]
+     /ossssssss/        +ssssooo/-       Terminal: gnome-terminal
+   `/ossssso+/:-        -:/+osssso+-     CPU: Intel i7-8550U (8) @ 4.000GHz
+  `+sso+:-`                 `.-/+oso:    GPU: Intel UHD Graphics 620
+ `++:.                           `-/+/   GPU: NVIDIA GeForce MX150
+ .`                                 `/   Memory: 2952MiB / 7837MiB</code></pre>
+<p>首先安装 git ，终端输入：</p>
+<pre class="bash"><code>sudo pacman -S git</code></pre>
+<p>然后要有一个 <a href="https://github.com">GitHub</a> 帐号</p>
+<p><img src="images/Screenshot-20210810102932-1124x835.png" /></p>
 <p>创建一个 GitHub 仓库（Repository），根据官方文档，仓库名称必须为 <code>&lt;user&gt;.github.io</code> 。实际测试发现，如果不是也可以，只不过博客网址要在仓库名前加上 <code>&lt;user&gt;.github.io</code> 。当然，可以但没必要。</p>
-<p><img src="images/Screenshot-20210810091435-1124x835.png" alt=""></p>
+<p><img src="images/Screenshot-20210810091435-1124x835.png" /></p>
 <p>我们新建的仓库是空的，GitHub 也给出了提示，上我们上传或者新建一个 README.md ，我在这里选择了跳过。因为后面会上传更多的东西。</p>
-<h3 id="方法一-clone-主题仓库来部署网站">方法一： Clone 主题仓库来部署网站</h3>
+</div>
+<div id="方法一-clone-主题仓库来部署网站" class="section level3">
+<h3>方法一： Clone 主题仓库来部署网站</h3>
 <p>完成上面的部分后，下面的工作命令在终端上执行。</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>转到准备好的项目存储位置（一个本地文件夹），我这里给其命名为 <code>GitHub</code>。</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd GitHub
-</span></span></code></pre></div><ol start="2">
+<pre class="bash"><code>cd GitHub</code></pre>
+<ol start="2" style="list-style-type: decimal">
 <li>然后在 <a href="https://github.com/topics/jekyll-theme">GitHub</a> 找一个合适的主题，然后把它的库文件都下下来。删掉 .git 文件。然后把文件夹的名字修改为自己的远程库名字。</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#拷贝文件</span>
-</span></span><span style="display:flex;"><span>git clone 所选主题库的地址
-</span></span><span style="display:flex;"><span>mv &lt;主题文件夹&gt; &lt;user&gt;.github.io <span style="color:#75715e"># 移动文件、复制和修改文件名称是同一个命令</span>
-</span></span><span style="display:flex;"><span>cd &lt;user&gt;.github.io/
-</span></span><span style="display:flex;"><span>rm -rf .git
-</span></span></code></pre></div><ol start="3">
+<pre class="bash"><code>#拷贝文件
+git clone 所选主题库的地址
+mv &lt;主题文件夹&gt; &lt;user&gt;.github.io # 移动文件、复制和修改文件名称是同一个命令
+cd &lt;user&gt;.github.io/
+rm -rf .git</code></pre>
+<ol start="3" style="list-style-type: decimal">
 <li>初始化本地 Git 仓库，我因为同时参考多个教程，错过了这个步骤，导致一直报错 <code>fatal: not a git repository (or any of the parent directories): .git</code> 。后来才发现，是没有初始化本地仓库的原因。</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init .
-</span></span></code></pre></div><ol start="4">
+<pre class="bash"><code>git init .</code></pre>
+<ol start="4" style="list-style-type: decimal">
 <li>将刚刚创建的站点文件夹链接到远程仓库。</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git remote add origin http://github.com/&lt;user&gt;/&lt;user&gt;.github.io.git
-</span></span></code></pre></div><ol start="5">
+<pre class="bash"><code>git remote add origin http://github.com/&lt;user&gt;/&lt;user&gt;.github.io.git</code></pre>
+<ol start="5" style="list-style-type: decimal">
 <li>这时一切都准备好了。我们只需要把库里所有的文件上传到我们刚刚建的 GitHub 仓库里， GitHub Pages 就会自动部署一个网站。</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m “注释，可以填上你自己想写的任何内容”
-</span></span><span style="display:flex;"><span>git push -u origin main
-</span></span></code></pre></div><p>至此我们就成功搭建好了博客。可以打开看看了。https://gooycity.github.io 。当然，目前这个博客只是刚建好的状态，就象刚封顶的大楼一样，甚至还有很多搭建时的脚手架需要移除。我们下一步的工作就是发挥自己的创意和审美，来完善它了。</p>
-<h3 id="方法二使用-jekyll-搭建">方法二：使用 jekyll 搭建</h3>
-<ol>
+<pre class="bash"><code>git add .
+git commit -m “注释，可以填上你自己想写的任何内容”
+git push -u origin main</code></pre>
+<p>至此我们就成功搭建好了博客。可以打开看看了。<a href="https://gooycity.github.io" class="uri">https://gooycity.github.io</a> 。当然，目前这个博客只是刚建好的状态，就象刚封顶的大楼一样，甚至还有很多搭建时的脚手架需要移除。我们下一步的工作就是发挥自己的创意和审美，来完善它了。</p>
+</div>
+<div id="方法二使用-jekyll-搭建" class="section level3">
+<h3>方法二：使用 jekyll 搭建</h3>
+<ol style="list-style-type: decimal">
 <li>安装 jekyll。</li>
 </ol>
 <p>jekyll 是基于 Ruby 开发的，需要首先在电脑上安装 Ruby 环境</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S ruby
-</span></span></code></pre></div><p>然后通过 <code>gem</code> 命令，安装 jekyll</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gem install jekyll
-</span></span></code></pre></div><p>我在这里踩了一个坑。执行命令后，出现报错信息，安装成功，但是使用时找不到 <code>jekyll</code>命令。</p>
-<pre tabindex="0"><code>archie@arch ~ (master)&gt; gem install jekyll
+<pre class="bash"><code>sudo pacman -S ruby</code></pre>
+<p>然后通过 <code>gem</code> 命令，安装 jekyll</p>
+<pre class="bash"><code>gem install jekyll</code></pre>
+<p>我在这里踩了一个坑。执行命令后，出现报错信息，安装成功，但是使用时找不到 <code>jekyll</code>命令。</p>
+<pre><code>archie@arch ~ (master)&gt; gem install jekyll
 WARNING:  You don&#39;t have /home/user/.local/share/gem/ruby/3.0.0/bin in your PATH,
 	  gem executables will not run.
 Successfully installed jekyll-4.2.0
 Parsing documentation for jekyll-4.2.0
 Done installing documentation for jekyll after 0 seconds
-1 gem installed
-</code></pre><p>如果出现这个报警信息，把提示的途径加入到环境信息中即可。通过这种方式设置，每次重启后都重置。在使用 jekyll 前需要首先执行这个命令。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export /home/user/.local/share/gem/ruby/3.0.0/bin <span style="color:#75715e"># 根据提示信息而变</span>
-</span></span></code></pre></div><p>永久解决的办法是，在 <code>/etc/profile</code>（所有 shell 有效） 或 <code>/etc/bash.bashrc/</code>（仅 bash 类有效）中添加上边的命令。</p>
+1 gem installed</code></pre>
+<p>如果出现这个报警信息，把提示的途径加入到环境信息中即可。通过这种方式设置，每次重启后都重置。在使用 jekyll 前需要首先执行这个命令。</p>
+<pre class="bash"><code>export /home/user/.local/share/gem/ruby/3.0.0/bin # 根据提示信息而变</code></pre>
+<p>永久解决的办法是，在 <code>/etc/profile</code>（所有 shell 有效） 或 <code>/etc/bash.bashrc/</code>（仅 bash 类有效）中添加上边的命令。</p>
 <p>对于 fish 用户，可以执行如下命令来进行添加。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># echo 添加文本到文件</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># fish_add_path 添加路径到 fish 设置</span>
-</span></span><span style="display:flex;"><span>sudo echo <span style="color:#e6db74">&#34;fish_add_path /home/user/.local/share/gem/ruby/3.0.0/bin&#34;</span> &gt; ~/.config/fish/config.fish
-</span></span></code></pre></div><ol start="2">
+<pre class="bash"><code># echo 添加文本到文件
+# fish_add_path 添加路径到 fish 设置
+sudo echo &quot;fish_add_path /home/user/.local/share/gem/ruby/3.0.0/bin&quot; &gt; ~/.config/fish/config.fish</code></pre>
+<ol start="2" style="list-style-type: decimal">
 <li>jekyll 命令新建博客站点</li>
 </ol>
 <p>在本地库的存储目录（网站仓库的父目录）里执行 jekyll 创建新网站命令即可。如果不指定主题，该命令会是用默认的 minial 主题创建。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>jekyll new &lt;user&gt;.github.io --force <span style="color:#75715e"># `&lt;user&gt;.github.io`本地仓库名； force 为强制创建标识符</span>
-</span></span></code></pre></div><ol start="3">
+<pre class="bash"><code>jekyll new &lt;user&gt;.github.io --force # `&lt;user&gt;.github.io`本地仓库名； force 为强制创建标识符</code></pre>
+<ol start="3" style="list-style-type: decimal">
 <li>本地预览站点</li>
 </ol>
 <p>建了一个干干净净的博客，切换到库目录，然后搭建本地预览服务。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd &lt;user&gt;.github.io/
-</span></span><span style="display:flex;"><span>bundle exec jekyll serve
-</span></span></code></pre></div><p>根据终端输出的信息，在浏览器中输入地址，进行本地预览。</p>
-<ol start="4">
+<pre class="bash"><code>cd &lt;user&gt;.github.io/
+bundle exec jekyll serve</code></pre>
+<p>根据终端输出的信息，在浏览器中输入地址，进行本地预览。</p>
+<ol start="4" style="list-style-type: decimal">
 <li>部署站点到 GitHub Pages</li>
 </ol>
 <p>此时我们就创建好了一个新网站。最后一个步骤就是将网站部署到 GitHub Pages 上。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd &lt;user&gt;.github.io <span style="color:#75715e"># 切换到站点的仓库目录。</span>
-</span></span><span style="display:flex;"><span>git init 初始化本地仓库
-</span></span><span style="display:flex;"><span>git remote add origin http://github.com/&lt;user&gt;/&lt;user&gt;.github.io.git
-</span></span><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;注释&#34;</span>
-</span></span><span style="display:flex;"><span>git branch -M main
-</span></span><span style="display:flex;"><span>git push -U origin main
-</span></span></code></pre></div><h2 id="事后">事后</h2>
+<pre class="bash"><code>cd &lt;user&gt;.github.io # 切换到站点的仓库目录。
+git init 初始化本地仓库
+git remote add origin http://github.com/&lt;user&gt;/&lt;user&gt;.github.io.git
+git add .
+git commit -m &quot;注释&quot;
+git branch -M main
+git push -U origin main</code></pre>
+</div>
+</div>
+<div id="事后" class="section level2">
+<h2>事后</h2>
 <p>为了更方面的维护网站，这里推荐 GitHub 出品的开源编辑器 <a href="https://atom.io/">Atom</a>。整合了 Git 管理工具。再加上插件，是一个很棒的 Markdown 编辑器。用起来相当舒服。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S atom
-</span></span></code></pre></div><p>在工作区打开本地库文件夹，会自然登录 GitHub。</p>
-<ol>
+<pre class="bash"><code>sudo pacman -S atom</code></pre>
+<p>在工作区打开本地库文件夹，会自然登录 GitHub。</p>
+<ol style="list-style-type: decimal">
 <li>修改站点信息</li>
 </ol>
 <p>编辑 <code>config.yaml</code> 文件。</p>
-<ol start="2">
+<ol start="2" style="list-style-type: decimal">
 <li>添加新博文</li>
 </ol>
 <p>在 _posts 文件夹中新建 markdown 文件。并配置相应的 YAML 头信息。</p>
 <p>这些设置也可以通过 Atom + markdown writer 插件图形化实现。我会写一篇文章详细描述怎么配置一个可用的 Atom 编辑器。</p>
 <p>To be continued.</p>
+</div>
 
 </article>
+
+<div class="post-navigation" style="margin-top: 30px ; margin-bottom: 40px ;">
+    
+    <br>
+    
+    <a href="/post/two-pages/" class="next-post" style="text-decoration: underline;">Setting Atom for GitHub Pages →</a>
+    
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="JiangXY98/JiangXY98.github.io"
+    data-repo-id="R_kgDOITYhpg" data-category="Announcements" data-category-id="DIC_kwDOITYhps4CqA6z"
+    data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+    data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy"
+    crossorigin="anonymous" async>
+    </script>
+
+<footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
+    Ⓒ2021-2025·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+        style="color: #3686e7dd;">Xiaoyu Jiang </a>
+    <br>
+    <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号-1</a>
+</footer>
+<footer style="font-size: 12px; color: #b0b0b0; text-align: center;"> <br>
+    Powered by Hugo theme: <a href='https://github.com/Masellum/hugo-theme-nostyleplease'
+        style="color: #5497e9ac;">(nearly) no-CSS,
+        fast,
+        minimalist</a>
+</footer>
+
 
             </div>
         </main>

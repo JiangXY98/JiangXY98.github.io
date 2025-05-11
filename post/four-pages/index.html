@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-cn" class=""><head>
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="
+当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。
+引言
+今天在用 blogdown 结合 GitHub Pages 搭建博客的过程真是踩坑无数：
+安装 blogdown
+当时我是在 RStudio 的控制台中输入
+install.packages(blogdown)
+但是一直装不上。
+
+先是早上因为依赖promises装不上。 blogdown 装不上，通过 Arch Linux 的 yay 解决了。
+
+yay -S r-promises
+
+然后是 RStudio 不能走代理，与 blogdown 库地址的连接时不时断线。最后在多次尝试之后，安装上了。
+
+现在回过头看，有另外两种办法可以避免这一问题。
+# 一是通过 AUR 安装 R 扩展包的方式来安装，其有更好的依赖管理，并且如果设置了镜像的话，就可以避免代理的问题。
+yay -S r-blogdown
+# 如果终端可以正常走代理的话，可以通过下面这种方式
+# 在命令行 R 中进行安装。这样可以避免 RStudio 的代理设置问题。
+install.packages(blogdown)
+安装 hugo
+采用 AUR 安装扩展包的方式的同学会发现，这一步可以跳过了。因为 AUR 安装依赖时，已经安装好 Hugo 了。
+采用 R 或 RStudio 安装的同学需要跟着进行操作，安装 Hugo。
+blogdown::install_hugo()
+这个安装会连接到 yihui 的网站，但是因为 RStudio 连接外网不稳定的原因。国内的同学可能需要通过下面两种方式。"> 
 
   <title>
     
@@ -16,22 +42,27 @@
   
   
   
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/main.b2716da050f7055d51b7ee4fd8cee8534a741849de0347fa05cbcbb7dcc3ca481f3a1f8f752a1adaaf94fdf8fd19d57992814c6d6998ed581820ac45b270ac00.css" integrity="sha512-snFtoFD3BV1Rt&#43;5P2M7oU0p0GEneA0f6BcvLt9zDykgfOh&#43;PdSoa2q&#43;U/fj9GdV5koFMbWmY7VgYIKxFsnCsAA==" />
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css">
 </head><body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
 <a href="/">..</a>
 
-<article>
-    <p class="post-meta">
-        <time datetime="2021-08-03 00:00:00 &#43;0000 UTC">
-            2021-08-03
-        </time>
-    </p>
-
+<article style="flex: 1;">
     <h1>There were missing in making blog site by using blogdown</h1>
+
+    <div style="display: flex; align-items: center; color:#888888;">
+        <p class="post-meta">
+             Ginger Yu
+        </p>
+        <span style="margin: 0 1px;">·</span>
+        <p class="post-meta">
+            <time datetime="2021-08-03 00:00:00 &#43;0000 UTC">
+                2021/08/03
+            </time>
+        </p>
+    </div>
 
     <blockquote>
 <p>当前的几大爱好，计算机、人像摄影、阅读、和运动。缺了哪一个都不行。</p></blockquote>
@@ -110,6 +141,38 @@
 <p><a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">[5] Up &amp; running with blogdown in 2021</a></p>
 
 </article>
+
+<div class="post-navigation" style="margin-top: 30px ; margin-bottom: 40px ;">
+    
+    <a href="/post/two-pages/" class="prev-post" style="margin-right: 20px; text-decoration: underline;">←
+        Setting Atom for GitHub Pages</a>
+    
+    <br>
+    
+    <a href="/post/six-pages/" class="next-post" style="text-decoration: underline;">Make VS Code to be a R IDE →</a>
+    
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="JiangXY98/JiangXY98.github.io"
+    data-repo-id="R_kgDOITYhpg" data-category="Announcements" data-category-id="DIC_kwDOITYhps4CqA6z"
+    data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+    data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy"
+    crossorigin="anonymous" async>
+    </script>
+
+<footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
+    Ⓒ2021-2025·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+        style="color: #3686e7dd;">Xiaoyu Jiang </a>
+    <br>
+    <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号-1</a>
+</footer>
+<footer style="font-size: 12px; color: #b0b0b0; text-align: center;"> <br>
+    Powered by Hugo theme: <a href='https://github.com/Masellum/hugo-theme-nostyleplease'
+        style="color: #5497e9ac;">(nearly) no-CSS,
+        fast,
+        minimalist</a>
+</footer>
+
 
             </div>
         </main>

@@ -1,9 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-cn" class=""><head>
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="
+集成开发环境的本质就是一个可执行命令的控制台和可编辑脚本的编辑器。
+Table of Contents
+
+引言
+材料和方法
+准备
+流程
+结果
+总结
+
+引言
+昨晚，忽然 RStudio 又不能输入中文了。即使用的是网上的解决办法 ── ibus。（现在 Archlinux Wiki 里已经有了标准的稳定的解决办法了）1 。我目前用 R 主要是用 Rmarkdown 编辑文档。这个问题出现，显然是致命一击。之前就被它不稳定的外网连接折磨，可以忍受，不能使用中文输入显然是不能接受的。
+我的 R 使用路线是，一窍不通，跟着以前认为 RStudio 是 R 唯一的 IDE。后来想通了，R 生态是基于 R-core 的一系列包的合集，即使是 RStudio 也是一组包的合集。
+按照这个思路。只要把自己需要的包配置好，即使不是 RStudio 也可以实现需求。
+几个需求：
+
+编辑 Rmarkdown
+使用 knitr 导出 html 或 pdf
+使用 blogdown 的全功能部署网站
+
+材料和方法
+准备
+流程
+结果
+总结
+经过这样一顿折腾，对 R 包括 RStudio 的工作机制有了更深的理解
+
+
+
+
+RStudio 中无法调出输入法&#160;&#x21a9;&#xfe0e;
+
+
+"> 
 
   <title>
     
@@ -16,22 +51,27 @@
   
   
   
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/main.b2716da050f7055d51b7ee4fd8cee8534a741849de0347fa05cbcbb7dcc3ca481f3a1f8f752a1adaaf94fdf8fd19d57992814c6d6998ed581820ac45b270ac00.css" integrity="sha512-snFtoFD3BV1Rt&#43;5P2M7oU0p0GEneA0f6BcvLt9zDykgfOh&#43;PdSoa2q&#43;U/fj9GdV5koFMbWmY7VgYIKxFsnCsAA==" />
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css">
 </head><body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
 <a href="/">..</a>
 
-<article>
-    <p class="post-meta">
-        <time datetime="2021-08-09 00:00:00 &#43;0000 UTC">
-            2021-08-09
-        </time>
-    </p>
-
+<article style="flex: 1;">
     <h1>Make VS Code to be a R IDE</h1>
+
+    <div style="display: flex; align-items: center; color:#888888;">
+        <p class="post-meta">
+             Ginger Yu
+        </p>
+        <span style="margin: 0 1px;">·</span>
+        <p class="post-meta">
+            <time datetime="2021-08-09 00:00:00 &#43;0000 UTC">
+                2021/08/09
+            </time>
+        </p>
+    </div>
 
     <blockquote>
 <p>集成开发环境的本质就是一个可执行命令的控制台和可编辑脚本的编辑器。</p></blockquote>
@@ -70,6 +110,38 @@
 </div>
 
 </article>
+
+<div class="post-navigation" style="margin-top: 30px ; margin-bottom: 40px ;">
+    
+    <a href="/post/four-pages/" class="prev-post" style="margin-right: 20px; text-decoration: underline;">←
+        There were missing in making blog site by using blogdown</a>
+    
+    <br>
+    
+    <a href="/post/cdpanda/" class="next-post" style="text-decoration: underline;">To travel the Panda Zoo →</a>
+    
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="JiangXY98/JiangXY98.github.io"
+    data-repo-id="R_kgDOITYhpg" data-category="Announcements" data-category-id="DIC_kwDOITYhps4CqA6z"
+    data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+    data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy"
+    crossorigin="anonymous" async>
+    </script>
+
+<footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
+    Ⓒ2021-2025·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+        style="color: #3686e7dd;">Xiaoyu Jiang </a>
+    <br>
+    <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号-1</a>
+</footer>
+<footer style="font-size: 12px; color: #b0b0b0; text-align: center;"> <br>
+    Powered by Hugo theme: <a href='https://github.com/Masellum/hugo-theme-nostyleplease'
+        style="color: #5497e9ac;">(nearly) no-CSS,
+        fast,
+        minimalist</a>
+</footer>
+
 
             </div>
         </main>

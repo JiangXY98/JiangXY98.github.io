@@ -1,9 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-cn" class=""><head>
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="本文生成时间为2025年1月16日，若发现内容已经过时，请联系我修改。
+
+Introduction
+文件编辑器是程序员的日常工具，而code-server是一个基于vscode的在线编辑器，可以在浏览器中使用vscode的功能。本文将介绍如何在Arch Linux上安装code-server，并通过nginx反向代理使其能够通过域名访问。
+# 系统信息
+OS: Arch Linux x86_64 
+Host: CVM 3.0 
+Kernel: 6.12.8-arch1-1 
+Uptime: 8 days, 4 hours, 35 mins 
+Packages: 196 (pacman) 
+Shell: zsh 5.9 
+Resolution: 1024x768 
+Terminal: /dev/pts/0 
+CPU: AMD EPYC 7K62 (2) @ 2.595GHz 
+GPU: 00:02.0 Cirrus Logic GD 5446 
+Memory: 425MiB / 1966MiB 
+
+
+安装code-server, nginx, certbot
+yay -S code-server nginx certbot
+
+配置code-server
+设置code-server密码和端口
+sudo vim ~/.config/code-server/config.yaml
+设置开机启动以及立即启用code-server服务
+sudo systemctl enable --now code-server@USER
+以下是重点
+
+
+配置nginx反向代理
+在/etc/nginx/下创建两个新文件夹"> 
 
   <title>
     
@@ -16,31 +47,36 @@
   
   
   
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/main.b2716da050f7055d51b7ee4fd8cee8534a741849de0347fa05cbcbb7dcc3ca481f3a1f8f752a1adaaf94fdf8fd19d57992814c6d6998ed581820ac45b270ac00.css" integrity="sha512-snFtoFD3BV1Rt&#43;5P2M7oU0p0GEneA0f6BcvLt9zDykgfOh&#43;PdSoa2q&#43;U/fj9GdV5koFMbWmY7VgYIKxFsnCsAA==" />
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css">
 </head><body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
 <a href="/">..</a>
 
-<article>
-    <p class="post-meta">
-        <time datetime="2025-01-16 00:00:00 &#43;0000 UTC">
-            2025-01-16
-        </time>
-    </p>
-
+<article style="flex: 1;">
     <h1>安装code-server并配置nginx反向代理</h1>
+
+    <div style="display: flex; align-items: center; color:#888888;">
+        <p class="post-meta">
+             Xiaoyu Jiang
+        </p>
+        <span style="margin: 0 1px;">·</span>
+        <p class="post-meta">
+            <time datetime="2025-01-16 00:00:00 &#43;0000 UTC">
+                2025/01/16
+            </time>
+        </p>
+    </div>
 
     
 
 
 <p>本文生成时间为2025年1月16日，若发现内容已经过时，请联系我修改。</p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
 <p>文件编辑器是程序员的日常工具，而code-server是一个基于vscode的在线编辑器，可以在浏览器中使用vscode的功能。本文将介绍如何在Arch Linux上安装code-server，并通过nginx反向代理使其能够通过域名访问。</p>
-<pre><code># 系统信息
+<pre class="zsh"><code># 系统信息
 OS: Arch Linux x86_64 
 Host: CVM 3.0 
 Kernel: 6.12.8-arch1-1 
@@ -53,19 +89,19 @@ CPU: AMD EPYC 7K62 (2) @ 2.595GHz
 GPU: 00:02.0 Cirrus Logic GD 5446 
 Memory: 425MiB / 1966MiB </code></pre>
 </div>
-<div id="安装code-server-nginx-certbot" class="section level1">
-<h1>安装code-server, nginx, certbot</h1>
+<div id="安装code-server-nginx-certbot" class="section level2">
+<h2>安装code-server, nginx, certbot</h2>
 <pre class="bash"><code>yay -S code-server nginx certbot</code></pre>
-<div id="配置code-server" class="section level2">
-<h2>配置code-server</h2>
+<div id="配置code-server" class="section level3">
+<h3>配置code-server</h3>
 <p>设置code-server密码和端口</p>
 <pre class="zsh"><code>sudo vim ~/.config/code-server/config.yaml</code></pre>
 <p>设置开机启动以及立即启用code-server服务</p>
 <pre class="zsh"><code>sudo systemctl enable --now code-server@USER</code></pre>
 <p>以下是重点</p>
 </div>
-<div id="配置nginx反向代理" class="section level2">
-<h2>配置nginx反向代理</h2>
+<div id="配置nginx反向代理" class="section level3">
+<h3>配置nginx反向代理</h3>
 <p>在<code>/etc/nginx/</code>下创建两个新文件夹</p>
 <pre class="zsh"><code>sudo mkdir /etc/nginx/sites-available
 sudo mkdir /etc/nginx/sites-enabled</code></pre>
@@ -93,14 +129,14 @@ sudo mkdir /etc/nginx/sites-enabled</code></pre>
 <p>启动并设置开启启动nginx服务</p>
 <pre class="zsh"><code>sudo systemctl enable --now nginx</code></pre>
 </div>
-<div id="安装tsl证书" class="section level2">
-<h2>安装TSL证书</h2>
+<div id="安装tsl证书" class="section level3">
+<h3>安装TSL证书</h3>
 <p>最后一步，安装TSL证书，使网站能够通过https访问。certbot会自动配置nginx的TSL信息。</p>
 <pre><code>sudo certbot --nginx -d example</code></pre>
 </div>
 </div>
-<div id="reference" class="section level1">
-<h1>Reference</h1>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
 <ol style="list-style-type: decimal">
 <li><a href="https://wiki.archlinux.org/title/Nginx" class="uri">https://wiki.archlinux.org/title/Nginx</a></li>
 <li><a href="https://coder.com/docs/code-server/install#arch-linux" class="uri">https://coder.com/docs/code-server/install#arch-linux</a></li>
@@ -110,6 +146,38 @@ sudo mkdir /etc/nginx/sites-enabled</code></pre>
 </div>
 
 </article>
+
+<div class="post-navigation" style="margin-top: 30px ; margin-bottom: 40px ;">
+    
+    <a href="/post/ieltstask2/" class="prev-post" style="margin-right: 20px; text-decoration: underline;">←
+        因果关系在雅思大作文写作中的角色</a>
+    
+    <br>
+    
+    <a href="/post/2025-02-01-cloudreve/" class="next-post" style="text-decoration: underline;">使用腾讯云轻量服务器搭建私有云盘Cloudreve →</a>
+    
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="JiangXY98/JiangXY98.github.io"
+    data-repo-id="R_kgDOITYhpg" data-category="Announcements" data-category-id="DIC_kwDOITYhps4CqA6z"
+    data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+    data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy"
+    crossorigin="anonymous" async>
+    </script>
+
+<footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
+    Ⓒ2021-2025·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+        style="color: #3686e7dd;">Xiaoyu Jiang </a>
+    <br>
+    <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号-1</a>
+</footer>
+<footer style="font-size: 12px; color: #b0b0b0; text-align: center;"> <br>
+    Powered by Hugo theme: <a href='https://github.com/Masellum/hugo-theme-nostyleplease'
+        style="color: #5497e9ac;">(nearly) no-CSS,
+        fast,
+        minimalist</a>
+</footer>
+
 
             </div>
         </main>
