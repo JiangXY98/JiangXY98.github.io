@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class=""><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="最近才注意到，我的主域名 afark.cn 一直闲置着，就花了半天时间将其指向我的 GitHub Pages 站点，作为我的博客站点，也与备案情况保持一致。为了避免重复修改在多个地方的配置，我同时将旧域名 psy.afark.cn 301 重定向到 afark.cn。在这个过程中，了解到的 301 重定向这个操作。还是挺有意思的。
+目标：
+https://psy.afark.cn
+        ↓ 301
+https://afark.cn
+        ↓
+GitHub Pages
+其中：
+
+afark.cn：GitHub Pages 的正式域名
+psy.afark.cn：旧兼容域名
+VPS：负责 301 跳转
+Nginx：执行重定向
+Certbot：提供 HTTPS 证书
+
+1. DNS 配置
+在 DNSPod 中，将原来的：
+psy    CNAME    jiangxy98.github.io.
+改为：
+psy    A    VPS_IP
+其中 VPS_IP 为 VPS 的静态公网 IP。
+同时确保不存在：
+psy    CNAME    ...
+psy    AAAA     ...
+检查：
+dig &#43;short A psy.afark.cn
+dig &#43;short CNAME psy.afark.cn
+dig &#43;short AAAA psy.afark.cn
+最终应为："> 
+
+  <title>
+    
+    使用 Nginx 将旧域名 301 重定向至主域名
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.b2716da050f7055d51b7ee4fd8cee8534a741849de0347fa05cbcbb7dcc3ca481f3a1f8f752a1adaaf94fdf8fd19d57992814c6d6998ed581820ac45b270ac00.css" integrity="sha512-snFtoFD3BV1Rt&#43;5P2M7oU0p0GEneA0f6BcvLt9zDykgfOh&#43;PdSoa2q&#43;U/fj9GdV5koFMbWmY7VgYIKxFsnCsAA==" />
+  
+</head><body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+<article style="flex: 1;">
+    <h1>使用 Nginx 将旧域名 301 重定向至主域名</h1>
+
+    <div style="display: flex; align-items: center; color:#888888;">
+        <p class="post-meta">
+             Xiaoyu Jiang
+        </p>
+        <span style="margin: 0 1px;">·</span>
+        <p class="post-meta">
+            <time datetime="2026-08-28 00:00:00 &#43;0000 UTC">
+                2026/08/28
+            </time>
+        </p>
+    </div>
+
+    <p>最近才注意到，我的主域名 afark.cn 一直闲置着，就花了半天时间将其指向我的 GitHub Pages 站点，作为我的博客站点，也与备案情况保持一致。为了避免重复修改在多个地方的配置，我同时将旧域名 psy.afark.cn 301 重定向到 afark.cn。在这个过程中，了解到的 301 重定向这个操作。还是挺有意思的。</p>
+<p>目标：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://psy.afark.cn
+</span></span><span style="display:flex;"><span>        ↓ 301
+</span></span><span style="display:flex;"><span>https://afark.cn
+</span></span><span style="display:flex;"><span>        ↓
+</span></span><span style="display:flex;"><span>GitHub Pages
+</span></span></code></pre></div><p>其中：</p>
+<ul>
+<li>afark.cn：GitHub Pages 的正式域名</li>
+<li>psy.afark.cn：旧兼容域名</li>
+<li>VPS：负责 301 跳转</li>
+<li>Nginx：执行重定向</li>
+<li>Certbot：提供 HTTPS 证书</li>
+</ul>
+<h2 id="1-dns-配置">1. DNS 配置</h2>
+<p>在 DNSPod 中，将原来的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>psy    CNAME    jiangxy98.github.io.
+</span></span></code></pre></div><p>改为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>psy    A    VPS_IP
+</span></span></code></pre></div><p>其中 VPS_IP 为 VPS 的静态公网 IP。</p>
+<p>同时确保不存在：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>psy    CNAME    ...
+</span></span><span style="display:flex;"><span>psy    AAAA     ...
+</span></span></code></pre></div><p>检查：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dig +short A psy.afark.cn
+</span></span><span style="display:flex;"><span>dig +short CNAME psy.afark.cn
+</span></span><span style="display:flex;"><span>dig +short AAAA psy.afark.cn
+</span></span></code></pre></div><p>最终应为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>VPS_IP
+</span></span></code></pre></div><p>后两条无输出。</p>
+<h2 id="2-配置-nginx">2. 配置 Nginx</h2>
+<p>在 VPS 上新建 Nginx 配置文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo vim /etc/nginx/sites-available/psy.afark.cn
+</span></span></code></pre></div><p>写入：</p>
+<pre tabindex="0"><code>server {
+    listen 80;
+    listen [::]:80;
+    server_name psy.afark.cn;
+    return 301 https://afark.cn$request_uri;
+}
+</code></pre><p>启用：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ln -s /etc/nginx/sites-available/psy.afark.cn <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  /etc/nginx/sites-enabled/psy.afark.cn
+</span></span></code></pre></div><p>检查并重载：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nginx -t
+</span></span><span style="display:flex;"><span>sudo systemctl reload nginx
+</span></span></code></pre></div><h2 id="3-配置-https">3. 配置 HTTPS</h2>
+<p>仍然是在 VPS 上进行操作，安装并运行 Certbot 配置自动更新的 SSL 证书：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo certbot --nginx -d psy.afark.cn
+</span></span></code></pre></div><p>成功后证书位于：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/etc/letsencrypt/live/psy.afark.cn/
+</span></span></code></pre></div><p>使用 Certbot 还有一个好处，就是会自动配置续期。</p>
+<p>检查自动续期：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo certbot renew --dry-run
+</span></span></code></pre></div><h2 id="4-验证跳转">4. 验证跳转</h2>
+<p>通过任意可以访问的设备或浏览器测试首页：</p>
+<p>在终端上运行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -I https://psy.afark.cn
+</span></span></code></pre></div><p>应看到：</p>
+<pre tabindex="0"><code>HTTP/2 301
+location: https://afark.cn/
+</code></pre><p>测试路径和参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -I <span style="color:#e6db74">&#39;https://psy.afark.cn/test/?a=1&#39;</span>
+</span></span></code></pre></div><p>应跳转到：</p>
+<pre tabindex="0"><code>https://afark.cn/test/?a=1
+</code></pre><p>或通过浏览器访问 <code>https://psy.afark.cn/test/?a=1</code>，应跳转到 <code>https://afark.cn/test/?a=1</code>。</p>
+<h2 id="5-最终架构">5. 最终架构</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>psy.afark.cn
+</span></span><span style="display:flex;"><span>      ↓
+</span></span><span style="display:flex;"><span>DNSPod
+</span></span><span style="display:flex;"><span>      ↓
+</span></span><span style="display:flex;"><span>AWS Lightsail
+</span></span><span style="display:flex;"><span>      ↓
+</span></span><span style="display:flex;"><span>Nginx 301
+</span></span><span style="display:flex;"><span>      ↓
+</span></span><span style="display:flex;"><span>afark.cn
+</span></span><span style="display:flex;"><span>      ↓
+</span></span><span style="display:flex;"><span>GitHub Pages
+</span></span></code></pre></div><p>如此操作以后 afark.cn 是唯一正式站点域名，而旧域名 psy.afark.cn 作为兼容旧链接的永久重定向入口。</p>
+
+</article>
+
+<div class="post-navigation" style="margin-top: 30px ; margin-bottom: 40px ;">
+    
+    <a href="/post/%E5%86%99%E4%BD%9C/" class="prev-post" style="margin-right: 20px; text-decoration: underline;">←
+        写出了第一篇文章</a>
+    
+    <br>
+    
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="JiangXY98/JiangXY98.github.io" data-repo-id="R_kgDOITYhpg"
+    data-category="Announcements" data-category-id="DIC_kwDOITYhps4CqA6z" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async>
+    </script>
+
+<footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
+    Ⓒ2021-2026·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+        style="color: #3686e7dd;">Xiaoyu Jiang </a>
+    <br>
+    <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号</a>
+</footer>
+<footer style="font-size: 12px; color: #b0b0b0; text-align: center;"> <br>
+    Powered by Hugo theme: <a href='https://github.com/Masellum/hugo-theme-nostyleplease'
+        style="color: #5497e9ac;">(nearly) no-CSS,
+        fast,
+        minimalist</a>
+</footer>
+
+
+            </div>
+        </main>
+	<script src="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.js"></script>
+    </body>
+</html>

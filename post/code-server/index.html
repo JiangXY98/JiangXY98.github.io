@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <meta name="description" content="本文生成时间为2025年1月16日，若发现内容已经过时，请联系我修改。
-
 Introduction
 文件编辑器是程序员的日常工具，而code-server是一个基于vscode的在线编辑器，可以在浏览器中使用vscode的功能。本文将介绍如何在Arch Linux上安装code-server，并通过nginx反向代理使其能够通过域名访问。
 # 系统信息
@@ -20,21 +19,19 @@ Terminal: /dev/pts/0
 CPU: AMD EPYC 7K62 (2) @ 2.595GHz 
 GPU: 00:02.0 Cirrus Logic GD 5446 
 Memory: 425MiB / 1966MiB 
-
-
 安装code-server, nginx, certbot
 yay -S code-server nginx certbot
-
 配置code-server
 设置code-server密码和端口
 sudo vim ~/.config/code-server/config.yaml
 设置开机启动以及立即启用code-server服务
 sudo systemctl enable --now code-server@USER
 以下是重点
-
-
 配置nginx反向代理
-在/etc/nginx/下创建两个新文件夹"> 
+在/etc/nginx/下创建两个新文件夹
+sudo mkdir /etc/nginx/sites-available
+sudo mkdir /etc/nginx/sites-enabled
+修改nginx的配置文件，在http块中添加include sites-enabled/*;和types_hash_max_size 4096;[3-4]"> 
 
   <title>
     
@@ -69,81 +66,66 @@ sudo systemctl enable --now code-server@USER
         </p>
     </div>
 
-    
-
-
-<p>本文生成时间为2025年1月16日，若发现内容已经过时，请联系我修改。</p>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
+    <p>本文生成时间为2025年1月16日，若发现内容已经过时，请联系我修改。</p>
+<h2 id="introduction">Introduction</h2>
 <p>文件编辑器是程序员的日常工具，而code-server是一个基于vscode的在线编辑器，可以在浏览器中使用vscode的功能。本文将介绍如何在Arch Linux上安装code-server，并通过nginx反向代理使其能够通过域名访问。</p>
-<pre class="zsh"><code># 系统信息
-OS: Arch Linux x86_64 
-Host: CVM 3.0 
-Kernel: 6.12.8-arch1-1 
-Uptime: 8 days, 4 hours, 35 mins 
-Packages: 196 (pacman) 
-Shell: zsh 5.9 
-Resolution: 1024x768 
-Terminal: /dev/pts/0 
-CPU: AMD EPYC 7K62 (2) @ 2.595GHz 
-GPU: 00:02.0 Cirrus Logic GD 5446 
-Memory: 425MiB / 1966MiB </code></pre>
-</div>
-<div id="安装code-server-nginx-certbot" class="section level2">
-<h2>安装code-server, nginx, certbot</h2>
-<pre class="bash"><code>yay -S code-server nginx certbot</code></pre>
-<div id="配置code-server" class="section level3">
-<h3>配置code-server</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># 系统信息</span>
+</span></span><span style="display:flex;"><span>OS: Arch Linux x86_64 
+</span></span><span style="display:flex;"><span>Host: CVM 3.0 
+</span></span><span style="display:flex;"><span>Kernel: 6.12.8-arch1-1 
+</span></span><span style="display:flex;"><span>Uptime: <span style="color:#ae81ff">8</span> days, <span style="color:#ae81ff">4</span> hours, <span style="color:#ae81ff">35</span> mins 
+</span></span><span style="display:flex;"><span>Packages: <span style="color:#ae81ff">196</span> <span style="color:#f92672">(</span>pacman<span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span>Shell: zsh 5.9 
+</span></span><span style="display:flex;"><span>Resolution: 1024x768 
+</span></span><span style="display:flex;"><span>Terminal: /dev/pts/0 
+</span></span><span style="display:flex;"><span>CPU: AMD EPYC 7K62 <span style="color:#f92672">(</span>2<span style="color:#f92672">)</span> @ 2.595GHz 
+</span></span><span style="display:flex;"><span>GPU: 00:02.0 Cirrus Logic GD <span style="color:#ae81ff">5446</span> 
+</span></span><span style="display:flex;"><span>Memory: 425MiB / 1966MiB 
+</span></span></code></pre></div><h2 id="安装code-server-nginx-certbot">安装code-server, nginx, certbot</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yay -S code-server nginx certbot
+</span></span></code></pre></div><h3 id="配置code-server">配置code-server</h3>
 <p>设置code-server密码和端口</p>
-<pre class="zsh"><code>sudo vim ~/.config/code-server/config.yaml</code></pre>
-<p>设置开机启动以及立即启用code-server服务</p>
-<pre class="zsh"><code>sudo systemctl enable --now code-server@USER</code></pre>
-<p>以下是重点</p>
-</div>
-<div id="配置nginx反向代理" class="section level3">
-<h3>配置nginx反向代理</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim ~/.config/code-server/config.yaml
+</span></span></code></pre></div><p>设置开机启动以及立即启用code-server服务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo systemctl enable --now code-server@USER
+</span></span></code></pre></div><p>以下是重点</p>
+<h3 id="配置nginx反向代理">配置nginx反向代理</h3>
 <p>在<code>/etc/nginx/</code>下创建两个新文件夹</p>
-<pre class="zsh"><code>sudo mkdir /etc/nginx/sites-available
-sudo mkdir /etc/nginx/sites-enabled</code></pre>
-<p>修改nginx的配置文件，在http块中添加<code>include sites-enabled/*;</code>和<code>types_hash_max_size 4096;</code>[3-4]</p>
-<pre class="zsh"><code>sudo vim /etc/nginx/nginx.conf</code></pre>
-<p>创建域名对应的nginx配置文件</p>
-<pre class="zsh"><code>sudo vim /etc/nginx/sites-available/example.conf</code></pre>
-<p>此时只需要写进server_name信息和location即可，不要添加TSL证书的代码，后面certbot会自动生成相应的TSL信息</p>
-<pre class="vim"><code>server {
-       ##服务器域名
-       server_name example;
-
-       ##地址
-       location / {
-        ##本地code-server的端口
-        proxy_pass http://localhost:端口号/;
-        ##必要的头设置
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection upgrade;
-        proxy_set_header Host $host;
-        }
-}</code></pre>
-<p>启用该配置文件</p>
-<pre class="zsh"><code>ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled/</code></pre>
-<p>启动并设置开启启动nginx服务</p>
-<pre class="zsh"><code>sudo systemctl enable --now nginx</code></pre>
-</div>
-<div id="安装tsl证书" class="section level3">
-<h3>安装TSL证书</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo mkdir /etc/nginx/sites-available
+</span></span><span style="display:flex;"><span>sudo mkdir /etc/nginx/sites-enabled
+</span></span></code></pre></div><p>修改nginx的配置文件，在http块中添加<code>include sites-enabled/*;</code>和<code>types_hash_max_size 4096;</code>[3-4]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim /etc/nginx/nginx.conf
+</span></span></code></pre></div><p>创建域名对应的nginx配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim /etc/nginx/sites-available/example.conf
+</span></span></code></pre></div><p>此时只需要写进server_name信息和location即可，不要添加TSL证书的代码，后面certbot会自动生成相应的TSL信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">server</span> {
+</span></span><span style="display:flex;"><span>       ##<span style="color:#a6e22e">服务器域名</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">server_name</span> <span style="color:#a6e22e">example</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       ##<span style="color:#a6e22e">地址</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">location</span> / {
+</span></span><span style="display:flex;"><span>        ##<span style="color:#a6e22e">本地code</span>-<span style="color:#a6e22e">server的端口</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">proxy_pass</span> <span style="color:#a6e22e">http</span>:<span style="color:#e6db74">//</span><span style="color:#a6e22e">localhost</span>:<span style="color:#a6e22e">端口号</span>/;
+</span></span><span style="display:flex;"><span>        ##<span style="color:#a6e22e">必要的头设置</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">proxy_set_header</span> <span style="color:#a6e22e">Upgrade</span> $<span style="color:#a6e22e">http_upgrade</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">proxy_set_header</span> <span style="color:#a6e22e">Connection</span> <span style="color:#a6e22e">upgrade</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">proxy_set_header</span> <span style="color:#a6e22e">Host</span> $<span style="color:#a6e22e">host</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>启用该配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled/
+</span></span></code></pre></div><p>启动并设置开启启动nginx服务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo systemctl enable --now nginx
+</span></span></code></pre></div><h3 id="安装tsl证书">安装TSL证书</h3>
 <p>最后一步，安装TSL证书，使网站能够通过https访问。certbot会自动配置nginx的TSL信息。</p>
-<pre><code>sudo certbot --nginx -d example</code></pre>
-</div>
-</div>
-<div id="reference" class="section level2">
-<h2>Reference</h2>
-<ol style="list-style-type: decimal">
-<li><a href="https://wiki.archlinux.org/title/Nginx" class="uri">https://wiki.archlinux.org/title/Nginx</a></li>
-<li><a href="https://coder.com/docs/code-server/install#arch-linux" class="uri">https://coder.com/docs/code-server/install#arch-linux</a></li>
-<li><a href="https://blog.csdn.net/lxyoucan/article/details/115278646" class="uri">https://blog.csdn.net/lxyoucan/article/details/115278646</a></li>
-<li><a href="https://sdcom.chgskj.cn/257.html" class="uri">https://sdcom.chgskj.cn/257.html</a></li>
+<pre tabindex="0"><code>sudo certbot --nginx -d example
+</code></pre><h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://wiki.archlinux.org/title/Nginx">https://wiki.archlinux.org/title/Nginx</a></li>
+<li><a href="https://coder.com/docs/code-server/install#arch-linux">https://coder.com/docs/code-server/install#arch-linux</a></li>
+<li><a href="https://blog.csdn.net/lxyoucan/article/details/115278646">https://blog.csdn.net/lxyoucan/article/details/115278646</a></li>
+<li><a href="https://sdcom.chgskj.cn/257.html">https://sdcom.chgskj.cn/257.html</a></li>
 </ol>
-</div>
 
 </article>
 
@@ -165,7 +147,7 @@ sudo mkdir /etc/nginx/sites-enabled</code></pre>
     </script>
 
 <footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
-    Ⓒ2021-2025·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+    Ⓒ2021-2026·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
         style="color: #3686e7dd;">Xiaoyu Jiang </a>
     <br>
     <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号</a>
