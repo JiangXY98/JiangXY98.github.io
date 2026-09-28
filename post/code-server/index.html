@@ -69,7 +69,7 @@ sudo mkdir /etc/nginx/sites-enabled
     <p>本文生成时间为2025年1月16日，若发现内容已经过时，请联系我修改。</p>
 <h2 id="introduction">Introduction</h2>
 <p>文件编辑器是程序员的日常工具，而code-server是一个基于vscode的在线编辑器，可以在浏览器中使用vscode的功能。本文将介绍如何在Arch Linux上安装code-server，并通过nginx反向代理使其能够通过域名访问。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># 系统信息</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># 系统信息</span>
 </span></span><span style="display:flex;"><span>OS: Arch Linux x86_64 
 </span></span><span style="display:flex;"><span>Host: CVM 3.0 
 </span></span><span style="display:flex;"><span>Kernel: 6.12.8-arch1-1 
@@ -82,23 +82,23 @@ sudo mkdir /etc/nginx/sites-enabled
 </span></span><span style="display:flex;"><span>GPU: 00:02.0 Cirrus Logic GD <span style="color:#ae81ff">5446</span> 
 </span></span><span style="display:flex;"><span>Memory: 425MiB / 1966MiB 
 </span></span></code></pre></div><h2 id="安装code-server-nginx-certbot">安装code-server, nginx, certbot</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yay -S code-server nginx certbot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yay -S code-server nginx certbot
 </span></span></code></pre></div><h3 id="配置code-server">配置code-server</h3>
 <p>设置code-server密码和端口</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim ~/.config/code-server/config.yaml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim ~/.config/code-server/config.yaml
 </span></span></code></pre></div><p>设置开机启动以及立即启用code-server服务</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo systemctl enable --now code-server@USER
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo systemctl enable --now code-server@USER
 </span></span></code></pre></div><p>以下是重点</p>
 <h3 id="配置nginx反向代理">配置nginx反向代理</h3>
 <p>在<code>/etc/nginx/</code>下创建两个新文件夹</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo mkdir /etc/nginx/sites-available
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo mkdir /etc/nginx/sites-available
 </span></span><span style="display:flex;"><span>sudo mkdir /etc/nginx/sites-enabled
 </span></span></code></pre></div><p>修改nginx的配置文件，在http块中添加<code>include sites-enabled/*;</code>和<code>types_hash_max_size 4096;</code>[3-4]</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim /etc/nginx/nginx.conf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim /etc/nginx/nginx.conf
 </span></span></code></pre></div><p>创建域名对应的nginx配置文件</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim /etc/nginx/sites-available/example.conf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo vim /etc/nginx/sites-available/example.conf
 </span></span></code></pre></div><p>此时只需要写进server_name信息和location即可，不要添加TSL证书的代码，后面certbot会自动生成相应的TSL信息</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">server</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">server</span> {
 </span></span><span style="display:flex;"><span>       ##<span style="color:#a6e22e">服务器域名</span>
 </span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">server_name</span> <span style="color:#a6e22e">example</span>;
 </span></span><span style="display:flex;"><span>
@@ -113,9 +113,9 @@ sudo mkdir /etc/nginx/sites-enabled
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>启用该配置文件</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled/
 </span></span></code></pre></div><p>启动并设置开启启动nginx服务</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo systemctl enable --now nginx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo systemctl enable --now nginx
 </span></span></code></pre></div><h3 id="安装tsl证书">安装TSL证书</h3>
 <p>最后一步，安装TSL证书，使网站能够通过https访问。certbot会自动配置nginx的TSL信息。</p>
 <pre tabindex="0"><code>sudo certbot --nginx -d example

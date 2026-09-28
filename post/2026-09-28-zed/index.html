@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class=""><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="description" content="The default task templates in ocsmit/zed-r focus on R package development (devtools::check, testthat). Based on that foundation, here is an adapted, clean configuration tailored for data analysis, statistics, and interactive scripting (tested on macOS with arf, radian, or base R).
+Key Features
+
+RStudio-style execution (Cmd &#43; Enter): Sends current line (or selection) to the active R console, advances cursor to the next line, and leaves the terminal open.
+Prevents terminal auto-hiding: Remaps ctrl-`` to terminal_panel::ToggleFocus` so sending code toggles focus without collapsing/hiding the bottom dock.
+CRAN package installation: Quick-install from highlighted text (Cmd &#43; Shift &#43; B) or via a native prompt dialog (Cmd &#43; Shift &#43; E).
+Batch execution (Cmd &#43; Shift &#43; Enter): Runs the current file via a standalone Rscript task.
+
+
+配置文件
+1. ~/.config/zed/tasks.json
+[
+  {
+    &#34;label&#34;: &#34;R Terminal&#34;,
+    &#34;command&#34;: &#34;radian --no-save&#34;,
+    &#34;cwd&#34;: &#34;$ZED_WORKTREE_ROOT&#34;,
+    &#34;use_new_terminal&#34;: true,
+    &#34;reveal&#34;: &#34;always&#34;,
+    &#34;hide&#34;: &#34;on_success&#34;
+  },
+  {
+    &#34;label&#34;: &#34;Run current R script&#34;,
+    &#34;command&#34;: &#34;Rscript \&#34;$ZED_FILE\&#34;&#34;,
+    &#34;cwd&#34;: &#34;$ZED_WORKTREE_ROOT&#34;,
+    &#34;use_new_terminal&#34;: false,
+    &#34;allow_concurrent_runs&#34;: false,
+    &#34;reveal&#34;: &#34;always&#34;,
+    &#34;show_summary&#34;: true,
+    &#34;show_output&#34;: true
+  },
+  {
+    &#34;label&#34;: &#34;Source current file&#34;,
+    &#34;command&#34;: &#34;Rscript -e \&#34;source(&#39;$ZED_FILE&#39;, echo = TRUE)\&#34;&#34;,
+    &#34;cwd&#34;: &#34;$ZED_WORKTREE_ROOT&#34;,
+    &#34;use_new_terminal&#34;: false,
+    &#34;allow_concurrent_runs&#34;: false,
+    &#34;reveal&#34;: &#34;always&#34;,
+    &#34;show_summary&#34;: true,
+    &#34;show_output&#34;: true
+  },
+  {
+    &#34;label&#34;: &#34;Install selected R package&#34;,
+    &#34;command&#34;: &#34;if [ -z \&#34;$ZED_SELECTED_TEXT\&#34; ]; then echo &#39;⚠️ 请先在编辑器中选中要安装的 R 包名（例如选中 ggplot2）&#39;; exit 1; fi; Rscript -e \&#34;install.packages(&#39;$ZED_SELECTED_TEXT&#39;)\&#34;&#34;,
+    &#34;cwd&#34;: &#34;$ZED_WORKTREE_ROOT&#34;,
+    &#34;use_new_terminal&#34;: false,
+    &#34;allow_concurrent_runs&#34;: false,
+    &#34;reveal&#34;: &#34;always&#34;,
+    &#34;show_summary&#34;: true,
+    &#34;show_output&#34;: true,
+    &#34;show_error&#34;: true
+  },
+  {
+    &#34;label&#34;: &#34;Install R package (prompt)&#34;,
+    &#34;command&#34;: &#34;pkg=$(osascript -e &#39;try\ntext returned of (display dialog \&#34;请输入要安装的 R 包名:\&#34; default answer \&#34;\&#34; with title \&#34;安装 R 包\&#34;)\non error\nreturn \&#34;\&#34;\nend try&#39;); if [ -n \&#34;$pkg\&#34; ]; then Rscript -e \&#34;install.packages(&#39;$pkg&#39;)\&#34;; fi&#34;,
+    &#34;cwd&#34;: &#34;$ZED_WORKTREE_ROOT&#34;,
+    &#34;use_new_terminal&#34;: false,
+    &#34;allow_concurrent_runs&#34;: false,
+    &#34;reveal&#34;: &#34;always&#34;,
+    &#34;show_summary&#34;: true,
+    &#34;show_output&#34;: true,
+    &#34;show_error&#34;: true
+  },
+  {
+    &#34;label&#34;: &#34;Document local R package&#34;,
+    &#34;command&#34;: &#34;Rscript -e \&#34;devtools::document(roclets = c(&#39;rd&#39;, &#39;collate&#39;, &#39;namespace&#39;))\&#34;&#34;,
+    &#34;cwd&#34;: &#34;$ZED_WORKTREE_ROOT&#34;,
+    &#34;use_new_terminal&#34;: false,
+    &#34;allow_concurrent_runs&#34;: false
+  }
+]
+2. ~/.config/zed/keymap.json
+[
+  {
+    &#34;context&#34;: &#34;Editor&#34;,
+    &#34;bindings&#34;: {
+      &#34;cmd-shift-f10&#34;: &#34;repl::Restart&#34;,
+      &#34;cmd-\\&#34;: &#34;assistant::InlineAssist&#34;,
+      &#34;ctrl-shift-m&#34;: [&#34;workspace::SendKeystrokes&#34;, &#34;space |&gt; space&#34;],
+      &#34;alt--&#34;: [&#34;workspace::SendKeystrokes&#34;, &#34;space &lt; - space&#34;],
+      &#34;cmd-alt-i&#34;: [&#34;workspace::SendKeystrokes&#34;, &#34;\n# space %%\n&#34;],
+      // 运行当前行（或选中块）发送到已打开的 R 终端，终端常驻，光标自动下移一行
+      &#34;cmd-enter&#34;: [
+        &#34;workspace::SendKeystrokes&#34;,
+        &#34;cmd-c ctrl-` cmd-v enter ctrl-` down&#34;
+      ],
+      &#34;cmd-alt-enter&#34;: [
+        &#34;workspace::SendKeystrokes&#34;,
+        &#34;cmd-c ctrl-` cmd-v enter ctrl-` down&#34;
+      ],
+      // 批处理执行整份 R 脚本
+      &#34;cmd-shift-enter&#34;: [
+        &#34;task::Spawn&#34;,
+        {
+          &#34;task_name&#34;: &#34;Run current R script&#34;,
+          &#34;reveal_target&#34;: &#34;dock&#34;
+        }
+      ],
+      &#34;cmd-shift-d&#34;: [
+        &#34;task::Spawn&#34;,
+        {
+          &#34;task_name&#34;: &#34;Document local R package&#34;,
+          &#34;reveal_target&#34;: &#34;center&#34;
+        }
+      ]
+    }
+  },
+  {
+    &#34;context&#34;: &#34;Workspace&#34;,
+    &#34;bindings&#34;: {
+      // 核心按键修正：切换焦点而非折叠面板，确保终端常显
+      &#34;ctrl-`&#34;: &#34;terminal_panel::ToggleFocus&#34;,
+      // 打开/唤起底部的交互终端 (arf / R)
+      &#34;cmd-shift-m&#34;: [
+        &#34;task::Spawn&#34;,
+        {
+          &#34;task_name&#34;: &#34;R Terminal&#34;,
+          &#34;reveal_target&#34;: &#34;dock&#34;
+        }
+      ],
+      &#34;cmd-shift-r&#34;: [
+        &#34;task::Spawn&#34;,
+        {
+          &#34;task_name&#34;: &#34;Run current R script&#34;,
+          &#34;reveal_target&#34;: &#34;dock&#34;
+        }
+      ],
+      &#34;cmd-shift-s&#34;: [
+        &#34;task::Spawn&#34;,
+        {
+          &#34;task_name&#34;: &#34;Source current file&#34;,
+          &#34;reveal_target&#34;: &#34;dock&#34;
+        }
+      ],
+      // 划词安装选中的第三方包
+      &#34;cmd-shift-b&#34;: [
+        &#34;task::Spawn&#34;,
+        {
+          &#34;task_name&#34;: &#34;Install selected R package&#34;,
+          &#34;reveal_target&#34;: &#34;dock&#34;
+        }
+      ]
+    }
+  }
+]
+"> 
+
+  <title>
+    
+    Zed R 语言环境配置：面向数据分析与统计建模（而非 R 包开发）的 tasks.json 与 keymap.json 设置
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.b2716da050f7055d51b7ee4fd8cee8534a741849de0347fa05cbcbb7dcc3ca481f3a1f8f752a1adaaf94fdf8fd19d57992814c6d6998ed581820ac45b270ac00.css" integrity="sha512-snFtoFD3BV1Rt&#43;5P2M7oU0p0GEneA0f6BcvLt9zDykgfOh&#43;PdSoa2q&#43;U/fj9GdV5koFMbWmY7VgYIKxFsnCsAA==" />
+  
+</head><body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+<article style="flex: 1;">
+    <h1>Zed R 语言环境配置：面向数据分析与统计建模（而非 R 包开发）的 tasks.json 与 keymap.json 设置</h1>
+
+    <div style="display: flex; align-items: center; color:#888888;">
+        <p class="post-meta">
+             Xiaoyu Jiang
+        </p>
+        <span style="margin: 0 1px;">·</span>
+        <p class="post-meta">
+            <time datetime="2026-09-28 00:00:00 &#43;0000 UTC">
+                2026/09/28
+            </time>
+        </p>
+    </div>
+
+    <p>The default task templates in <a href="https://github.com/ocsmit/zed-r">ocsmit/zed-r</a> focus on R package development (<code>devtools::check</code>, <code>testthat</code>). Based on that foundation, here is an adapted, clean configuration tailored for <strong>data analysis, statistics, and interactive scripting</strong> (tested on macOS with <a href="https://github.com/eitsupi/arf">arf</a>, radian, or base R).</p>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li><strong>RStudio-style execution (<code>Cmd + Enter</code>)</strong>: Sends current line (or selection) to the active R console, advances cursor to the next line, and leaves the terminal open.</li>
+<li><strong>Prevents terminal auto-hiding</strong>: Remaps <code>ctrl-`` to </code>terminal_panel::ToggleFocus` so sending code toggles focus without collapsing/hiding the bottom dock.</li>
+<li><strong>CRAN package installation</strong>: Quick-install from highlighted text (<code>Cmd + Shift + B</code>) or via a native prompt dialog (<code>Cmd + Shift + E</code>).</li>
+<li><strong>Batch execution (<code>Cmd + Shift + Enter</code>)</strong>: Runs the current file via a standalone <code>Rscript</code> task.</li>
+</ul>
+<hr>
+<h2 id="配置文件">配置文件</h2>
+<h3 id="1-configzedtasksjson">1. <code>~/.config/zed/tasks.json</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;R Terminal&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;radian --no-save&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;$ZED_WORKTREE_ROOT&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;use_new_terminal&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;reveal&#34;</span>: <span style="color:#e6db74">&#34;always&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hide&#34;</span>: <span style="color:#e6db74">&#34;on_success&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;Run current R script&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;Rscript \&#34;$ZED_FILE\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;$ZED_WORKTREE_ROOT&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;use_new_terminal&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;allow_concurrent_runs&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;reveal&#34;</span>: <span style="color:#e6db74">&#34;always&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_summary&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_output&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;Source current file&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;Rscript -e \&#34;source(&#39;$ZED_FILE&#39;, echo = TRUE)\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;$ZED_WORKTREE_ROOT&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;use_new_terminal&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;allow_concurrent_runs&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;reveal&#34;</span>: <span style="color:#e6db74">&#34;always&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_summary&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_output&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;Install selected R package&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;if [ -z \&#34;$ZED_SELECTED_TEXT\&#34; ]; then echo &#39;⚠️ 请先在编辑器中选中要安装的 R 包名（例如选中 ggplot2）&#39;; exit 1; fi; Rscript -e \&#34;install.packages(&#39;$ZED_SELECTED_TEXT&#39;)\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;$ZED_WORKTREE_ROOT&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;use_new_terminal&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;allow_concurrent_runs&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;reveal&#34;</span>: <span style="color:#e6db74">&#34;always&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_summary&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_output&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_error&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;Install R package (prompt)&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;pkg=$(osascript -e &#39;try\ntext returned of (display dialog \&#34;请输入要安装的 R 包名:\&#34; default answer \&#34;\&#34; with title \&#34;安装 R 包\&#34;)\non error\nreturn \&#34;\&#34;\nend try&#39;); if [ -n \&#34;$pkg\&#34; ]; then Rscript -e \&#34;install.packages(&#39;$pkg&#39;)\&#34;; fi&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;$ZED_WORKTREE_ROOT&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;use_new_terminal&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;allow_concurrent_runs&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;reveal&#34;</span>: <span style="color:#e6db74">&#34;always&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_summary&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_output&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;show_error&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;Document local R package&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;Rscript -e \&#34;devtools::document(roclets = c(&#39;rd&#39;, &#39;collate&#39;, &#39;namespace&#39;))\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;$ZED_WORKTREE_ROOT&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;use_new_terminal&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;allow_concurrent_runs&#34;</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="2-configzedkeymapjson">2. <code>~/.config/zed/keymap.json</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;context&#34;</span>: <span style="color:#e6db74">&#34;Editor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;bindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-shift-f10&#34;</span>: <span style="color:#e6db74">&#34;repl::Restart&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-\\&#34;</span>: <span style="color:#e6db74">&#34;assistant::InlineAssist&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ctrl-shift-m&#34;</span>: [<span style="color:#e6db74">&#34;workspace::SendKeystrokes&#34;</span>, <span style="color:#e6db74">&#34;space |&gt; space&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;alt--&#34;</span>: [<span style="color:#e6db74">&#34;workspace::SendKeystrokes&#34;</span>, <span style="color:#e6db74">&#34;space &lt; - space&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-alt-i&#34;</span>: [<span style="color:#e6db74">&#34;workspace::SendKeystrokes&#34;</span>, <span style="color:#e6db74">&#34;\n# space %%\n&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 运行当前行（或选中块）发送到已打开的 R 终端，终端常驻，光标自动下移一行
+</span></span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-enter&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;workspace::SendKeystrokes&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;cmd-c ctrl-` cmd-v enter ctrl-` down&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-alt-enter&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;workspace::SendKeystrokes&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;cmd-c ctrl-` cmd-v enter ctrl-` down&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 批处理执行整份 R 脚本
+</span></span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-shift-enter&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;task::Spawn&#34;</span>,
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;task_name&#34;</span>: <span style="color:#e6db74">&#34;Run current R script&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;reveal_target&#34;</span>: <span style="color:#e6db74">&#34;dock&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-shift-d&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;task::Spawn&#34;</span>,
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;task_name&#34;</span>: <span style="color:#e6db74">&#34;Document local R package&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;reveal_target&#34;</span>: <span style="color:#e6db74">&#34;center&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;context&#34;</span>: <span style="color:#e6db74">&#34;Workspace&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;bindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 核心按键修正：切换焦点而非折叠面板，确保终端常显
+</span></span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ctrl-`&#34;</span>: <span style="color:#e6db74">&#34;terminal_panel::ToggleFocus&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 打开/唤起底部的交互终端 (arf / R)
+</span></span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-shift-m&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;task::Spawn&#34;</span>,
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;task_name&#34;</span>: <span style="color:#e6db74">&#34;R Terminal&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;reveal_target&#34;</span>: <span style="color:#e6db74">&#34;dock&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-shift-r&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;task::Spawn&#34;</span>,
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;task_name&#34;</span>: <span style="color:#e6db74">&#34;Run current R script&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;reveal_target&#34;</span>: <span style="color:#e6db74">&#34;dock&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-shift-s&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;task::Spawn&#34;</span>,
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;task_name&#34;</span>: <span style="color:#e6db74">&#34;Source current file&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;reveal_target&#34;</span>: <span style="color:#e6db74">&#34;dock&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 划词安装选中的第三方包
+</span></span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cmd-shift-b&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;task::Spawn&#34;</span>,
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;task_name&#34;</span>: <span style="color:#e6db74">&#34;Install selected R package&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;reveal_target&#34;</span>: <span style="color:#e6db74">&#34;dock&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div>
+</article>
+
+<div class="post-navigation" style="margin-top: 30px ; margin-bottom: 40px ;">
+    
+    <a href="/post/nginx301redirect/" class="prev-post" style="margin-right: 20px; text-decoration: underline;">←
+        使用 Nginx 将旧域名 301 重定向至主域名</a>
+    
+    <br>
+    
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="JiangXY98/JiangXY98.github.io" data-repo-id="R_kgDOITYhpg"
+    data-category="Announcements" data-category-id="DIC_kwDOITYhps4CqA6z" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async>
+    </script>
+
+<footer style="font-size: 14px; color: #b0b0b0; text-align: center; margin-top: 66px ;">
+    Ⓒ2021-2026·<a href="https://scholar.google.com/citations?hl=zh-CN&user=KhswIMIAAAAJ"
+        style="color: #3686e7dd;">Xiaoyu Jiang </a>
+    <br>
+    <a href="http://www.beian.miit.gov.cn" target="_blank" style="color: #378ef9e0;">蜀ICP备2024096406号</a>
+</footer>
+<footer style="font-size: 12px; color: #b0b0b0; text-align: center;"> <br>
+    Powered by Hugo theme: <a href='https://github.com/Masellum/hugo-theme-nostyleplease'
+        style="color: #5497e9ac;">(nearly) no-CSS,
+        fast,
+        minimalist</a>
+</footer>
+
+
+            </div>
+        </main>
+	<script src="https://cdn.jsdelivr.net/npm/han-css@3/dist/han.min.js"></script>
+    </body>
+</html>
